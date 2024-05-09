@@ -32,6 +32,41 @@ body {
   }
 }
 
+@layer components {
+  .h1 {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -6%;
+    line-height: 40px;
+    color: #A5ABB2;
+    
+    @media screen and (min-width: 1024px) {
+      font-size: 96px;
+      line-height: 80px;
+    }
+  }
+
+  .h2 {
+
+  }
+
+  .h3 {
+
+  }
+
+  .h4 {
+
+  }
+  
+  .h5 {
+
+  }
+  
+  .h6 {
+
+  }
+}
+
 * {
 	box-sizing: border-box;
 }

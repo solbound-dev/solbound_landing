@@ -50,7 +50,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
     alphaMapperRef.current = gsap.utils.mapRange(0, vminRef.current * proximityRatio, 1, defaultAlpha);
 
     canvasRef.current!.width = window.innerWidth;
-    canvasRef.current!.height = window.innerHeight;
+    canvasRef.current!.height = window.innerHeight * 2;
 
     const stars: Star[] = [];
 
@@ -60,7 +60,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
 
       do {
         x = gsap.utils.random(0, window.innerWidth, 1);
-        y = gsap.utils.random(0, window.innerHeight, 1);
+        y = gsap.utils.random(0, window.innerHeight * 2, 1);
       } while (stars.some((star) => getDistance({ x: star.x, y: star.y }, { x, y }) < 15));
 
       stars.push({
@@ -132,8 +132,9 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
+
     starsRef.current!.forEach((star) => {
-      const scrollFactor = 1.1;
+      const scrollFactor = window.innerHeight / document.body.clientHeight;
       star.y = star.initialY! - scrollY * scrollFactor;
     });
 
@@ -193,7 +194,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={twMerge('w-screen h-screen fixed -z-1', className)}
+      className={twMerge('w-screen h-[200vh] fixed top-0 left-0 -z-1', className)}
       {...rest}
     />
   );
