@@ -5,10 +5,15 @@ import Section from '../Section';
 
 export interface VideoSectionProps {
   src: string;
+  dimmedPercentage?: number;
   children?: React.ReactNode;
 }
 
-const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, children }) => {
+const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, dimmedPercentage = 0, children }) => {
+  if (dimmedPercentage > 1 || dimmedPercentage < 0) {
+    throw new Error('dimmedPercentage must be a value between 0 and 1');
+  }
+
   return (
     <Section className={twMerge('w-full h-screen p-0', 'sm:p-6')}>
       <div className={twMerge('w-full h-full p-6 flex flex-col justify-center items-center relative z-0')}>
@@ -34,6 +39,10 @@ const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, children }) 
           />
           Your browser does not support the video tag.
         </video>
+        <div
+          style={{ opacity: `${dimmedPercentage}` }}
+          className='w-full h-full bg-black opacity-50 absolute top-0 left-0 z-1'
+        />
       </div>
     </Section>
   );
