@@ -6,16 +6,17 @@ import Section from '../Section';
 export interface VideoSectionProps {
   src: string;
   dimmedPercentage?: number;
+  className?: string;
   children?: React.ReactNode;
 }
 
-const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, dimmedPercentage = 0, children }) => {
+const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, dimmedPercentage = 0, className, children }) => {
   if (dimmedPercentage > 1 || dimmedPercentage < 0) {
     throw new Error('dimmedPercentage must be a value between 0 and 1');
   }
 
   return (
-    <Section className={twMerge('w-full h-screen p-0', 'sm:p-6')}>
+    <Section className={twMerge('w-screen max-w-full h-screen p-0', 'sm:p-6', className)}>
       <div className={twMerge('w-full h-full p-6 flex flex-col justify-center items-center relative z-0')}>
         {children}
       </div>

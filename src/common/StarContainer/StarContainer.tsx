@@ -17,16 +17,18 @@ export interface StarContainerProps extends React.CanvasHTMLAttributes<HTMLCanva
   defaultAlpha?: number;
   scaleLimit?: number;
   proximityRatio?: number;
+  flickerInterval?: number;
 }
 
 const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
-  densityRatio = 0.5,
-  maxSize = 4,
-  minSize = 2,
+  densityRatio = 2,
+  maxSize = 1.5,
+  minSize = 1,
   minDistance = 5,
   defaultAlpha = 0.3,
   scaleLimit = 1.25,
   proximityRatio = 0.2,
+  flickerInterval = 1000,
   className,
   ...rest
 }) => {
@@ -163,7 +165,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('pointerleave', handleExit);
 
-    const interval = setInterval(() => updateStarsByRandomness(0.5), 1000);
+    const interval = setInterval(() => updateStarsByRandomness(0.5), flickerInterval);
     blinkingInterval.current = interval;
 
     return () => {
@@ -183,6 +185,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
     densityRatio,
     proximityRatio,
     defaultAlpha,
+    flickerInterval,
     handleExit,
     handleScroll,
     initializeCanvas,

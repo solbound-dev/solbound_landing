@@ -1,0 +1,4 @@
+.socialButton:hover svg path, .socialButton:hover svg rect, .socialButton:hover svg ellipse {
+  fill: #000000;
+  transition: fill 150ms ease-in-out;
+}
