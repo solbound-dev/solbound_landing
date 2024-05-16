@@ -1,0 +1,34 @@
+{
+  "NAVIGATION": [
+    {
+      "LABEL": "ABOUT",
+      "HREF": ""
+    },
+    {
+      "LABEL": "SERVICES",
+      "HREF": ""
+    },
+    {
+      "LABEL": "WORK",
+      "HREF": ""
+    },
+    {
+      "LABEL": "TESTIMONIALS",
+      "HREF": ""
+    }
+  ],
+  "SOCIAL": [
+    {
+      "ICON": "discord",
+      "HREF": ""
+    },
+    {
+      "ICON": "x",
+      "HREF": ""
+    },
+    {
+      "ICON": "linkedIn",
+      "HREF": ""
+    }
+  ]
+}

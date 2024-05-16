@@ -2,12 +2,12 @@
 
 import { gsap } from 'gsap';
 import { useCallback, useEffect, useRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 
 import { Position } from '@/types/Position';
+import { cn } from '@/utils/classNames';
+import { getDistance } from '@/utils/math';
 
 import { MapperFunction, Star } from './types';
-import { getDistance } from '@/utils/math';
 
 export interface StarContainerProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   densityRatio?: number;
@@ -197,7 +197,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={twMerge('w-screen h-[200vh] fixed top-0 left-0 -z-1', className)}
+      className={cn('w-screen h-[200vh] fixed top-0 left-0 -z-1', className)}
       {...rest}
     />
   );

@@ -1,5 +1,6 @@
 import React, { createElement } from 'react';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/classNames';
 
 export interface SectionProps {
   el?: string;
@@ -8,7 +9,7 @@ export interface SectionProps {
 }
 
 const Section: React.FC<Readonly<SectionProps>> = ({ el = 'section', children, className }) => {
-  return createElement(el, { className: twMerge('max-w-content m-auto p-6 relative', className) }, children);
+  return createElement(el, { className: cn('max-w-content m-auto p-6 relative', className) }, children);
 };
 
 export default Section;

@@ -11,5 +11,9 @@
   "bracketSameLine": false,
   "arrowParens": "always",
   "singleAttributePerLine": true,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^[@]", "^[public]", "^[./]", "^[../]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

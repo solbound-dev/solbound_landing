@@ -1,5 +1,6 @@
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/utils/classNames';
 
 import Section from '../Section';
 
@@ -16,12 +17,10 @@ const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, dimmedPercen
   }
 
   return (
-    <Section className={twMerge('w-screen max-w-full h-screen p-0', 'sm:p-6', className)}>
-      <div className={twMerge('w-full h-full p-6 flex flex-col justify-center items-center relative z-0')}>
-        {children}
-      </div>
+    <Section className={cn('w-screen max-w-full h-screen p-0', 'sm:p-6', className)}>
+      <div className={cn('w-full h-full p-6 flex flex-col justify-center items-center relative z-0')}>{children}</div>
       <div
-        className={twMerge(
+        className={cn(
           'w-full h-full rounded-none overflow-hidden absolute top-0 left-0 -z-1',
           'sm:w-[calc(100%-48px)] sm:h-[calc(100%-48px)] sm:top-6 sm:left-6 sm:rounded-[24px]',
         )}

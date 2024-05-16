@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans } from 'next/font/google';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 import './globals.css';
-import Head from 'next/head';
 
-const ibmPlexSans = IBM_Plex_Sans({ weight: ['400', '700'], subsets: ['latin'] });
+const ibmPlexSans = IBM_Plex_Sans({ weight: ['300', '400', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Solbound',
