@@ -3,6 +3,7 @@
 import { gsap } from 'gsap';
 import { useCallback, useEffect, useRef } from 'react';
 
+import { useDebounceCallback } from '@/hooks/useDebounceCallback';
 import { Position } from '@/types/Position';
 import { cn } from '@/utils/classNames';
 import { getDistance } from '@/utils/math';
@@ -41,51 +42,59 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   const pointerPositionRef = useRef<Position>({ x: 0, y: 0 });
   const blinkingInterval = useRef<NodeJS.Timeout | null>(null);
 
+  const { debounce } = useDebounceCallback({ delay: 50 });
+
   const initializeCanvas = useCallback(() => {
-    contextRef.current = canvasRef.current!.getContext('2d');
-    vminRef.current = window.innerWidth;
+    debounce(() => {
+      contextRef.current = canvasRef.current!.getContext('2d');
+      vminRef.current = window.innerWidth;
 
-    const STAR_COUNT = Math.floor(vminRef.current * densityRatio);
+      const STAR_COUNT = Math.floor(vminRef.current * densityRatio);
 
-    scaleMapperRef.current = gsap.utils.mapRange(0, vminRef.current * proximityRatio, scaleLimit, 1);
+      scaleMapperRef.current = gsap.utils.mapRange(0, vminRef.current * proximityRatio, scaleLimit, 1);
 
-    alphaMapperRef.current = gsap.utils.mapRange(0, vminRef.current * proximityRatio, 1, defaultAlpha);
+      alphaMapperRef.current = gsap.utils.mapRange(0, vminRef.current * proximityRatio, 1, defaultAlpha);
 
-    canvasRef.current!.width = window.innerWidth;
-    canvasRef.current!.height = window.innerHeight * 2;
+      canvasRef.current!.width = window.innerWidth;
+      canvasRef.current!.height = window.innerHeight * 2;
 
-    const stars: Star[] = [];
+      const stars: Star[] = [];
 
-    for (let i = 0; i < STAR_COUNT; i++) {
-      let x: number;
-      let y: number;
+      for (let i = 0; i < STAR_COUNT; i++) {
+        let x: number;
+        let y: number;
 
-      do {
-        x = gsap.utils.random(0, window.innerWidth, 1);
-        y = gsap.utils.random(0, window.innerHeight * 2, 1);
-      } while (stars.some((star) => getDistance({ x: star.x, y: star.y }, { x, y }) < 15));
+        do {
+          x = gsap.utils.random(0, window.innerWidth, 1);
+          y = gsap.utils.random(0, window.innerHeight * 2, 1);
+        } while (stars.some((star) => getDistance({ x: star.x, y: star.y }, { x, y }) < 15));
 
-      stars.push({
-        x,
-        y,
-        size: gsap.utils.random(minSize, maxSize, 1),
-        scale: 0.9,
-        alpha: defaultAlpha,
+        stars.push({
+          x,
+          y,
+          size: gsap.utils.random(minSize, maxSize, 1),
+          scale: 0.9,
+          alpha: defaultAlpha,
+        });
+      }
+
+      starsRef.current = stars;
+
+      starsRef.current.forEach((star) => {
+        star.initialY = star.y;
       });
-    }
-
-    starsRef.current = stars;
-
-    starsRef.current.forEach((star) => {
-      star.initialY = star.y;
     });
-  }, [defaultAlpha, densityRatio, proximityRatio, scaleLimit, minSize, maxSize]);
+  }, [defaultAlpha, densityRatio, proximityRatio, scaleLimit, minSize, maxSize, debounce]);
 
   const renderStars = useCallback(() => {
     const context = contextRef.current!;
     context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
 
-    starsRef.current!.forEach((star) => {
+    if (!starsRef.current) {
+      return;
+    }
+
+    starsRef.current.forEach((star) => {
       context.fillStyle = `hsla(0, 100%, 100%, ${star.alpha})`;
       context.beginPath();
       context.arc(star.x, star.y, (star.size / 2) * star.scale, 0, Math.PI * 2);
@@ -97,7 +106,11 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
     ({ x, y }: Position) => {
       pointerPositionRef.current = { x, y };
 
-      starsRef.current!.forEach((star) => {
+      if (!starsRef.current) {
+        return;
+      }
+
+      starsRef.current.forEach((star) => {
         const distance = Math.sqrt(Math.pow(star.x - x, 2) + Math.pow(star.y - y, 2));
         const scale = scaleMapperRef.current!(Math.min(distance, vminRef.current! * proximityRatio));
         const alpha = alphaMapperRef.current!(Math.min(distance, vminRef.current! * proximityRatio));
@@ -115,7 +128,11 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
     (decimalPercentage: number) => {
       const { x, y } = pointerPositionRef.current;
 
-      starsRef.current!.forEach((star) => {
+      if (!starsRef.current) {
+        return;
+      }
+
+      starsRef.current.forEach((star) => {
         const blinking = Math.random() < decimalPercentage;
 
         const distance = Math.sqrt(Math.pow(star.x - x, 2) + Math.pow(star.y - y, 2));
@@ -197,7 +214,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={cn('w-screen h-[200vh] fixed top-0 left-0 -z-1', className)}
+      className={cn('w-screen h-[200vh] fixed top-0 left-0 -z-1 object-cover', className)}
       {...rest}
     />
   );

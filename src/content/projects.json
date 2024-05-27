@@ -1,0 +1,61 @@
+{
+  "TITLE": "(04) EXPLORE WORK",
+  "SUBTITLE": "PROOF OF HISTORY",
+  "MOBILE_TITLE": "(04) PROOF OF HISTORY",
+  "PROJECTS": [
+    {
+      "NAME": "The Heist",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #1F0D09 38.66%, #63281B 74.28%, #FA6545 108.06%)",
+      "XHANDLE": "@playtheheist",
+      "YEAR": 2023,
+      "CLIENT": "Longwood Labs",
+      "TAGS": ["WEB3 GAMING", "BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
+    },
+    {
+      "NAME": "Remnants",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkblue 74.28%, blue 108.06%)",
+      "XHANDLE": "@RemnantsNFT",
+      "YEAR": 2022,
+      "CLIENT": "Longwood Labs",
+      "TAGS": ["WEB3 GAMING", "BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
+    },
+    {
+      "NAME": "Chomp",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, rebeccapurple 74.28%, purple 108.06%)",
+      "XHANDLE": "@chompdotgames",
+      "YEAR": 2024,
+      "CLIENT": "Gator",
+      "TAGS": ["BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
+    },
+    {
+      "NAME": "Fracture",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkgray 74.28%, gray 108.06%)",
+      "XHANDLE": "@TheFracture_",
+      "YEAR": 2024,
+      "CLIENT": "The Fracture",
+      "TAGS": ["SMART CONTRACTS", "FULL-STACK", "DEVOPS"]
+    },
+    {
+      "NAME": "dReader",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, yellowgreen 74.28%, yellow 108.06%)",
+      "XHANDLE": "@dReaderApp",
+      "YEAR": 2023,
+      "CLIENT": "dReader",
+      "TAGS": ["FRONTEND", "DEVOPS"]
+    },
+    {
+      "NAME": "Saturn",
+      "IMAGE": "/assets/images/projects/the-heist.png",
+      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkorange 74.28%, orange 108.06%)",
+      "XHANDLE": "@Saturn_btc",
+      "YEAR": 2024,
+      "CLIENT": "Saturn",
+      "TAGS": ["FRONTEND"]
+    }
+  ]
+}

@@ -14,7 +14,7 @@ const LaunchProject = () => {
     >
       <div className={cn('max-w-[700px] flex flex-col items-center gap-[56px]', 'sm:gap-[72px]')}>
         <h2
-          className='h1 text-center max-w-[675px] lg:max-w-max'
+          className='h2 text-center max-w-[675px] lg:max-w-max'
           dangerouslySetInnerHTML={{ __html: launchProjectContent.TITLE }}
         />
         <Button>{launchProjectContent.CTA}</Button>

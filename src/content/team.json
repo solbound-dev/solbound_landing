@@ -4,6 +4,7 @@
   "MEMBERS": [
     {
       "IMAGE": "/assets/images/team/matija.png",
+      "NFT_IMAGE": "/assets/images/team/matija-nft.png",
       "NAME": "Matija",
       "ROLE": "CEO / Founder",
       "SOCIAL": [
@@ -23,6 +24,7 @@
     },
     {
       "IMAGE": "/assets/images/team/sergije.png",
+      "NFT_IMAGE": "/assets/images/team/sergije-nft.png",
       "NAME": "Sergije",
       "ROLE": "CTO / Web3 Dev",
       "SOCIAL": [
@@ -42,6 +44,7 @@
     },
     {
       "IMAGE": "/assets/images/team/nino.png",
+      "NFT_IMAGE": "/assets/images/team/nino-nft.png",
       "NAME": "Nino",
       "ROLE": "Web3 Dev",
       "SOCIAL": [
@@ -61,6 +64,7 @@
     },
     {
       "IMAGE": "/assets/images/team/bartol.png",
+      "NFT_IMAGE": "/assets/images/team/bartol-nft.png",
       "NAME": "Bartol",
       "ROLE": "Devops",
       "SOCIAL": [
@@ -80,6 +84,7 @@
     },
     {
       "IMAGE": "/assets/images/team/danijel.png",
+      "NFT_IMAGE": "/assets/images/team/danijel-nft.png",
       "NAME": "Danijel",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -99,6 +104,7 @@
     },
     {
       "IMAGE": "/assets/images/team/duje.png",
+      "NFT_IMAGE": "/assets/images/team/duje-nft.png",
       "NAME": "Duje",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -118,6 +124,7 @@
     },
     {
       "IMAGE": "/assets/images/team/vedran.png",
+      "NFT_IMAGE": "/assets/images/team/vedran-nft.png",
       "NAME": "Vedran",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -137,6 +144,7 @@
     },
     {
       "IMAGE": "/assets/images/team/marin.png",
+      "NFT_IMAGE": "/assets/images/team/marin-nft.png",
       "NAME": "Marin",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [

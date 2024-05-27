@@ -15,7 +15,7 @@ const Hero = () => {
     >
       <SolboundLogotypeSvg className={cn('w-[95px] absolute top-14 left-[50%] -translate-x-[50%]', 'sm:top-6')} />
       <div className={cn('max-w-[1020px] flex flex-col items-center gap-[56px]', 'sm:gap-[72px]')}>
-        <h2 className='h1 text-center max-w-[675px] lg:max-w-max'>{heroContent.TITLE}</h2>
+        <h2 className='h2 text-center max-w-[675px] lg:max-w-max'>{heroContent.TITLE}</h2>
         <Button>{heroContent.CTA}</Button>
       </div>
     </VideoSection>
