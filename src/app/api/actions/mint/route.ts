@@ -41,7 +41,7 @@ export const maxDuration = 60;
 
 export const GET = (req: Request) => {
   const payload: ActionGetResponse = {
-    icon: new URL('/assets/images/blinks/solbound.png', new URL(req.url).origin).toString(),
+    icon: new URL('/assets/images/common/solbound.png', new URL(req.url).origin).toString(),
     label: 'MINT',
     description: 'Burn 200k $BONK to get a Solbound OG collection NFT',
     title: 'Mint a Solbound.dev OG',
