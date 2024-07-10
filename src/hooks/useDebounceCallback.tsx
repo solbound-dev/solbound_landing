@@ -9,7 +9,6 @@ export const useDebounceCallback = ({ delay }: UseDebounceCallbackParams) => {
 
   const debounce = useCallback(
     (fn: () => void) => {
-      console.log(timeout);
       if (timeout.current) {
         clearTimeout(timeout.current);
       }

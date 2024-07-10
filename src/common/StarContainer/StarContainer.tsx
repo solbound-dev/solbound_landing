@@ -88,6 +88,11 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
 
   const renderStars = useCallback(() => {
     const context = contextRef.current!;
+
+    if (!context) {
+      return;
+    }
+
     context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
 
     if (!starsRef.current) {

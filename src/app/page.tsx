@@ -15,13 +15,14 @@ const Home = () => {
       <StarContainer />
       <main className='relative z-0 overflow-hidden'>
         <Hero />
-        <Team />
+        {/*<Team />
         <Projects />
         <LaunchProject />
         <Footer />
         <div className={cn('w-full flex justify-center items-start overflow-hidden', 'md:-mt-[50px]')}>
           <SolboundLogotypeSvg className='w-screen opacity-10 shrink-0 scale-110 translate-y-[33%]' />
-        </div>
+        </div>/
+        */}
         <EasterEgg />
       </main>
     </>
