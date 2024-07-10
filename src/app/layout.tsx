@@ -10,6 +10,16 @@ const ibmPlexSans = IBM_Plex_Sans({ weight: ['300', '400', '600', '700'], subset
 export const metadata: Metadata = {
   title: 'Solbound',
   description: 'Navigate the Web3 cosmos with us',
+  openGraph: {
+    title: 'Solbound',
+    description: 'Navigate the Web3 cosmos with us',
+    images: ['assets/images/common/solbound.png'],
+  },
+  twitter: {
+    title: 'Solbound',
+    description: 'Navigate the Web3 cosmos with us',
+    images: ['assets/images/common/solbound.png'],
+  },
 };
 
 export interface RootLayoutProps {
