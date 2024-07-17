@@ -7,6 +7,10 @@
     {
       "pathPattern": "/nft-buy",
       "apiPath": "/api/actions/nft-buy"
+    },
+    {
+      "pathPattern": "/trade",
+      "apiPath": "/api/actions/trade"
     }
   ]
 }
