@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import React, { useLayoutEffect, useRef } from 'react';
 
 import Section from '@/common/Section';
@@ -63,7 +62,7 @@ const Services = () => {
 
   return (
     <>
-      <Section className='flex flex-col items-end py-[100px] h-[5000px]'>
+      <Section className='flex flex-col items-end py-[100px]'>
         <TitleParagraph
           title={servicesContent.TITLE}
           paragraph={servicesContent.PARAGRAPH}
@@ -86,16 +85,6 @@ const Services = () => {
           <ServiceCard
             src={'/assets/video/services/spaceship-4.mp4'}
             label='Custom Web3 project'
-          />
-        </div>
-        <div className='w-full sticky top-0'>
-          <Image
-            src={'/assets/images/services/spaceship-1.webp'}
-            alt={'Blockchain Tooling'}
-            width={448}
-            height={320}
-            className={'w-full object-contain bg-none'}
-            ref={resultRef}
           />
         </div>
       </Section>

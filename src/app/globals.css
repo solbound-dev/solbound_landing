@@ -85,5 +85,22 @@ body {
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@keyframes scrolling-left1 {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+@keyframes scrolling-left2 {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(-220%);
+  }
 }

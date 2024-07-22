@@ -33,16 +33,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
             <h4 className={cn('h6 hidden', 'md:block')}>{projectsContent.SUBTITLE}</h4>
             <h3 className={cn('h6', 'md:hidden')}>{projectsContent.MOBILE_TITLE}</h3>
           </div>
-          <h1
-            className={cn(
-              'h1 mix-blend-soft-light uppercase text-center mb-6 text-[55px] leading-[44px]',
-              'md:text-[100px] md:leading-[86px]',
-              'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
-              '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
-            )}
-          >
-            {name}
-          </h1>
+          <div className='whitespace-nowrap'>
+            <h1
+              className={cn(
+                'inline-block',
+                'h1 mix-blend-soft-light uppercase mb-6 text-[55px] leading-[44px]',
+                'md:text-[100px] md:leading-[86px]',
+                'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
+                '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
+              )}
+              style={{ animation: 'scrolling-left1 20s linear infinite' }}
+            >
+              &nbsp;&nbsp;&nbsp;{name}
+            </h1>
+            <h1
+              className={cn(
+                'inline-block',
+                'h1 mix-blend-soft-light uppercase mb-6 text-[55px] leading-[44px]',
+                'md:text-[100px] md:leading-[86px]',
+                'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
+                '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
+              )}
+              style={{ animation: 'scrolling-left2 20s linear infinite', animationDelay: '10s' }}
+            >
+              &nbsp;&nbsp;&nbsp;{name}
+            </h1>
+          </div>
           <div className='w-full flex justify-between items-center'>
             <div>
               <div className='h6 uppercase'>{xHandle}</div>
