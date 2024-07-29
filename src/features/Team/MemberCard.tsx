@@ -56,7 +56,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
 
             return (
               <li key={ICON}>
-                <SocialButton>
+                <SocialButton href={HREF}>
                   <IconElement />
                 </SocialButton>
               </li>
