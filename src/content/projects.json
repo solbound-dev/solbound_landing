@@ -4,58 +4,117 @@
   "MOBILE_TITLE": "(04) PROOF OF HISTORY",
   "PROJECTS": [
     {
-      "NAME": "The Heist",
+      "NAME": "THE HEIST",
       "IMAGE": "/assets/images/projects/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #1F0D09 38.66%, #63281B 74.28%, #FA6545 108.06%)",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #1F0D09 38.66%, #63281B 74.28%, #FA6545 108.06%)",
       "XHANDLE": "@playtheheist",
       "YEAR": 2023,
       "CLIENT": "Longwood Labs",
-      "TAGS": ["WEB3 GAMING", "BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
+      "TAGS": [
+        "WEB3 GAMING",
+        "BLOCKCHAIN TOOLING",
+        "FULL-STACK",
+        "DEVOPS"
+      ]
     },
     {
-      "NAME": "Remnants",
-      "IMAGE": "/assets/images/projects/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkblue 74.28%, blue 108.06%)",
-      "XHANDLE": "@RemnantsNFT",
-      "YEAR": 2022,
-      "CLIENT": "Longwood Labs",
-      "TAGS": ["WEB3 GAMING", "BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
-    },
-    {
-      "NAME": "Chomp",
-      "IMAGE": "/assets/images/projects/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, rebeccapurple 74.28%, purple 108.06%)",
+      "NAME": "CHOMP",
+      "IMAGE": "/assets/images/projects/chomp.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #A1A1ED 108.06%)",
       "XHANDLE": "@chompdotgames",
       "YEAR": 2024,
       "CLIENT": "Gator",
-      "TAGS": ["BLOCKCHAIN TOOLING", "FULL-STACK", "DEVOPS"]
+      "TAGS": [
+        "BLOCKCHAIN TOOLING",
+        "FULL-STACK",
+        "DEVOPS"
+      ]
     },
     {
-      "NAME": "Fracture",
-      "IMAGE": "/assets/images/projects/the-heist.png",
+      "NAME": "THE FRACTURE",
+      "IMAGE": "/assets/images/projects/fracture.png",
       "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkgray 74.28%, gray 108.06%)",
       "XHANDLE": "@TheFracture_",
       "YEAR": 2024,
       "CLIENT": "The Fracture",
-      "TAGS": ["SMART CONTRACTS", "FULL-STACK", "DEVOPS"]
+      "TAGS": [
+        "SMART CONTRACTS",
+        "FULL-STACK",
+        "DEVOPS"
+      ]
     },
     {
-      "NAME": "dReader",
-      "IMAGE": "/assets/images/projects/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, yellowgreen 74.28%, yellow 108.06%)",
+      "NAME": "dREADER",
+      "IMAGE": "/assets/images/projects/dreader.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #6A6532 71.32%, #FEF16C 108.06%)",
       "XHANDLE": "@dReaderApp",
       "YEAR": 2023,
       "CLIENT": "dReader",
-      "TAGS": ["FRONTEND", "DEVOPS"]
+      "TAGS": [
+        "FRONTEND",
+        "DEVOPS"
+      ]
     },
     {
-      "NAME": "Saturn",
-      "IMAGE": "/assets/images/projects/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkorange 74.28%, orange 108.06%)",
+      "NAME": "SOLANA ID",
+      "IMAGE": "/assets/images/projects/solana-id.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #122257 83.37%, #1E3890 108.06%)",
+      "XHANDLE": "@BonkzNFT_",
+      "YEAR": 2024,
+      "CLIENT": "DSID",
+      "TAGS": [
+        "FULL-STACK"
+      ]
+    },
+    {
+      "NAME": "SATURN",
+      "IMAGE": "/assets/images/projects/saturn.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #431E14 55.26%, #DF6341 108.06%)",
       "XHANDLE": "@Saturn_btc",
       "YEAR": 2024,
       "CLIENT": "Saturn",
-      "TAGS": ["FRONTEND"]
+      "TAGS": [
+        "FRONTEND"
+      ]
+    },
+    {
+      "NAME": "BLAST TOOLS",
+      "IMAGE": "/assets/images/projects/blast-tools.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #4A0C0C 67.3%, #E42526 108.06%)",
+      "XHANDLE": "@BlastCtrl",
+      "YEAR": 2024,
+      "CLIENT": "BlastCtrl",
+      "TAGS": [
+        "BLOCKCHAIN TOOLING",
+        "FULL-STACK"
+      ]
+    },
+    {
+      "NAME": "THE REMNANTS",
+      "IMAGE": "/assets/images/projects/remnants.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #19163C 55.26%, #695CFF 108.06%)",
+      "XHANDLE": "@RemnantsNFT",
+      "YEAR": 2022,
+      "CLIENT": "Longwood Labs",
+      "TAGS": [
+        "WEB3 GAMING",
+        "BLOCKCHAIN TOOLING",
+        "FULL-STACK",
+        "DEVOPS"
+      ]
+    },
+    {
+      "NAME": "BONKZ",
+      "IMAGE": "/assets/images/projects/BONKZ.png",
+      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #5F344E 62.14%, #FF8BD1 108.06%)",
+      "XHANDLE": "@BonkzNFT_",
+      "YEAR": 2024,
+      "CLIENT": "The Fracture",
+      "TAGS": [
+        "BLOCKCHAIN TOOLING",
+        "FULL-STACK",
+        "DEVOPS"
+      ]
     }
   ]
 }
