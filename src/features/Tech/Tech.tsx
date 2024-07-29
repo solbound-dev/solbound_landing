@@ -10,7 +10,10 @@ import Technologies from './Technologies';
 
 const Tech = () => {
   return (
-    <Section className='overflow-visible py-[300px]'>
+    <Section
+      id='tech'
+      className='overflow-visible py-[300px]'
+    >
       <TitleParagraph
         title={techContent.TITLE}
         paragraph={techContent.PARAGRAPH}

@@ -75,9 +75,6 @@ const Technologies = () => {
             className={cn('opacity-0 transition-opacity duration-1000', {
               'opacity-100': inView,
             })}
-            style={{
-              transitionDelay: `${i * 500}ms`,
-            }}
           />
         </div>
       ))}

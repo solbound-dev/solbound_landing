@@ -30,6 +30,7 @@ const VideoSection: React.FC<Readonly<VideoSectionProps>> = ({ src, dimmedPercen
           loop
           muted
           controls={false}
+          playsInline
           height='100%'
           className='w-full h-full object-cover'
         >

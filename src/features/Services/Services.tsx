@@ -62,7 +62,10 @@ const Services = () => {
 
   return (
     <>
-      <Section className='flex flex-col items-end py-[100px]'>
+      <Section
+        id='services'
+        className='flex flex-col items-end py-[100px]'
+      >
         <TitleParagraph
           title={servicesContent.TITLE}
           paragraph={servicesContent.PARAGRAPH}

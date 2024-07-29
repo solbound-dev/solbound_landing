@@ -29,6 +29,7 @@ const ProjectSwiper = () => {
         modules={[EffectFade]}
         fadeEffect={{ crossFade: true }}
         effect='fade'
+        rewind
       >
         {projectsContent.PROJECTS.map(({ NAME, IMAGE, BACKGROUND, XHANDLE, YEAR, CLIENT, TAGS }) => (
           <SwiperSlide

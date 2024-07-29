@@ -29,6 +29,7 @@ const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(({ label, src }
           autoPlay
           loop
           muted
+          playsInline
           controls={false}
           className='w-full h-auto absolute top-[50%] left-0 -translate-y-[50%]'
         >

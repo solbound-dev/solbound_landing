@@ -17,7 +17,12 @@ const LaunchProject = () => {
           className='h2 text-center max-w-[675px] lg:max-w-max'
           dangerouslySetInnerHTML={{ __html: launchProjectContent.TITLE }}
         />
-        <Button>{launchProjectContent.CTA}</Button>
+        <a
+          href='https://discord.gg/JDm9cCy3'
+          target='_blank'
+        >
+          <Button>{launchProjectContent.CTA}</Button>
+        </a>
       </div>
     </VideoSection>
   );
