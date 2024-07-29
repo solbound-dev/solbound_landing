@@ -18,13 +18,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
@@ -44,13 +43,13 @@ body {
       line-height: 214px;
     }
   }
-  
+
   .h2 {
     font-size: 48px;
     font-weight: 600;
     line-height: 40px;
-    color: #A5ABB2;
-    
+    color: #a5abb2;
+
     @media screen and (min-width: 1024px) {
       font-size: 96px;
       line-height: 80px;
@@ -58,24 +57,21 @@ body {
   }
 
   .h3 {
-
   }
 
   .h4 {
-
   }
 
   .h5 {
-
   }
-  
+
   .h6 {
     font-size: 14px;
     font-weight: 300;
     line-height: 18px;
     color: #ffffff;
   }
-  
+
   .body-1 {
     font-size: 36px;
     font-weight: 300;
