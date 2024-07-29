@@ -12,7 +12,7 @@ const Tech = () => {
   return (
     <Section
       id='tech'
-      className='overflow-visible py-[300px]'
+      className='overflow-visible my-[300px]'
     >
       <TitleParagraph
         title={techContent.TITLE}
