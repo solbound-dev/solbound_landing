@@ -87,7 +87,7 @@ const Services = () => {
           />
           <ServiceCard
             src={'/assets/video/services/spaceship-4.mp4'}
-            label='Custom Web3 project'
+            label='Custom Web3 projects'
           />
         </div>
       </Section>

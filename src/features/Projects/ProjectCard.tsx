@@ -91,7 +91,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
               key={tag}
               className={cn('py-3 px-4 bg-black rounded-[50px] text-[12px]', 'lg:py-6 lg:px-14')}
             >
-              <span className='text-[#FFFFFF80]'>#</span>
               {tag}
             </div>
           ))}
