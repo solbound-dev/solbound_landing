@@ -17,7 +17,7 @@ const Hero = () => {
       <div className={cn('max-w-[1020px] flex flex-col items-center gap-[56px]', 'sm:gap-[72px]')}>
         <h2 className='h2 text-center max-w-[675px] lg:max-w-max'>{heroContent.TITLE}</h2>
         <a
-          href='https://discord.gg/JDm9cCy3'
+          href='https://discord.gg/7EhHfgSB'
           target='_blank'
         >
           <Button>{heroContent.CTA}</Button>
