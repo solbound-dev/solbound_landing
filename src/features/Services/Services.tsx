@@ -81,7 +81,7 @@ const Services = () => {
             label='Consulting'
           />
           <ServiceCard
-            src={'/assets/images/services/spaceship-1.mp4'}
+            src={'/assets/video/services/spaceship-1.mp4'}
             label='Blockchain Tooling'
             ref={ref}
           />
