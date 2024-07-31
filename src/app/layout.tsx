@@ -3,6 +3,8 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
+import { Analytics } from '@vercel/analytics/next';
+
 import './globals.css';
 
 const ibmPlexSans = IBM_Plex_Sans({ weight: ['300', '400', '600', '700'], subsets: ['latin'] });
@@ -29,7 +31,10 @@ export interface RootLayoutProps {
 const RootLayout: React.FC<Readonly<RootLayoutProps>> = ({ children }) => {
   return (
     <html lang='en'>
-      <body className={ibmPlexSans.className}>{children}</body>
+      <body className={ibmPlexSans.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 };
