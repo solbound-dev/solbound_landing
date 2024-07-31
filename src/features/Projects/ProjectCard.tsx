@@ -76,7 +76,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
           alt={name}
           width={1166}
           height={656}
-          className={cn('relative z-10 ml-8 min-w-[550px] max-w-[800px] w-full', '2xl:max-w-[1166px]')}
+          className={cn('relative z-10 ml-8 min-w-[550px] max-w-[1200px] w-full', '2xl:max-w-[1370px]')}
         />
 
         <div

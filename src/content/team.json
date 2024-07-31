@@ -161,6 +161,23 @@
           "HREF": "https://www.linkedin.com/in/marin-barac/"
         }
       ]
+    },
+    {
+      "IMAGE": "/assets/images/team/azra.png",
+      "NFT_IMAGE": "/assets/images/team/azra-nft.png",
+      "NAME": "Azra",
+      "ROLE": "Chief Woof Officer",
+      "SOCIAL": [
+        {
+          "ICON": "x"
+        },
+        {
+          "ICON": "discord"
+        },
+        {
+          "ICON": "linkedIn"
+        }
+      ]
     }
   ]
 }

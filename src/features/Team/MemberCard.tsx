@@ -13,7 +13,7 @@ export interface MemberCardProps {
   nftImage: string;
   name: string;
   role: string;
-  socials: { ICON: string; HREF: string }[];
+  socials: { ICON: string; HREF?: string }[];
 }
 
 const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name, role, socials }) => {
@@ -22,7 +22,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
       <div className={twMerge('w-[220px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
         <Image
           className={cn(
-            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
             'md:w-[330px] md:h-[390px]',
             styles.image,
           )}
@@ -33,7 +33,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
         />
         <Image
           className={cn(
-            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
             'md:w-[330px] md:h-[390px]',
             styles.nftImage,
           )}

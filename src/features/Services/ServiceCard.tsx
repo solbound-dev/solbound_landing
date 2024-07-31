@@ -31,7 +31,7 @@ const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(({ label, src }
           muted
           playsInline
           controls={false}
-          className='w-full h-auto absolute top-[50%] left-0 -translate-y-[50%]'
+          className='w-full h-auto absolute top-[50%] left-0 -translate-y-[50%] opacity-60'
         >
           <source src={src} />
         </video>
