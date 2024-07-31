@@ -3,7 +3,7 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 
 import './globals.css';
 
