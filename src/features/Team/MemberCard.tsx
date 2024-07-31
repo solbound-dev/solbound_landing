@@ -18,11 +18,11 @@ export interface MemberCardProps {
 
 const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name, role, socials }) => {
   return (
-    <figure className={cn('flex flex-col w-[260px]', 'md:w-[330px]', styles.memberCard)}>
-      <div className={twMerge('w-[260px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
+    <figure className={cn('flex flex-col w-[220px]', 'md:w-[330px]', styles.memberCard)}>
+      <div className={twMerge('w-[220px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
         <Image
           className={cn(
-            'object-cover w-[260px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
             'md:w-[330px] md:h-[390px]',
             styles.image,
           )}
@@ -33,7 +33,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
         />
         <Image
           className={cn(
-            'object-cover w-[260px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D] cursor-pointer',
             'md:w-[330px] md:h-[390px]',
             styles.nftImage,
           )}

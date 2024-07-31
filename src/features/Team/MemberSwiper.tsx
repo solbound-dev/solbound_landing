@@ -24,7 +24,7 @@ const MemberSwiper = () => {
       {teamContent.MEMBERS.map(({ IMAGE, NFT_IMAGE, NAME, ROLE, SOCIAL }) => (
         <SwiperSlide
           key={`${NAME}-${ROLE}`}
-          className={cn('!w-[260px]', 'md:!w-[330px]')}
+          className={cn('!w-[220px]', 'md:!w-[330px]')}
         >
           <MemberCard
             image={IMAGE}
