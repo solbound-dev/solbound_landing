@@ -14,9 +14,19 @@ export interface MemberCardProps {
   name: string;
   role: string;
   socials: { ICON: string; HREF?: string }[];
+  mouseEnter?: VoidFunction;
+  mouseLeave?: VoidFunction;
 }
 
-const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name, role, socials }) => {
+const MemberCard: React.FC<Readonly<MemberCardProps>> = ({
+  image,
+  nftImage,
+  name,
+  role,
+  socials,
+  mouseEnter,
+  mouseLeave,
+}) => {
   return (
     <figure className={cn('flex flex-col w-[220px]', 'md:w-[330px]', styles.memberCard)}>
       <div className={twMerge('w-[220px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
@@ -46,7 +56,11 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
       <figcaption>
         <h3 className='mb-3 h6 text-gray uppercase'>{name}</h3>
         <h4 className='body-1 mb-10'>{role}</h4>
-        <ul className='flex items-center gap-4'>
+        <ul
+          className='flex items-center gap-4'
+          onMouseEnter={mouseEnter}
+          onMouseLeave={mouseLeave}
+        >
           {socials.map(({ ICON, HREF }) => {
             const IconElement = LabelToIconMap[ICON as Icon];
 
