@@ -28,7 +28,7 @@ const MemberSwiper = () => {
     document.removeEventListener('pointermove', onMouseMove);
   };
 
-  const onMouseMove = (e) => {
+  const onMouseMove = (e: PointerEvent) => {
     const boundingClient = ref.current?.getBoundingClientRect();
     if (!boundingClient) return;
     if (e.pointerType === 'touch') {
