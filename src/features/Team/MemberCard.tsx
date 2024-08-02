@@ -57,7 +57,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({
         <h3 className='mb-3 h6 text-gray uppercase'>{name}</h3>
         <h4 className='body-1 mb-10'>{role}</h4>
         <ul
-          className='flex items-center gap-4'
+          className='flex items-center gap-4 cursor-default'
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
         >
