@@ -10,6 +10,7 @@
       "XHANDLE": "@playtheheist",
       "YEAR": 2023,
       "CLIENT": "Longwood Labs",
+      "XURL": "https://x.com/playtheheist",
       "TAGS": [
         "WEB3 GAMING",
         "BLOCKCHAIN TOOLING",
@@ -24,6 +25,7 @@
       "XHANDLE": "@chompdotgames",
       "YEAR": 2024,
       "CLIENT": "Gator",
+      "XURL": "https://x.com/chompdotgames",
       "TAGS": [
         "BLOCKCHAIN TOOLING",
         "FULL-STACK",
@@ -37,6 +39,7 @@
       "XHANDLE": "@TheFracture_",
       "YEAR": 2024,
       "CLIENT": "The Fracture",
+      "XURL": "https://x.com/TheFracture_",
       "TAGS": [
         "SMART CONTRACTS",
         "FULL-STACK",
@@ -50,6 +53,7 @@
       "XHANDLE": "@dReaderApp",
       "YEAR": 2023,
       "CLIENT": "dReader",
+      "XURL": "https://x.com/dReaderApp",
       "TAGS": [
         "FRONTEND",
         "DEVOPS"
@@ -62,6 +66,7 @@
       "XHANDLE": "@solanaidentity",
       "YEAR": 2024,
       "CLIENT": "Solana ID",
+      "XURL": "https://x.com/solanaidentity",
       "TAGS": [
         "FULL-STACK"
       ]
@@ -73,6 +78,7 @@
       "XHANDLE": "@Saturn_btc",
       "YEAR": 2024,
       "CLIENT": "Saturn",
+      "XURL": "https://x.com/Saturn_btc",
       "TAGS": [
         "FRONTEND"
       ]
@@ -84,6 +90,7 @@
       "XHANDLE": "@BlastCtrl",
       "YEAR": 2024,
       "CLIENT": "BlastCtrl",
+      "XURL": "https://x.com/BlastCtrl",
       "TAGS": [
         "BLOCKCHAIN TOOLING",
         "FULL-STACK"
@@ -96,6 +103,7 @@
       "XHANDLE": "@RemnantsNFT",
       "YEAR": 2022,
       "CLIENT": "Longwood Labs",
+      "XURL": "https://x.com/RemnantsNFT",
       "TAGS": [
         "WEB3 GAMING",
         "BLOCKCHAIN TOOLING",
@@ -109,7 +117,8 @@
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #5F344E 62.14%, #FF8BD1 108.06%)",
       "XHANDLE": "@BonkzNFT_",
       "YEAR": 2024,
-      "CLIENT": "The Fracture",
+      "CLIENT": "BONKZ",
+      "XURL": "https://x.com/BonkzNFT_",
       "TAGS": [
         "BLOCKCHAIN TOOLING",
         "FULL-STACK",

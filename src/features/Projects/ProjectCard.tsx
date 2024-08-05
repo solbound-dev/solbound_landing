@@ -11,10 +11,11 @@ export interface ProjectCardProps {
   xHandle: string;
   year: number;
   client: string;
+  xUrl: string;
   tags: string[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHandle, year, client, tags }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHandle, year, client, tags, xUrl }) => {
   return (
     <div
       className={cn('w-full max-w-[1440px] m-auto flex flex-col justify-end px-8 pb-[64px] z-0 relative', 'md:pb-0')}
@@ -61,7 +62,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
           </div>
           <div className='w-full flex justify-between items-center'>
             <div>
-              <div className='h6 uppercase'>{xHandle}</div>
+              <a
+                href={xUrl}
+                target='_blank'
+              >
+                <div className='h6 uppercase'>{xHandle}</div>
+              </a>
               <div className='h6 uppercase'>{year}</div>
             </div>
             <div>
@@ -76,7 +82,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
           alt={name}
           width={1166}
           height={656}
-          className={cn('relative z-10 ml-8 min-w-[550px] max-w-[1200px] w-full', '2xl:max-w-[1370px]')}
+          className={cn(
+            'relative z-10 ml-8 min-w-[550px] max-w-[1200px] w-full',
+            '2xl:max-w-[1370px] pointer-events-none',
+          )}
         />
 
         <div
