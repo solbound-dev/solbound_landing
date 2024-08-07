@@ -21,13 +21,18 @@ const Footer = () => {
       >
         <nav>
           <ul className={cn('flex flex-col gap-10 items-center', 'md:flex-row md:gap-16')}>
-            {footerContent.NAVIGATION.map(({ LABEL }) => (
-              <NavLink key={LABEL}>{LABEL}</NavLink>
+            {footerContent.NAVIGATION.map(({ LABEL, HREF }) => (
+              <NavLink
+                key={LABEL}
+                href={HREF}
+              >
+                {LABEL}
+              </NavLink>
             ))}
           </ul>
         </nav>
         <ul className='flex gap-4'>
-          {footerContent.SOCIAL.map(({ ICON }) => {
+          {footerContent.SOCIAL.map(({ ICON, HREF }) => {
             const IconElement = LabelToIconMap[ICON as Icon];
 
             if (!IconElement) {
@@ -36,7 +41,7 @@ const Footer = () => {
 
             return (
               <li key={ICON}>
-                <SocialButton>
+                <SocialButton href={HREF}>
                   <IconElement />
                 </SocialButton>
               </li>

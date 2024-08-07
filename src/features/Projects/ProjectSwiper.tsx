@@ -13,8 +13,13 @@ const ProjectSwiper = () => {
 
   return (
     <>
-      <div className='w-full max-w-[1440px] h-full flex items-center absolute bottom-0 left-[50%] -translate-x-[50%] z-10'>
-        <div className={cn('w-full flex justify-between mt-[115px] p-2', 'md:p-8')}>
+      <div
+        className={cn(
+          'w-full absolute top-[50%] flex justify-center translate-y-[50%] z-10 px-2',
+          'md:px-8 -translate-y-[5%]',
+        )}
+      >
+        <div className={cn('w-full flex justify-between max-w-[1400px]')}>
           <NavigationButton
             direction='left'
             onClick={() => swiper?.slidePrev()}
@@ -29,8 +34,9 @@ const ProjectSwiper = () => {
         modules={[EffectFade]}
         fadeEffect={{ crossFade: true }}
         effect='fade'
+        rewind
       >
-        {projectsContent.PROJECTS.map(({ NAME, IMAGE, BACKGROUND, XHANDLE, YEAR, CLIENT, TAGS }) => (
+        {projectsContent.PROJECTS.map(({ NAME, IMAGE, BACKGROUND, XHANDLE, YEAR, CLIENT, TAGS, XURL }) => (
           <SwiperSlide
             key={NAME}
             className='!w-screen'
@@ -43,6 +49,7 @@ const ProjectSwiper = () => {
               year={YEAR}
               client={CLIENT}
               tags={TAGS}
+              xUrl={XURL}
             />
           </SwiperSlide>
         ))}

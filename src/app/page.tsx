@@ -4,7 +4,9 @@ import Footer from '@/features/Footer';
 import Hero from '@/features/Hero';
 import LaunchProject from '@/features/LaunchProject';
 import Projects from '@/features/Projects/Projects';
+import Services from '@/features/Services';
 import Team from '@/features/Team';
+import Tech from '@/features/Tech';
 import { cn } from '@/utils/classNames';
 
 import SolboundLogotypeSvg from 'public/assets/icon/solbound-logotype.svg';
@@ -13,8 +15,10 @@ const Home = () => {
   return (
     <>
       <StarContainer />
-      <main className='relative z-0 overflow-hidden'>
+      <main className='relative z-0 overflow-clip'>
         <Hero />
+        <Services />
+        <Tech />
         <Team />
         <Projects />
         <LaunchProject />

@@ -1,6 +1,6 @@
 {
   "TITLE": "(03) CREW MEMBERS",
-  "PARAGRAPH": "We're not just here to build. We're here to co-create. Crafting new possibilities one block at a time.",
+  "PARAGRAPH": "Lifted off in 2022, in the depths of the bear market. We're not here just to build, but to co-create.",
   "MEMBERS": [
     {
       "IMAGE": "/assets/images/team/matija.png",
@@ -10,15 +10,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/matija_sol"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/968139831366529094"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/matija-luketin-5b6768182/"
         }
       ]
     },
@@ -30,15 +30,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/SergijeA"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/844901923509501993"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/sergije-anti%C4%8Devi%C4%87-a0b25616a/"
         }
       ]
     },
@@ -50,15 +50,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/ninoborovic"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/430046976294518784"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/ninoborovic/"
         }
       ]
     },
@@ -70,15 +70,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/bd4245"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/848855064244256788"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/bartol-deak/"
         }
       ]
     },
@@ -90,15 +90,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/daradom2000"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/990030141277241374"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/danijel-radomiljac-84811a1ba/"
         }
       ]
     },
@@ -110,15 +110,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/jude__sol"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/561621433906626563"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/duje-šarić-a21216155/"
         }
       ]
     },
@@ -130,15 +130,15 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://twitter.com/Veki_sol"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/1199318175259557908"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/vedran-lašić-310a20208/"
         }
       ]
     },
@@ -150,15 +150,32 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": ""
+          "HREF": "https://x.com/mbarac24"
         },
         {
           "ICON": "discord",
-          "HREF": ""
+          "HREF": "https://discordapp.com/users/1211679404279861300"
         },
         {
           "ICON": "linkedIn",
-          "HREF": ""
+          "HREF": "https://www.linkedin.com/in/marin-barac/"
+        }
+      ]
+    },
+    {
+      "IMAGE": "/assets/images/team/azra.png",
+      "NFT_IMAGE": "/assets/images/team/azra-nft.png",
+      "NAME": "Azra",
+      "ROLE": "Chief Woof Officer",
+      "SOCIAL": [
+        {
+          "ICON": "x"
+        },
+        {
+          "ICON": "discord"
+        },
+        {
+          "ICON": "linkedIn"
         }
       ]
     }

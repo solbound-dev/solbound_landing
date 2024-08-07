@@ -80,6 +80,10 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
 
       starsRef.current = stars;
 
+      if (!starsRef.current) {
+        return;
+      }
+
       starsRef.current.forEach((star) => {
         star.initialY = star.y;
       });
@@ -88,6 +92,11 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
 
   const renderStars = useCallback(() => {
     const context = contextRef.current!;
+
+    if (!context) {
+      return;
+    }
+
     context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
 
     if (!starsRef.current) {
@@ -150,18 +159,14 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   );
 
   const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY;
+    if (!starsRef.current || !canvasRef.current) {
+      return;
+    }
 
-    starsRef.current!.forEach((star) => {
-      const scrollFactor = window.innerHeight / document.body.clientHeight;
-      star.y = star.initialY! - scrollY * scrollFactor;
-    });
+    const scrollPercentage = window.scrollY / (document.body.clientHeight - window.innerHeight);
 
-    updateStarsByProximity({
-      x: pointerPositionRef.current!.x,
-      y: pointerPositionRef.current!.y,
-    });
-  }, [updateStarsByProximity]);
+    canvasRef.current.style.top = `${-((canvasRef.current!.clientHeight / 2) * scrollPercentage)}px`;
+  }, []);
 
   const handleExit = useCallback(() => {
     gsap.to(starsRef.current!, {

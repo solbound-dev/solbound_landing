@@ -13,16 +13,26 @@ export interface MemberCardProps {
   nftImage: string;
   name: string;
   role: string;
-  socials: { ICON: string; HREF: string }[];
+  socials: { ICON: string; HREF?: string }[];
+  mouseEnter?: VoidFunction;
+  mouseLeave?: VoidFunction;
 }
 
-const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name, role, socials }) => {
+const MemberCard: React.FC<Readonly<MemberCardProps>> = ({
+  image,
+  nftImage,
+  name,
+  role,
+  socials,
+  mouseEnter,
+  mouseLeave,
+}) => {
   return (
-    <figure className={cn('flex flex-col w-[260px]', 'md:w-[330px]', styles.memberCard)}>
-      <div className={twMerge('w-[260px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
+    <figure className={cn('flex flex-col w-[220px]', 'md:w-[330px]', styles.memberCard)}>
+      <div className={twMerge('w-[220px] h-[310px] mb-6 relative', 'md:w-[330px] md:h-[390px]')}>
         <Image
           className={cn(
-            'object-cover w-[260px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
             'md:w-[330px] md:h-[390px]',
             styles.image,
           )}
@@ -33,7 +43,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
         />
         <Image
           className={cn(
-            'object-cover w-[260px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
+            'object-cover w-[220px] h-[310px] bg-black absolute overflow-hidden rounded-[8px] shadow-[inset_0_0_0_8px_#FFFFFF0D]',
             'md:w-[330px] md:h-[390px]',
             styles.nftImage,
           )}
@@ -45,8 +55,12 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
       </div>
       <figcaption>
         <h3 className='mb-3 h6 text-gray uppercase'>{name}</h3>
-        <h4 className='body-1 mb-10'>{role}</h4>
-        <ul className='flex items-center gap-4'>
+        <h4 className={cn('body-1 mb-10 min-h-[80px]', 'md:min-h-0')}>{role}</h4>
+        <ul
+          className='flex items-center gap-4 cursor-default'
+          onMouseEnter={mouseEnter}
+          onMouseLeave={mouseLeave}
+        >
           {socials.map(({ ICON, HREF }) => {
             const IconElement = LabelToIconMap[ICON as Icon];
 
@@ -56,7 +70,7 @@ const MemberCard: React.FC<Readonly<MemberCardProps>> = ({ image, nftImage, name
 
             return (
               <li key={ICON}>
-                <SocialButton>
+                <SocialButton href={HREF}>
                   <IconElement />
                 </SocialButton>
               </li>

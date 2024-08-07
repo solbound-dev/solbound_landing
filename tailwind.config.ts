@@ -7,6 +7,7 @@ const config: Config = {
       'black': '#000000',
       'gray-light': '#EDEDED',
       'gray': '#C4C6CC',
+      'white': '#ffffff',
     },
     extend: {
       width: {

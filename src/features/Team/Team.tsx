@@ -8,7 +8,10 @@ import MemberSwiper from './MemberSwiper';
 
 const Team = () => {
   return (
-    <Section className='overflow-visible py-[100px]'>
+    <Section
+      id='team'
+      className='overflow-visible py-[100px]'
+    >
       <TitleParagraph
         title={teamContent.TITLE}
         paragraph={teamContent.PARAGRAPH}

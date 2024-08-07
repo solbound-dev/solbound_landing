@@ -15,7 +15,7 @@ export interface TitleParagraphParams {
 const TitleParagraph: React.FC<TitleParagraphParams> = ({ title, paragraph, classes = {} }) => {
   return (
     <div className={cn('flex flex-col', 'md:flex-row', classes.container)}>
-      <h2 className={cn('h6 mb-[64px]', 'md:w-[30%] md:mb-0', classes.title)}>{title}</h2>
+      <h2 className={cn('h6 mb-[64px]', 'md:ml-[54px] md:w-[30%] md:mb-0', classes.title)}>{title}</h2>
       <p className={cn('body-1', 'md:w-[70%]', classes.paragraph)}>{paragraph}</p>
     </div>
   );
