@@ -1,34 +1,34 @@
 {
   "NAVIGATION": [
     {
-      "LABEL": "ABOUT",
-      "HREF": ""
+      "LABEL": "SERVICES",
+      "HREF": "#services"
     },
     {
-      "LABEL": "SERVICES",
-      "HREF": ""
+      "LABEL": "TECH",
+      "HREF": "#tech"
+    },
+    {
+      "LABEL": "TEAM",
+      "HREF": "#team"
     },
     {
       "LABEL": "WORK",
-      "HREF": ""
-    },
-    {
-      "LABEL": "TESTIMONIALS",
-      "HREF": ""
+      "HREF": "#work"
     }
   ],
   "SOCIAL": [
     {
       "ICON": "discord",
-      "HREF": ""
+      "HREF": "https://discord.gg/7EhHfgSB"
     },
     {
       "ICON": "x",
-      "HREF": ""
+      "HREF": "https://x.com/solbound_dev"
     },
     {
       "ICON": "linkedIn",
-      "HREF": ""
+      "HREF": "https://www.linkedin.com/company/solbound-dev/"
     }
   ]
 }

@@ -11,10 +11,11 @@ export interface ProjectCardProps {
   xHandle: string;
   year: number;
   client: string;
+  xUrl: string;
   tags: string[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHandle, year, client, tags }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHandle, year, client, tags, xUrl }) => {
   return (
     <div
       className={cn('w-full max-w-[1440px] m-auto flex flex-col justify-end px-8 pb-[64px] z-0 relative', 'md:pb-0')}
@@ -33,19 +34,40 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
             <h4 className={cn('h6 hidden', 'md:block')}>{projectsContent.SUBTITLE}</h4>
             <h3 className={cn('h6', 'md:hidden')}>{projectsContent.MOBILE_TITLE}</h3>
           </div>
-          <h1
-            className={cn(
-              'h1 mix-blend-soft-light uppercase text-center mb-6 text-[55px] leading-[44px]',
-              'md:text-[100px] md:leading-[86px]',
-              'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
-              '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
-            )}
-          >
-            {name}
-          </h1>
+          <div className='whitespace-nowrap'>
+            <h1
+              className={cn(
+                'inline-block',
+                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px]',
+                'md:text-[100px] md:leading-[86px]',
+                'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
+                '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
+              )}
+              style={{ animation: 'scrolling-left1 20s linear infinite' }}
+            >
+              &nbsp;&nbsp;&nbsp;{name}
+            </h1>
+            <h1
+              className={cn(
+                'inline-block',
+                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px]',
+                'md:text-[100px] md:leading-[86px]',
+                'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
+                '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
+              )}
+              style={{ animation: 'scrolling-left2 20s linear infinite', animationDelay: '10s' }}
+            >
+              &nbsp;&nbsp;&nbsp;{name}
+            </h1>
+          </div>
           <div className='w-full flex justify-between items-center'>
             <div>
-              <div className='h6 uppercase'>{xHandle}</div>
+              <a
+                href={xUrl}
+                target='_blank'
+              >
+                <div className='h6 uppercase'>{xHandle}</div>
+              </a>
               <div className='h6 uppercase'>{year}</div>
             </div>
             <div>
@@ -60,7 +82,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
           alt={name}
           width={1166}
           height={656}
-          className={cn('relative z-10 ml-8 min-w-[550px] max-w-[800px] w-full', '2xl:max-w-[1166px]')}
+          className={cn(
+            'relative z-10 ml-8 min-w-[550px] max-w-[1200px] w-full',
+            '2xl:max-w-[1370px] pointer-events-none',
+          )}
         />
 
         <div
@@ -75,7 +100,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
               key={tag}
               className={cn('py-3 px-4 bg-black rounded-[50px] text-[12px]', 'lg:py-6 lg:px-14')}
             >
-              <span className='text-[#FFFFFF80]'>#</span>
               {tag}
             </div>
           ))}

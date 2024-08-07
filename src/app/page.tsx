@@ -4,6 +4,7 @@ import Footer from '@/features/Footer';
 import Hero from '@/features/Hero';
 import LaunchProject from '@/features/LaunchProject';
 import Projects from '@/features/Projects/Projects';
+import Services from '@/features/Services';
 import Team from '@/features/Team';
 import { cn } from '@/utils/classNames';
 
@@ -13,8 +14,9 @@ const Home = () => {
   return (
     <>
       <StarContainer />
-      <main className='relative z-0 overflow-hidden'>
+      <main className='relative z-0 overflow-clip'>
         <Hero />
+        <Services />
         <Team />
         <Projects />
         <LaunchProject />
