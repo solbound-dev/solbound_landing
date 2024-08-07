@@ -90,17 +90,17 @@ video::-webkit-media-controls-start-playback-button {
 
 @keyframes scrolling-left1 {
   0% {
-    transform: translateX(100%);
+    transform: translateX(120%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
 }
 @keyframes scrolling-left2 {
   0% {
-    transform: translateX(0%);
+    transform: translateX(20%);
   }
   100% {
-    transform: translateX(-200%);
+    transform: translateX(-220%);
   }
 }

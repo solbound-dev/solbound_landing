@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
             <h1
               className={cn(
                 'inline-block',
-                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px] w-[100vw]',
+                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px]',
                 'md:text-[100px] md:leading-[86px]',
                 'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
                 '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
             <h1
               className={cn(
                 'inline-block',
-                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px] w-[100vw]',
+                'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px]',
                 'md:text-[100px] md:leading-[86px]',
                 'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
                 '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
