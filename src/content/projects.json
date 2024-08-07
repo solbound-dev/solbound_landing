@@ -5,7 +5,7 @@
   "PROJECTS": [
     {
       "NAME": "THE HEIST",
-      "IMAGE": "/assets/images/projects/the-heist.png",
+      "IMAGE": "/assets/images/projects-min/the-heist.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #1F0D09 38.66%, #63281B 74.28%, #FA6545 108.06%)",
       "XHANDLE": "@playtheheist",
       "YEAR": 2023,
@@ -20,7 +20,7 @@
     },
     {
       "NAME": "CHOMP",
-      "IMAGE": "/assets/images/projects/chomp.png",
+      "IMAGE": "/assets/images/projects-min/chomp.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #A1A1ED 108.06%)",
       "XHANDLE": "@chompdotgames",
       "YEAR": 2024,
@@ -34,7 +34,7 @@
     },
     {
       "NAME": "THE FRACTURE",
-      "IMAGE": "/assets/images/projects/fracture.png",
+      "IMAGE": "/assets/images/projects-min/fracture.png",
       "BACKGROUND": "linear-gradient(179.78deg, transparent 18.66%, #000000 38.66%, darkgray 74.28%, gray 108.06%)",
       "XHANDLE": "@TheFracture_",
       "YEAR": 2024,
@@ -48,7 +48,7 @@
     },
     {
       "NAME": "dREADER",
-      "IMAGE": "/assets/images/projects/dreader.png",
+      "IMAGE": "/assets/images/projects-min/dreader.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #6A6532 71.32%, #FEF16C 108.06%)",
       "XHANDLE": "@dReaderApp",
       "YEAR": 2023,
@@ -61,7 +61,7 @@
     },
     {
       "NAME": "SOLANA ID",
-      "IMAGE": "/assets/images/projects/solana-id.png",
+      "IMAGE": "/assets/images/projects-min/solana-id.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #122257 83.37%, #1E3890 108.06%)",
       "XHANDLE": "@solanaidentity",
       "YEAR": 2024,
@@ -73,7 +73,7 @@
     },
     {
       "NAME": "SATURN",
-      "IMAGE": "/assets/images/projects/saturn.png",
+      "IMAGE": "/assets/images/projects-min/saturn.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #431E14 55.26%, #DF6341 108.06%)",
       "XHANDLE": "@Saturn_btc",
       "YEAR": 2024,
@@ -85,7 +85,7 @@
     },
     {
       "NAME": "BLAST TOOLS",
-      "IMAGE": "/assets/images/projects/blast-tools.png",
+      "IMAGE": "/assets/images/projects-min/blast-tools.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #4A0C0C 67.3%, #E42526 108.06%)",
       "XHANDLE": "@BlastCtrl",
       "YEAR": 2024,
@@ -98,7 +98,7 @@
     },
     {
       "NAME": "THE REMNANTS",
-      "IMAGE": "/assets/images/projects/remnants.png",
+      "IMAGE": "/assets/images/projects-min/remnants.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #19163C 55.26%, #695CFF 108.06%)",
       "XHANDLE": "@RemnantsNFT",
       "YEAR": 2022,
@@ -113,7 +113,7 @@
     },
     {
       "NAME": "BONKZ",
-      "IMAGE": "/assets/images/projects/BONKZ.png",
+      "IMAGE": "/assets/images/projects-min/BONKZ.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #5F344E 62.14%, #FF8BD1 108.06%)",
       "XHANDLE": "@BonkzNFT_",
       "YEAR": 2024,
