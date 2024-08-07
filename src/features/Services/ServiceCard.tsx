@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import React, { RefObject, forwardRef, useRef } from 'react';
 
 import { cn } from '@/utils/classNames';
