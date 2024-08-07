@@ -3,8 +3,8 @@
   "PARAGRAPH": "Lifted off in 2022, in the depths of the bear market. We're not here just to build, but to co-create.",
   "MEMBERS": [
     {
-      "IMAGE": "/assets/images/team/matija.png",
-      "NFT_IMAGE": "/assets/images/team/matija-nft.png",
+      "IMAGE": "/assets/images/team-min/matija.png",
+      "NFT_IMAGE": "/assets/images/team-min/matija-nft.png",
       "NAME": "Matija",
       "ROLE": "CEO / Founder",
       "SOCIAL": [
@@ -23,8 +23,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/sergije.png",
-      "NFT_IMAGE": "/assets/images/team/sergije-nft.png",
+      "IMAGE": "/assets/images/team-min/sergije.png",
+      "NFT_IMAGE": "/assets/images/team-min/sergije-nft.png",
       "NAME": "Sergije",
       "ROLE": "CTO / Web3 Dev",
       "SOCIAL": [
@@ -43,8 +43,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/nino.png",
-      "NFT_IMAGE": "/assets/images/team/nino-nft.png",
+      "IMAGE": "/assets/images/team-min/nino.png",
+      "NFT_IMAGE": "/assets/images/team-min/nino-nft.png",
       "NAME": "Nino",
       "ROLE": "Web3 Dev",
       "SOCIAL": [
@@ -63,8 +63,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/bartol.png",
-      "NFT_IMAGE": "/assets/images/team/bartol-nft.png",
+      "IMAGE": "/assets/images/team-min/bartol.png",
+      "NFT_IMAGE": "/assets/images/team-min/bartol-nft.png",
       "NAME": "Bartol",
       "ROLE": "Devops",
       "SOCIAL": [
@@ -83,8 +83,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/danijel.png",
-      "NFT_IMAGE": "/assets/images/team/danijel-nft.png",
+      "IMAGE": "/assets/images/team-min/danijel.png",
+      "NFT_IMAGE": "/assets/images/team-min/danijel-nft.png",
       "NAME": "Danijel",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -103,8 +103,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/duje.png",
-      "NFT_IMAGE": "/assets/images/team/duje-nft.png",
+      "IMAGE": "/assets/images/team-min/duje.png",
+      "NFT_IMAGE": "/assets/images/team-min/duje-nft.png",
       "NAME": "Duje",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -123,8 +123,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/vedran.png",
-      "NFT_IMAGE": "/assets/images/team/vedran-nft.png",
+      "IMAGE": "/assets/images/team-min/vedran.png",
+      "NFT_IMAGE": "/assets/images/team-min/vedran-nft.png",
       "NAME": "Vedran",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -143,8 +143,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/marin.png",
-      "NFT_IMAGE": "/assets/images/team/marin-nft.png",
+      "IMAGE": "/assets/images/team-min/marin.png",
+      "NFT_IMAGE": "/assets/images/team-min/marin-nft.png",
       "NAME": "Marin",
       "ROLE": "Full Stack Dev",
       "SOCIAL": [
@@ -163,8 +163,8 @@
       ]
     },
     {
-      "IMAGE": "/assets/images/team/azra.png",
-      "NFT_IMAGE": "/assets/images/team/azra-nft.png",
+      "IMAGE": "/assets/images/team-min/azra.png",
+      "NFT_IMAGE": "/assets/images/team-min/azra-nft.png",
       "NAME": "Azra",
       "ROLE": "Chief Woof Officer",
       "SOCIAL": [
