@@ -10,28 +10,28 @@ const TECHNOLOGIES = [
     alt: 'Metaplex',
     width: 210,
     height: 140,
-    classes: 'col-[1/22] row-[8/22]',
+    classes: 'col-[1/27] row-[8/27]',
   },
   {
     src: '/assets/images/tech/react.png',
     alt: 'React',
     width: 80,
     height: 200,
-    classes: 'col-[70/78] row-[1/21]',
+    classes: 'col-[60/71] row-[1/23]',
   },
   {
     src: '/assets/images/tech/rust.png',
     alt: 'Rust',
     width: 220,
     height: 110,
-    classes: 'col-[-23/-1] row-[25/36]',
+    classes: 'col-[-28/-1] row-[23/37]',
   },
   {
     src: '/assets/images/tech/node.png',
     alt: 'Node',
     width: 250,
     height: 160,
-    classes: 'w-[103%] col-[60/85] row-[46/62]',
+    classes: 'w-[103%] col-[60/92] row-[46/66]',
   },
   {
     src: '/assets/images/tech/nextJs.png',
@@ -45,7 +45,7 @@ const TECHNOLOGIES = [
     alt: 'AWS',
     width: 200,
     height: 110,
-    classes: 'col-[1/21] row-[45/56]',
+    classes: 'col-[1/24] row-[45/56]',
   },
 ];
 
