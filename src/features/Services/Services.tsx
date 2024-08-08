@@ -53,18 +53,24 @@ const Services = () => {
         const yPinStart = (distanceFromSectionTop / sectionClient.height) * 100;
         const destructuredScale = (1.4 * placeholderClient.width) / boundingClient.width;
 
-        const placeholderMiddle = placeholderTop + placeholderClient.height / 2 - sectionTop;
-        const yPinEnd = (placeholderMiddle / sectionClient.height) * 100;
+        const placeHolderTopMiddle = placeholderTop + placeholderClient.height / 2 - sectionTop;
+        const placeholderBottomMiddle =
+          techSection.children[1].clientHeight - (placeholderImage.offsetTop + placeholderClient.height / 2);
+
+        const animationYEnd = (placeHolderTopMiddle / sectionClient.height) * 100;
+        const yPinEnd = ((sectionClient.height - placeholderBottomMiddle) / sectionClient.height) * 100;
         const xPlaceholderTransform = placeholderClient.left + placeholderClient.width / 2 - clientMiddle;
 
-        const techSectionMiddle = techTop - sectionTop;
+        const techYPinEnd = 50 + (techClient.height * 100) / (2 * window.innerHeight);
+
+        const techSectionMiddle = techTop + techClient.height / 1.7 - sectionTop;
         const techMiddlePercentage = (techSectionMiddle / sectionClient.height) * 100;
 
         const primaryVideoTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#services',
             start: `${yPinStart}% 50%`,
-            end: `${yPinEnd}% 50%`,
+            end: `${animationYEnd}% 50%`,
             scrub: 1,
             toggleActions: 'play complete complete play',
           },
@@ -93,7 +99,7 @@ const Services = () => {
           scrollTrigger: {
             trigger: '#services',
             start: `${yPinStart}% 50%`,
-            end: `${yPinEnd}% 50%`,
+            end: `${animationYEnd}% 50%`,
             scrub: 1,
           },
         });
@@ -121,7 +127,7 @@ const Services = () => {
           trigger: '#services',
           pin: primaryVideo,
           start: `${yPinStart}% 50%`,
-          end: `${yPinEnd}% 50%`,
+          end: `bottom ${techYPinEnd}%`,
           pinSpacing: false,
         });
 
@@ -129,14 +135,22 @@ const Services = () => {
           trigger: '#services',
           pin: destructuredVideo,
           start: `${yPinStart}% 50%`,
-          end: `${yPinEnd}% 50%`,
+          end: `bottom ${techYPinEnd}%`,
           pinSpacing: false,
         });
 
         ScrollTrigger.create({
           trigger: '#services',
-          start: `${techMiddlePercentage}% bottom`,
-          end: `${techMiddlePercentage}% bottom`,
+          pin: techSection,
+          start: `${techMiddlePercentage}% 50%`,
+          end: `bottom ${techYPinEnd}%`,
+          pinSpacing: false,
+        });
+
+        ScrollTrigger.create({
+          trigger: '#services',
+          start: `${techMiddlePercentage}% 50%`,
+          end: `${techMiddlePercentage}% 50%`,
           onEnter: () => techSection?.classList.toggle('opacity-100'),
           onLeaveBack: () => techSection?.classList.remove('opacity-100'),
         });
@@ -207,7 +221,8 @@ const Services = () => {
             <Image
               src='/assets/images/tech/spaceship.png'
               alt='Spaceship'
-              className='absolute w-[70%] left-[44%] top-[45%] -translate-x-1/2 -translate-y-1/2 opacity-0'
+              style={{ width: '70%' }}
+              className='absolute w-[70%] left-[44%] top-[13%] -translate-x-1/2 opacity-0'
               ref={placeholderRef}
               width={500}
               height={320}
@@ -216,6 +231,7 @@ const Services = () => {
           </div>
         </div>
       </div>
+      <div className='h-[calc(100vh/1)] w-full' />
     </Section>
   );
 };
