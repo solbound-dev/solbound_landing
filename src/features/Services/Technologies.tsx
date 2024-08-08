@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import { cn } from '@/utils/classNames';
 
@@ -10,42 +9,42 @@ const TECHNOLOGIES = [
     alt: 'Metaplex',
     width: 210,
     height: 140,
-    classes: 'col-[1/27] row-[8/27]',
+    classes: cn('col-[1/27] row-[8/27]', 'sm:col-[1/22] sm:row-[8/22]'),
   },
   {
     src: '/assets/images/tech/react.png',
     alt: 'React',
     width: 80,
     height: 200,
-    classes: 'col-[60/71] row-[1/23]',
+    classes: cn('col-[60/71] row-[1/23]', 'sm:col-[70/78] sm:row-[1/21]'),
   },
   {
     src: '/assets/images/tech/rust.png',
     alt: 'Rust',
     width: 220,
     height: 110,
-    classes: 'col-[-28/-1] row-[23/37]',
+    classes: cn('col-[-28/-1] row-[23/37]', 'sm:col-[-23/-1] sm:row-[25/36]'),
   },
   {
     src: '/assets/images/tech/node.png',
     alt: 'Node',
     width: 250,
     height: 160,
-    classes: 'w-[103%] col-[60/92] row-[46/66]',
+    classes: cn('w-[103%] col-[60/92] row-[46/66]', 'sm:col-[60/85] sm:row-[46/62]'),
   },
   {
     src: '/assets/images/tech/nextJs.png',
     alt: 'NextJS',
     width: 140,
     height: 180,
-    classes: 'col-[30/44] row-[48/66]',
+    classes: cn('col-[30/44] row-[48/66]', 'sm:col-[30/44] sm:row-[48/66]'),
   },
   {
     src: '/assets/images/tech/aws.png',
     alt: 'AWS',
     width: 200,
     height: 110,
-    classes: 'col-[1/24] row-[45/56]',
+    classes: cn('col-[1/24] row-[45/56]', 'sm:col-[1/21] sm:row-[45/56]'),
   },
 ];
 
