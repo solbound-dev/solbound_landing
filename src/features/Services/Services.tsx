@@ -3,12 +3,13 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Section from '@/common/Section';
 import TitleParagraph from '@/common/TitleParagraph';
 import servicesContent from '@/content/services.json';
 import techContent from '@/content/tech.json';
+import { cn } from '@/utils/classNames';
 import { useGSAP } from '@gsap/react';
 
 import ServiceCard from './ServiceCard';
@@ -19,6 +20,36 @@ const Services = () => {
   const destructuredVideoRef = useRef<HTMLVideoElement>(null);
   const placeholderRef = useRef<HTMLImageElement>(null);
   const techRef = useRef<HTMLDivElement>(null);
+
+  const [primaryCanPlay, setPrimaryCanPlay] = useState(false);
+  const [secondaryCanPlay, setSecondaryCanPlay] = useState(false);
+
+  useEffect(() => {
+    const primaryVideo = primaryVideoRef.current;
+    const secondaryVideo = destructuredVideoRef.current;
+
+    if (primaryCanPlay && secondaryCanPlay && primaryVideo && secondaryVideo) {
+      const syncVideos = () => {
+        const delta = Math.abs(primaryVideo.currentTime - secondaryVideo.currentTime);
+        if (delta < 0.01 && delta > 0) {
+          // Both videos are very close, let's sync them the hard way.
+          primaryVideo.currentTime = secondaryVideo.currentTime;
+        }
+        if (delta > 0.01) {
+          if (primaryVideo.currentTime > secondaryVideo.currentTime) {
+            // Set the playbackRate lower, according to how many milliseconds we need to catch in the 250ms loop. Without setting lower than 0.8 or it would be too visible.
+            primaryVideo.playbackRate = Math.max(0.8, 1 - delta / 0.25);
+          } else {
+            secondaryVideo.playbackRate = Math.max(0.8, 1 - delta / 0.25);
+          }
+        }
+
+        requestAnimationFrame(syncVideos);
+      };
+
+      requestAnimationFrame(syncVideos);
+    }
+  }, [primaryCanPlay, secondaryCanPlay, primaryVideoRef, destructuredVideoRef]);
 
   useGSAP(
     () => {
@@ -43,7 +74,9 @@ const Services = () => {
         const sectionTop = sectionClient.top + document.body.scrollTop;
         const primaryVideoTop = boundingClient.top + document.body.scrollTop;
         const placeholderTop = placeholderClient.top + document.body.scrollTop;
+        const placeholderBottom = placeholderClient.top + placeholderClient.height + document.body.scrollTop;
         const techTop = techClient.top + document.body.scrollTop;
+        const techBottom = techClient.top + techClient.height + document.body.scrollTop;
 
         const scale = window.innerWidth / boundingClient.width;
         const clientMiddle = boundingClient.left + boundingClient.width / 2;
@@ -54,16 +87,18 @@ const Services = () => {
         const destructuredScale = (1.4 * placeholderClient.width) / boundingClient.width;
 
         const placeHolderTopMiddle = placeholderTop + placeholderClient.height / 2 - sectionTop;
-        const placeholderBottomMiddle =
-          techSection.children[1].clientHeight - (placeholderImage.offsetTop + placeholderClient.height / 2);
 
         const animationYEnd = (placeHolderTopMiddle / sectionClient.height) * 100;
-        const yPinEnd = ((sectionClient.height - placeholderBottomMiddle) / sectionClient.height) * 100;
+
         const xPlaceholderTransform = placeholderClient.left + placeholderClient.width / 2 - clientMiddle;
 
-        const techYPinEnd = 50 + (techClient.height * 100) / (2 * window.innerHeight);
+        // calculate position of placeholder middle relative to tech section
+        const placeholderMiddleTechPosition =
+          (placeholderTop + placeholderClient.height / 2 - techTop) / techClient.height;
+        const placeholderMiddleTechPositionHeight = (placeholderMiddleTechPosition - 0.5) * techClient.height;
 
-        const techSectionMiddle = techTop + techClient.height / 1.7 - sectionTop;
+        const techYPinEnd = 50 + (techClient.height * 100) / (2 * window.innerHeight);
+        const techSectionMiddle = techTop + techClient.height / 2 - sectionTop;
         const techMiddlePercentage = (techSectionMiddle / sectionClient.height) * 100;
 
         const primaryVideoTimeline = gsap.timeline({
@@ -78,7 +113,7 @@ const Services = () => {
 
         primaryVideoTimeline.to(primaryVideo, {
           x: xMiddleTransform,
-          height: 'auto',
+          transformOrigin: 'center',
           scale,
           duration: 3,
         });
@@ -93,20 +128,23 @@ const Services = () => {
           duration: 3,
           scale: destructuredScale,
           x: xPlaceholderTransform,
+          y: placeholderMiddleTechPositionHeight,
         });
 
         const descruturedImageTimeline = gsap.timeline({
           scrollTrigger: {
+            id: 'grid',
+            markers: true,
             trigger: '#services',
             start: `${yPinStart}% 50%`,
             end: `${animationYEnd}% 50%`,
+            toggleActions: 'play complete complete play',
             scrub: 1,
           },
         });
 
         descruturedImageTimeline.to(destructuredVideo, {
           x: xMiddleTransform,
-          height: 'auto',
           scale,
           duration: 3,
         });
@@ -121,11 +159,14 @@ const Services = () => {
           duration: 3,
           scale: destructuredScale,
           x: xPlaceholderTransform,
+          y: placeholderMiddleTechPositionHeight,
         });
+
+        // Video pin Scroll triggers
 
         ScrollTrigger.create({
           trigger: '#services',
-          pin: primaryVideo,
+          pin: primaryVideo.parentElement,
           start: `${yPinStart}% 50%`,
           end: `bottom ${techYPinEnd}%`,
           pinSpacing: false,
@@ -133,13 +174,17 @@ const Services = () => {
 
         ScrollTrigger.create({
           trigger: '#services',
-          pin: destructuredVideo,
+          pin: destructuredVideo.parentElement,
           start: `${yPinStart}% 50%`,
           end: `bottom ${techYPinEnd}%`,
           pinSpacing: false,
         });
 
+        // Tech Section Pin Scroll Trigger
+
         ScrollTrigger.create({
+          id: 'tech',
+          markers: true,
           trigger: '#services',
           pin: techSection,
           start: `${techMiddlePercentage}% 50%`,
@@ -221,8 +266,10 @@ const Services = () => {
             <Image
               src='/assets/images/tech/spaceship.png'
               alt='Spaceship'
-              style={{ width: '70%' }}
-              className='absolute w-[70%] left-[44%] top-[13%] -translate-x-1/2 opacity-0'
+              className={cn(
+                'absolute w-[50%] md:w-[70%] left-[44%] top-[25%] -translate-x-1/2 opacity-0',
+                'md:w-[70%] md:top-[16%]',
+              )}
               ref={placeholderRef}
               width={500}
               height={320}
