@@ -134,7 +134,6 @@ const Services = () => {
         const descruturedImageTimeline = gsap.timeline({
           scrollTrigger: {
             id: 'grid',
-            markers: true,
             trigger: '#services',
             start: `${yPinStart}% 50%`,
             end: `${animationYEnd}% 50%`,
@@ -184,7 +183,6 @@ const Services = () => {
 
         ScrollTrigger.create({
           id: 'tech',
-          markers: true,
           trigger: '#services',
           pin: techSection,
           start: `${techMiddlePercentage}% 50%`,
@@ -218,7 +216,7 @@ const Services = () => {
   return (
     <Section
       id='services'
-      className='flex flex-col items-end py-[100px]'
+      className='flex flex-col items-end my-[100px]'
     >
       <TitleParagraph
         title={servicesContent.TITLE}
