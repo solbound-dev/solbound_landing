@@ -4,21 +4,6 @@
   "MOBILE_TITLE": "(04) PROOF OF HISTORY",
   "PROJECTS": [
     {
-      "NAME": "THE HEIST",
-      "IMAGE": "/assets/images/projects-min/the-heist.png",
-      "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #1F0D09 38.66%, #63281B 74.28%, #FA6545 108.06%)",
-      "XHANDLE": "@playtheheist",
-      "YEAR": 2023,
-      "CLIENT": "Longwood Labs",
-      "XURL": "https://x.com/playtheheist",
-      "TAGS": [
-        "WEB3 GAMING",
-        "BLOCKCHAIN TOOLING",
-        "FULL-STACK",
-        "DEVOPS"
-      ]
-    },
-    {
       "NAME": "CHOMP",
       "IMAGE": "/assets/images/projects-min/chomp.png",
       "BACKGROUND": "linear-gradient(179.78deg, #000000 18.66%, #A1A1ED 108.06%)",
