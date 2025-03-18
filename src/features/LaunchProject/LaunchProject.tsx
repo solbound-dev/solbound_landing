@@ -18,7 +18,7 @@ const LaunchProject = () => {
           dangerouslySetInnerHTML={{ __html: launchProjectContent.TITLE }}
         />
         <a
-          href='https://discord.gg/qVFBnQNDTj'
+          href='https://t.me/matija_sol'
           target='_blank'
         >
           <Button>{launchProjectContent.CTA}</Button>
