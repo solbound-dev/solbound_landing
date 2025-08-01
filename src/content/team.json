@@ -30,7 +30,7 @@
       "SOCIAL": [
         {
           "ICON": "x",
-          "HREF": "https://x.com/SergijeA"
+          "HREF": "https://x.com/sol_serg"
         },
         {
           "ICON": "discord",
@@ -159,6 +159,46 @@
         {
           "ICON": "linkedIn",
           "HREF": "https://www.linkedin.com/in/marin-barac/"
+        }
+      ]
+    },
+    {
+      "IMAGE": "/assets/images/team-min/roko.png",
+      "NFT_IMAGE": "/assets/images/team-min/roko-nft.png",
+      "NAME": "Roko",
+      "ROLE": "Full Stack Dev",
+      "SOCIAL": [
+        {
+          "ICON": "x",
+          "HREF": "https://x.com/rok0_sol"
+        },
+        {
+          "ICON": "discord",
+          "HREF": "https://discordapp.com/users/621718881970683914"
+        },
+        {
+          "ICON": "linkedIn",
+          "HREF": "https://www.linkedin.com/in/roko-peri%C5%A1i%C4%87-41a2082a0/"
+        }
+      ]
+    },
+    {
+      "IMAGE": "/assets/images/team-min/toma.png",
+      "NFT_IMAGE": "/assets/images/team-min/toma-nft.png",
+      "NAME": "Toma",
+      "ROLE": "Full Stack Dev",
+      "SOCIAL": [
+        {
+          "ICON": "x",
+          "HREF": "https://x.com/tsiklic1"
+        },
+        {
+          "ICON": "discord",
+          "HREF": "https://discordapp.com/users/352508885556527105"
+        },
+        {
+          "ICON": "linkedIn",
+          "HREF": "https://www.linkedin.com/in/toma-%C5%A1ikli%C4%87-512887288/"
         }
       ]
     },
