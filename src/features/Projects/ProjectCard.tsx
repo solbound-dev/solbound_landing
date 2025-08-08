@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import projectsContent from '@/content/projects.json';
 import { cn } from '@/utils/classNames';
