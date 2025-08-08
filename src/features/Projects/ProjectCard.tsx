@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import projectsContent from '@/content/projects.json';
 import { cn } from '@/utils/classNames';
@@ -48,14 +48,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, background, xHan
               &nbsp;&nbsp;&nbsp;{name}
             </h1>
             <h1
+              id='1'
               className={cn(
                 'inline-block',
                 'h1 mix-blend-soft-light mb-6 text-[55px] leading-[44px]',
                 'md:text-[100px] md:leading-[86px]',
                 'lg:text-[170px] lg:leading-[166px] lg:h-[320px]',
                 '2xl:text-[257px] 2xl:leading-[214px] 2xl:h-[428px]',
+                'opacity-0',
               )}
-              style={{ animation: 'scrolling-left2 20s linear infinite', animationDelay: '10s' }}
+              style={{
+                animation: 'scrolling-left2 20s linear infinite',
+                animationDelay: '7s',
+              }}
             >
               &nbsp;&nbsp;&nbsp;{name}
             </h1>

@@ -36,23 +36,25 @@ const ProjectSwiper = () => {
         effect='fade'
         rewind
       >
-        {projectsContent.PROJECTS.map(({ NAME, IMAGE, BACKGROUND, XHANDLE, YEAR, CLIENT, TAGS, XURL }) => (
-          <SwiperSlide
-            key={NAME}
-            className='!w-screen'
-          >
-            <ProjectCard
-              name={NAME}
-              image={IMAGE}
-              background={BACKGROUND}
-              xHandle={XHANDLE}
-              year={YEAR}
-              client={CLIENT}
-              tags={TAGS}
-              xUrl={XURL}
-            />
-          </SwiperSlide>
-        ))}
+        {projectsContent.PROJECTS.map(({ NAME, IMAGE, BACKGROUND, XHANDLE, YEAR, CLIENT, TAGS, XURL }) => {
+          return (
+            <SwiperSlide
+              key={NAME}
+              className='!w-screen'
+            >
+              <ProjectCard
+                name={NAME}
+                image={IMAGE}
+                background={BACKGROUND}
+                xHandle={XHANDLE}
+                year={YEAR}
+                client={CLIENT}
+                tags={TAGS}
+                xUrl={XURL}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

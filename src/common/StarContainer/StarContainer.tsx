@@ -112,7 +112,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
   }, []);
 
   const updateStarsByProximity = useCallback(
-    ({ x, y }: Position) => {
+    ({ x, y, pageY }: PointerEvent) => {
       pointerPositionRef.current = { x, y };
 
       if (!starsRef.current) {
@@ -120,7 +120,7 @@ const StarContainer: React.FC<Readonly<StarContainerProps>> = ({
       }
 
       starsRef.current.forEach((star) => {
-        const distance = Math.sqrt(Math.pow(star.x - x, 2) + Math.pow(star.y - y, 2));
+        const distance = Math.sqrt(Math.pow(star.x - x, 2) + Math.pow(star.y - y - pageY / 9, 2));
         const scale = scaleMapperRef.current!(Math.min(distance, vminRef.current! * proximityRatio));
         const alpha = alphaMapperRef.current!(Math.min(distance, vminRef.current! * proximityRatio));
 
