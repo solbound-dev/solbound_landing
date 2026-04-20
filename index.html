@@ -2,9 +2,10 @@
 <html lang="en" class="overflow-x-hidden bg-neutral-950">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <!-- Self-hosted fonts: preload the two latin-range woff2 files actually used above the fold -->
+    <link rel="preload" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/8vIH7w4qzmVxm2BL9G78HEY.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js" as="script" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -42,12 +43,10 @@
       .text-huge{font-size:clamp(2.5rem,12vw,18rem)}
       @media(min-width:768px){.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
     </style>
-    <link rel="stylesheet" href="output.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="output.css" /></noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap"
-      rel="stylesheet" media="print" onload="this.media='all'"
-    />
+    <link rel="preload" href="output.css" as="style" />
+    <link rel="stylesheet" href="output.css" />
+    <!-- Self-hosted fonts (no more Google round-trip, no FOUT, zero external layout-shift risk) -->
+    <link rel="stylesheet" href="assets/fonts.css" />
     <style>
       /* Warm-red color override - shift Tailwind red toward warm red-orange */
       .text-red-500 { color: #d93b25 !important; }
@@ -1493,6 +1492,9 @@
           position: relative;
           width: 100%;
           height: 600px;
+          /* Isolate orbit rendering so other sections' animations don't thrash its paint */
+          contain: layout paint;
+          isolation: isolate;
         }
         @media (max-width: 768px) {
           .orbit-container { height: 500px; margin-top: -1rem; }
@@ -1564,7 +1566,9 @@
           overflow: visible;
           border: 2px solid rgba(217, 59, 37, 0.3);
           background: #111;
-          transition: border-color 0.25s ease, box-shadow 0.25s ease;
+          transform: scale(1);
+          transform-origin: center;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
           cursor: pointer;
           text-decoration: none;
           position: relative;
@@ -1635,6 +1639,7 @@
         .orbit-logo.active {
           border-color: rgba(217, 59, 37, 0.7);
           box-shadow: 0 0 20px rgba(217, 59, 37, 0.3);
+          transform: scale(1.3);
           z-index: 9999;
         }
         .orbit-logo.active .orbit-tip {
@@ -1654,6 +1659,10 @@
           overflow: hidden;
           pointer-events: none;
           z-index: 1;
+          /* Isolate from rest of page: new stacking context + paint containment.
+             Prevents particle animations from invalidating other sections' paint. */
+          contain: layout paint;
+          isolation: isolate;
         }
         .orbit-particle {
           position: absolute;
@@ -1800,9 +1809,11 @@
           }, 150);
         });
 
-        // Generate particles - filling empty space around orbit
+        // Generate particles - filling empty space around orbit.
+        // Count reduced 40 → 12: each particle is a compositor layer due to
+        // continuous animation, and 40 was throttling the orbit to ~20fps.
         const pc = document.getElementById('orbit-particles');
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 12; i++) {
           const p = document.createElement('div');
           p.className = 'orbit-particle';
           // Vary sizes: mostly tiny with a few slightly larger
@@ -1852,24 +1863,28 @@
           r.logos = r.el.querySelectorAll('.orbit-logo');
         });
 
-        // ~30fps is plenty for a slow orbit - skip every other frame
-        let frameParity = 0;
+        // Run at native framerate (60/120Hz) — the previous 30fps throttle
+        // produced visible stutter. translate3d forces GPU compositing.
         function orbitTick(now) {
           requestAnimationFrame(orbitTick);
           if (!orbitPaused) {
             elapsed += (now - lastTime) / 1000;
           }
           lastTime = now;
-          if (++frameParity & 1) return; // skip odd frames → ~30fps
-          ringData.forEach(r => {
-            if (r.el === frozenRing) return;
+          // When offscreen, skip DOM writes entirely (save CPU, no visual impact)
+          if (orbitPaused) return;
+          for (let ri = 0; ri < ringData.length; ri++) {
+            const r = ringData[ri];
+            if (r.el === frozenRing) continue;
             const baseAngle = (elapsed / r.period) * 2 * Math.PI * r.dir;
             const radius = liveRadii[r.radiusKey];
             for (let s = 0; s < r.slots.length; s++) {
               const angle = baseAngle + r.slots[s].offset;
-              r.slots[s].el.style.transform = 'translate(' + (Math.cos(angle) * radius) + 'px,' + (Math.sin(angle) * radius) + 'px)';
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              r.slots[s].el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
             }
-          });
+          }
         }
         requestAnimationFrame(orbitTick);
 
@@ -1885,6 +1900,9 @@
         function clearActive() {
           if (activeLogo) {
             activeLogo.classList.remove('active');
+            // Belt-and-suspenders: also clear any stale inline transform that
+            // older sessions may have set before this fix shipped.
+            activeLogo.style.transform = '';
             activeLogo = null;
           }
           if (frozenRing) {
@@ -1903,7 +1921,6 @@
           if (logo === activeLogo) return;
           clearActive();
           logo.classList.add('active');
-          logo.style.transform = 'scale(1.3)';
           activeLogo = logo;
           const spin = logo.closest('[class*="orbit-spin"]');
           if (spin) { spin.classList.add('has-active'); frozenRing = spin; }
@@ -3205,6 +3222,7 @@
               {name:"Marcos Collado", role:"CTO @ SaturnBTC", img:"assets/testimonials/marcos.webp", url:"https://x.com/macols77", quote:"Solbound is easily one of the best dev shops out there. I've worked with them for years, and even as someone who's always been skeptical about external dev teams, they've exceeded expectations every time. Fast to ramp, reliable on deadlines, and consistently high-quality code. I can't recommend them enough, they're always my first call when I need a product done right."},
               {name:"KidPaddle", role:"Founder/CEO @ DiversiFi", img:"assets/testimonials/paddle.webp", url:"https://x.com/KidPaddle591", quote:"There aren't many teams I'd trust as an extension of our own. Solbound is definitely one of them. They deeply understand Solana, ship fast under pressure, and push back when it makes the product better. They don't just ship, they genuinely care about what they're building. High-standards company."},
         {name:"SolanaMarko", role:"CEO/Co-Founder @ ST Balkan", img:"assets/testimonials/solanamarko.webp", url:"https://x.com/SolanaMarko", quote:"Building Superteam Balkan alongside Matija gave me a lot of insights on how he operates and it's the same energy he brings to Solbound. He and his crew genuinely understand the Solana ecosystem at a deep level, he moves fast without cutting corners, and cares about the people he works with. If you're building something serious on Solana, there's no one I'd trust more."},
+        {name:"Alp Onaran", role:"Founder @ IronNode, Principal Security Auditor @ Halborn", img:"assets/testimonials/alp.webp", url:"https://x.com/alcides_sec", quote:"We've worked with Solbound across multiple fronts, from building the IronNode website and several NFT platforms to collaborating on security-related work and audits. They move fast, understand both product and execution, and are easy to trust with important work. What I value most is that they don't just build what you ask for, they actually think with you, solve problems proactively, and operate like a real extension of the team. I'm happy to keep working with them on both development and security going forward."},
       ];
 
       // Shuffle
