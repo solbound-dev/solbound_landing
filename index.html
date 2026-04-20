@@ -1,0 +1,3365 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden bg-neutral-950">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js" as="script" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>solbound.dev - Solana-Native Development Studio</title>
+    <meta name="description" content="Solana-native development studio. Rust programs, full-stack dApps, advisory, and research. 10 engineers, 20+ clients, shipping since 2022." />
+    <meta property="og:title" content="solbound.dev - Solana-Native Development Studio" />
+    <meta property="og:description" content="Solana-native development studio. Rust programs, full-stack dApps, advisory, and research. 10 engineers, 20+ clients, shipping since 2022." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://solbound.dev" />
+    <meta property="og:image" content="https://solbound.dev/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="661" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:image" content="https://solbound.dev/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="solbound.dev - Solana-Native Development Studio" />
+    <meta name="twitter:description" content="Solana-native development studio. Rust programs, full-stack dApps, advisory, and research." />
+    <link rel="preload" href="assets/hero-poster.webp?v=1775321788" as="image" />
+    <style>
+      /* Critical above-the-fold CSS */
+      body{margin:0;background:#0a0a0a;color:#fff;-webkit-font-smoothing:antialiased}
+      .overflow-x-hidden{overflow-x:hidden}
+      .bg-neutral-950{background-color:#0a0a0a}
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
+      .inset-0{inset:0}.top-0{top:0}.left-0{left:0}.z-10{z-index:10}.z-20{z-index:20}
+      .flex{display:flex}.grid{display:grid}.hidden{display:none}
+      .flex-col{flex-direction:column}.items-center{align-items:center}
+      .justify-between{justify-content:space-between}.justify-center{justify-content:center}
+      .w-full{width:100%}.h-full{height:100%}
+      .text-white{color:#fff}.text-neutral-400{color:#a3a3a3}.text-neutral-500{color:#a3a3a3}
+      .pointer-events-none{pointer-events:none}
+      .reveal-hidden{opacity:0}
+      #hero-center-title{position:absolute;top:50%;left:50%;translate:-50% -50%;width:100%;display:flex;flex-direction:column;align-items:center}
+      .font-syne{font-family:'Syne',sans-serif}
+      .text-huge{font-size:clamp(2.5rem,12vw,18rem)}
+      @media(min-width:768px){.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    </style>
+    <link rel="stylesheet" href="output.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="output.css" /></noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'"
+    />
+    <style>
+      /* Warm-red color override - shift Tailwind red toward warm red-orange */
+      .text-red-500 { color: #d93b25 !important; }
+      .text-red-400 { color: #e5685a !important; }
+      .text-red-600 { color: #b8301e !important; }
+      .text-red-900 { color: #6b2710 !important; }
+      .bg-red-500 { background-color: #d93b25 !important; }
+      .bg-red-600 { background-color: #b8301e !important; }
+      .bg-red-700 { background-color: #8a2518 !important; }
+      .bg-red-900 { background-color: #6b2710 !important; }
+      .bg-red-500\/5 { background-color: rgba(217,59,37,0.05) !important; }
+      .bg-red-500\/10 { background-color: rgba(217,59,37,0.1) !important; }
+      .bg-red-500\/30 { background-color: rgba(217,59,37,0.3) !important; }
+      .bg-red-900\/60 { background-color: rgba(107,39,16,0.6) !important; }
+      .bg-red-900\/80 { background-color: rgba(107,39,16,0.8) !important; }
+      .border-red-500 { border-color: #d93b25 !important; }
+      .border-red-500\/10 { border-color: rgba(217,59,37,0.1) !important; }
+      .border-red-500\/20 { border-color: rgba(217,59,37,0.2) !important; }
+      .border-red-500\/30 { border-color: rgba(217,59,37,0.3) !important; }
+      .border-red-500\/50 { border-color: rgba(217,59,37,0.5) !important; }
+      .from-red-500 { --tw-gradient-from: #d93b25 !important; }
+      .to-red-400 { --tw-gradient-to: #e5685a !important; }
+      .to-red-500 { --tw-gradient-to: #d93b25 !important; }
+      .via-red-500 { --tw-gradient-via: #d93b25 !important; }
+      .hover\:bg-red-500:hover { background-color: #d93b25 !important; }
+      .hover\:bg-red-700:hover { background-color: #8a2518 !important; }
+      .hover\:text-red-500:hover { color: #d93b25 !important; }
+      .hover\:border-red-500\/30:hover { border-color: rgba(217,59,37,0.3) !important; }
+      .hover\:border-red-500\/50:hover { border-color: rgba(217,59,37,0.5) !important; }
+      .group:hover .group-hover\:bg-red-500 { background-color: #d93b25 !important; }
+      .group:hover .group-hover\:text-red-500 { color: #d93b25 !important; }
+      .group:hover .group-hover\:text-red-400 { color: #e5685a !important; }
+      .group:hover .group-hover\:border-red-500\/20 { border-color: rgba(217,59,37,0.2) !important; }
+      .group:hover .group-hover\:border-red-500\/30 { border-color: rgba(217,59,37,0.3) !important; }
+      .group:hover .group-hover\:border-red-500\/50 { border-color: rgba(217,59,37,0.5) !important; }
+      .group:hover .group-hover\:bg-red-500\/10 { background-color: rgba(217,59,37,0.1) !important; }
+      .group:hover .group-hover\:stroke-red-500\/20 { stroke: rgba(217,59,37,0.2) !important; }
+      .group:hover .group-hover\:text-white { color: #fff !important; }
+
+      /* Accessibility: improve contrast on dark backgrounds */
+      .text-neutral-500 { color: #a3a3a3 !important; }
+    </style>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .text-huge {
+        font-size: clamp(2.5rem, 12vw, 18rem);
+      }
+      /* Vertical Beam Animation */
+      @keyframes beam-drop {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(500%);
+        }
+      }
+      .animate-beam {
+        animation: beam-drop 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      /* Marquee Animation */
+      @keyframes scroll-left {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      @keyframes scroll-right {
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0); }
+      }
+      .marquee-single { animation: scroll-left 46s linear infinite; }
+      /* Custom Scrollbar for visual containers */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+
+
+
+      /* Hero bottom text mobile fix */
+      @media (max-width: 480px) {
+        .absolute.bottom-6.left-4,
+        .absolute.bottom-6.right-4 {
+          bottom: 1.5rem !important;
+        }
+        .absolute.bottom-6.left-4 .text-xs,
+        .absolute.bottom-6.right-4 .text-xs {
+          font-size: 0.6rem !important;
+        }
+      }
+      @media (max-width: 380px) {
+        .absolute.bottom-6.left-4,
+        .absolute.bottom-6.right-4 {
+          bottom: 1.25rem !important;
+        }
+        .absolute.bottom-6.left-4 .text-xs,
+        .absolute.bottom-6.right-4 .text-xs {
+          font-size: 0.55rem !important;
+        }
+      }
+
+
+
+      /* Remove service card borders on mobile */
+      @media (max-width: 768px) {
+        #services .divide-y > * {
+          border-top-width: 0 !important;
+          border-bottom-width: 0 !important;
+        }
+        #services .divide-x > * {
+          border-left-width: 0 !important;
+          border-right-width: 0 !important;
+        }
+        #services [class*='border-white'] {
+          border-color: transparent !important;
+        }
+      }
+
+
+
+
+      /* Tighter title/description padding on mobile */
+      @media (max-width: 768px) {
+        .lg\:col-span-1 .mb-8 {
+          margin-bottom: 0.75rem !important;
+        }
+        .lg\:col-span-1 .mb-4 {
+          margin-bottom: 0.5rem !important;
+        }
+      }
+
+
+      /* Fix sidebar padding on mobile */
+      @media (max-width: 768px) {
+        .lg\:col-span-1.flex.flex-col {
+          padding-bottom: 0 !important;
+          min-height: 0 !important;
+          justify-content: flex-start !important;
+        }
+        .lg\:col-span-1 .mb-8 {
+          margin-bottom: 0.5rem !important;
+        }
+      }
+
+      /* Tighter mobile section padding */
+      @media (max-width: 768px) {
+        section .p-8 {
+          padding: 1.25rem !important;
+        }
+        section .pt-8 { padding-top: 1.25rem !important; }
+        section .pr-8 { padding-right: 1.25rem !important; }
+        section .pb-8 { padding-bottom: 1.25rem !important; }
+        section .pl-8 { padding-left: 1.25rem !important; }
+      }
+
+      /* Mobile sidebar collapse */
+      @media (max-width: 768px) {
+        .md\:col-span-1.flex.flex-col.justify-between {
+          justify-content: flex-start !important;
+          padding-bottom: 0 !important;
+          min-height: 0 !important;
+        }
+      }
+
+      /* orbit-wrapper CSS removed: now in CSS orbit section */
+
+
+      /* Smaller carousel edge gradients on mobile */
+      @media (max-width: 768px) {
+        #voices-container .pointer-events-none[class*='bg-gradient'],
+        #team-container .pointer-events-none[class*='bg-gradient'] {
+          width: 1.5rem !important;
+        }
+      }
+
+
+      /* Testimonial cards smaller on mobile */
+      @media (max-width: 768px) {
+        .voice-card {
+          width: 85vw !important;
+          min-width: 0 !important;
+          max-width: 340px;
+          padding: 1.25rem !important;
+        }
+        .voice-card svg {
+          margin-bottom: 0.75rem !important;
+          width: 1.25rem !important;
+          height: 1.25rem !important;
+        }
+        .voice-card blockquote {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+        .voice-card img {
+          width: 2.25rem !important;
+          height: 2.25rem !important;
+        }
+      }
+
+      /* Engagement model & service cards tighter on mobile */
+      @media (max-width: 768px) {
+        #engagement-grid > div {
+          padding: 1.5rem !important;
+        }
+        #engagement-grid .aspect-video,
+        #services .aspect-video {
+          aspect-ratio: 2 / 1 !important;
+        }
+      }
+
+      /* Orbit responsive scaling */
+      @media (max-width: 768px) {
+        #orbit-3d {
+          transform: scale(1.1);
+          transform-origin: center center;
+        }
+      }
+      @media (max-width: 480px) {
+        #orbit-3d {
+          transform: scale(0.9);
+          transform-origin: center center;
+        }
+      }
+      @media (max-width: 390px) {
+        #orbit-3d {
+          transform: scale(0.85);
+          transform-origin: center center;
+        }
+      }
+
+
+
+
+      /* Engagement grid desktop fix */
+      @media (min-width: 1280px) {
+        #engagement-grid {
+          grid-template-columns: repeat(4, 1fr) !important;
+          border-left-width: 0;
+        }
+        #engagement-grid > * {
+          border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        #engagement-grid > *:last-child {
+          border-right: none;
+        }
+      }
+
+
+
+
+
+
+
+
+      /* Engagement models grid borders */
+      @media (min-width: 768px) and (max-width: 1279px) {
+        #engagement-grid > *:nth-child(odd) {
+          border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        #engagement-grid > *:nth-child(-n+2) {
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+      }
+      /* Engagement left border between title and first card on desktop */
+      @media (min-width: 1280px) {
+        #engagement-grid {
+          border-left: 1px solid rgba(255,255,255,0.1);
+        }
+      }
+
+
+
+
+      /* Ultra-wide side background */
+      @media (min-width: 1800px) {
+        html {
+          background-color: #1a1a1a !important;
+        }
+      }
+      #page-wrapper {
+        max-width: 1800px;
+        margin: 0 auto;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+
+      /* Hero bottom text aligns with page content max-width */
+      @media (min-width: 1800px) {
+        .hero-bottom-tag-l { left: calc(50% - 900px + 2rem) !important; }
+        .hero-bottom-tag-r { right: calc(50% - 900px + 2rem) !important; }
+      }
+
+
+
+
+
+      /* Full-width section borders at ultra-wide */
+      @media (min-width: 1800px) {
+        #page-wrapper section,
+        #page-wrapper footer {
+          border-top-color: transparent !important;
+          position: relative;
+          }
+        #page-wrapper section::before,
+        #page-wrapper footer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100vw;
+          height: 1px;
+          background-color: rgba(255,255,255,0.1);
+        }
+        /* Hero bottom border */
+        #page-wrapper::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100vw;
+          height: 1px;
+          background-color: rgba(255,255,255,0.1);
+        }
+        #page-wrapper {
+          position: relative;
+        }
+      }
+
+      /* Section inner container for ultra-wide content constraint */
+      /* Carousel right-bleed: stretch col-span-3 to viewport edge */
+      .carousel-bleed-right {
+        width: calc(100% + max(0px, (100vw - 1800px) / 2));
+        max-width: none;
+        --carousel-left-fade: 80px;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black var(--carousel-left-fade), black calc(100% - 140px), transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, black var(--carousel-left-fade), black calc(100% - 140px), transparent 100%);
+      }
+      @media (max-width: 768px) {
+        .carousel-bleed-right { --carousel-left-fade: 0px; }
+      }
+      @media (max-width: 1800px) {
+        .carousel-bleed-right {
+          width: 100%;
+        }
+      }
+
+      /* Services: extend row divider to right viewport edge */
+      #services /* Clients: let orbit particles bleed right */
+      #clients .section-inner {
+        overflow: visible;
+      }
+      #clients .section-inner > div {
+        overflow: visible;
+      }
+
+      .section-inner {
+        overflow: visible;
+      }
+      #services [class*="col-span-3"].grid::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background: rgba(255,255,255,0.1);
+        width: calc(100vw - 100%);
+        transform: translateX(100%);
+      }
+
+      /* Clients: let orbit particles bleed right */
+      #clients .section-inner {
+        overflow: visible;
+      }
+      #clients .section-inner > div {
+        overflow: visible;
+      }
+
+      .section-inner {
+        max-width: 1800px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Accordion */
+      .accordion-content {
+        max-height: 0;
+      }
+      .accordion-open .accordion-content {
+        max-height: 300px;
+      }
+      .accordion-open .accordion-chevron {
+        transform: rotate(180deg);
+      }
+
+      @keyframes marquee-infinite {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-33.333%); }
+      }
+      .animate-marquee-infinite {
+        animation: marquee-infinite 45s linear infinite;
+      }
+      .animate-marquee-infinite:hover {
+        animation-play-state: paused;
+      }
+      @keyframes marquee-infinite-reverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+      }
+      .animate-marquee-infinite-reverse {
+        animation: marquee-infinite-reverse 50s linear infinite;
+      }
+      .animate-marquee-infinite-reverse:hover {
+        animation-play-state: paused;
+      }
+    </style>
+<style>
+      @keyframes fadeInUpBlur {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+          filter: blur(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+      .animate-in {
+        animation: fadeInUpBlur 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      .reveal-hidden {
+        opacity: 0;
+      }
+    </style>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 17.33 20%22 fill=%22white%22><path d=%22M8.66,0l2.46,4.27-2.46-1.42-2.46,1.42Z%22/><path d=%22M8.66,20l2.46-4.27-2.46,1.42-2.46-1.42Z%22/><path d=%22M17.33,5l-2.46,4.27v-2.84l-2.46-1.42h4.93Z%22/><path d=%22M0,15h4.93l-2.46-1.42v-2.84Z%22/><path d=%22M17.32,15h-4.93l2.46-1.42v-2.84Z%22/><path d=%22M0,5l2.46,4.27v-2.84l2.46-1.42H0Z%22/><path d=%22M8.66,5.33l4.13,2.38v4.77l-4.13,2.38-4.13-2.38v-4.77Z%22/></svg>" />
+    <link rel="canonical" href="https://solbound.dev/" />
+    <meta name="date" content="2026-04-06" />
+    <meta name="last-modified" content="2026-04-06" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://solbound.dev/#organization",
+          "name": "Solbound",
+          "url": "https://solbound.dev",
+          "logo": "https://solbound.dev/assets/og-image.jpg",
+          "description": "Solbound is a Solana-native development studio specializing in Rust smart contracts, full-stack dApps, DeFi protocols, and Web3 advisory. 10 engineers shipping production-grade Solana programs since 2022.",
+          "foundingDate": "2022",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 10
+          },
+          "sameAs": [
+            "https://x.com/solbound_dev",
+            "https://linkedin.com/company/solbound-dev/",
+            "https://github.com/solbound-dev",
+            "https://t.me/matija_sol"
+          ],
+          "knowsAbout": [
+            "Solana",
+            "Rust",
+            "Anchor Framework",
+            "DeFi",
+            "NFT",
+            "Web3",
+            "Smart Contracts",
+            "dApp Development",
+            "Blockchain Security"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://solbound.dev/#service",
+          "name": "Solbound",
+          "url": "https://solbound.dev",
+          "provider": { "@id": "https://solbound.dev/#organization" },
+          "areaServed": "Worldwide",
+          "serviceType": [
+            "Solana Smart Contract Development",
+            "Rust Program Development",
+            "Full-Stack dApp Development",
+            "DeFi Protocol Engineering",
+            "Blockchain Security Auditing",
+            "Web3 Advisory & Research",
+            "NFT Platform Development",
+            "Solana Program Migration"
+          ],
+          "description": "Solana-native development studio offering end-to-end Rust smart contract development, full-stack dApp engineering, DeFi protocol design, security auditing, and Web3 advisory."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://solbound.dev/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What Solana development services does Solbound offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Solbound offers end-to-end Solana development services including Rust smart contract (program) development, full-stack dApp engineering, DeFi protocol design and implementation, NFT platform development, security auditing, and Web3 advisory and research."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does Solana dApp development cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The cost of Solana dApp development varies based on complexity, scope, and timeline. Solbound works with clients ranging from early-stage startups to established protocols. Contact us at gm@solbound.dev for a tailored estimate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What tech stack does Solbound use for Solana development?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Solbound specializes in Rust for on-chain Solana programs, using the Anchor framework and native Solana SDK. For front-ends, we use TypeScript, React, and Next.js with Solana wallet adapters. We also work with Metaplex, Switchboard, Pyth, and other Solana ecosystem tools."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many engineers does Solbound have?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Solbound has a team of 10 experienced engineers, all focused exclusively on Solana and Rust development. The team has been shipping production-grade Solana programs since 2022 for over 20 clients."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Solbound offer smart contract security audits?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Solbound provides comprehensive security auditing for Solana programs. Our team reviews Rust on-chain code for common vulnerabilities, logic errors, and economic exploits, delivering detailed audit reports with remediation guidance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can Solbound help migrate an existing project to Solana?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Solbound has experience migrating protocols from Ethereum and other chains to Solana. We handle architecture redesign for Solana's account model, Rust program development, and front-end integration to ensure a smooth transition."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+  </head>
+  <body
+    class="bg-transparent text-neutral-200 overflow-x-hidden w-full relative selection:bg-red-500/30 selection:text-white"
+  >
+    <div
+      class="aura-background-component fixed top-0 w-full h-screen brightness-125 saturate-200 hue-rotate-180"
+      data-alpha-mask="100"
+      style="
+        width:100vw;
+        height:100svh;
+        filter: brightness(1.2) saturate(3) hue-rotate(176deg);
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 0%,
+          black 100%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 0%,
+          black 100%,
+          transparent
+        );
+      "
+    >
+      <div class="aura-background-component top-0 left-0 absolute"
+        style="width:100vw;height:100svh;background: url('assets/hero-poster.webp?v=1775321788') center/cover no-repeat"
+      >
+        <div
+          data-us-project="7WRlj4TRuUxuldc6GVDM?update=1"
+          data-us-scale="1"
+          data-us-dpi="1"
+          data-us-production="true"
+          class="absolute left-0 top-0"
+          style="width:100vw;height:100svh"
+        ></div>
+        <script type="text/javascript">!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.6/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();</script>
+      </div>
+    </div>
+
+    <div
+      class="absolute inset-0 z-10 w-full h-full pointer-events-none grid grid-cols-1 border-t border-white/10"
+    ></div>
+
+    <main style="position:relative;isolation:isolate;background:linear-gradient(to bottom, transparent 0, transparent 100svh, #0a0a0a 100svh, #0a0a0a 100%);">
+    <!-- HERO SECTION -->
+
+    <div
+      class="relative z-20 w-full grid grid-cols-1 md:grid-cols-4"
+      style="min-height: 100svh;"
+    >
+      <!-- Solbound Logo -->
+      <div style="position:absolute;top:2.5rem;left:1.5rem;z-index:50;">
+        <a href="#" aria-label="Solbound home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.33 20" class="w-8 h-9 md:w-10 md:h-11" fill="white"><path d="M8.66,0l2.46,4.27-2.46-1.42-2.46,1.42L8.66,0Z"/><path d="M8.66,20l2.46-4.27-2.46,1.42-2.46-1.42,2.46,4.27Z"/><path d="M17.33,5l-2.46,4.27v-2.84l-2.46-1.42h4.93Z"/><path d="M0,15h4.93l-2.46-1.42v-2.84L0,15Z"/><path d="M17.32,15h-4.93l2.46-1.42v-2.84l2.46,4.27Z"/><path d="M0,5l2.46,4.27v-2.84l2.46-1.42H0Z"/><path d="M8.66,5.33l4.13,2.38v4.77l-4.13,2.38-4.13-2.38v-4.77l4.13-2.38Z"/></svg></a>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="mobile-nav-toggle" style="position:absolute;top:2.5rem;right:1.5rem;z-index:60;background:none;border:none;cursor:pointer;padding:0.5rem;-webkit-tap-highlight-color:transparent;" aria-label="Toggle navigation" aria-expanded="false">
+        <div id="nav-hamburger" style="display:flex;flex-direction:column;gap:6px;width:24px;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.6));">
+          <span style="display:block;height:2px;background:white;border-radius:1px;transition:all 0.3s ease;"></span>
+          <span style="display:block;height:2px;background:white;border-radius:1px;width:60%;margin-left:auto;transition:all 0.3s ease;"></span>
+        </div>
+        <div id="nav-close" style="display:none;width:22px;height:22px;position:relative;">
+          <span style="display:block;height:1.5px;width:22px;background:white;border-radius:1px;position:absolute;top:50%;left:0;transform:rotate(45deg);transition:all 0.3s ease;"></span>
+          <span style="display:block;height:1.5px;width:22px;background:white;border-radius:1px;position:absolute;top:50%;left:0;transform:rotate(-45deg);transition:all 0.3s ease;"></span>
+        </div>
+      </button>
+
+      <!-- Mobile Nav Overlay -->
+      <style>
+        /* Short-viewport tightening so the menu fits on small phones (e.g. iPhone SE) */
+        @media (max-height: 700px) {
+          #mobile-nav-overlay .mobile-nav-link { font-size: 1.5rem !important; padding: 0.4rem 0 !important; }
+          #mobile-nav-overlay .mobile-nav-cta { margin-top: 1.5rem !important; }
+        }
+        @media (max-height: 560px) {
+          #mobile-nav-overlay .mobile-nav-link { font-size: 1.25rem !important; padding: 0.3rem 0 !important; }
+        }
+      </style>
+      <div id="mobile-nav-overlay" style="position:fixed;inset:0;z-index:55;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);opacity:0;visibility:hidden;transition:opacity 0.35s ease,visibility 0.35s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;">
+        <nav style="display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:100%;padding:calc(env(safe-area-inset-top) + 5.5rem) 2rem calc(env(safe-area-inset-bottom) + 2rem) 2rem;gap:0;box-sizing:border-box;">
+          <span style="font-family:'Inter',sans-serif;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#525252;margin-bottom:2rem;">solbound.dev</span>
+          <a href="#services" class="mobile-nav-link" style="color:#737373;font-size:2rem;font-family:'Syne',sans-serif;font-weight:500;text-decoration:none;letter-spacing:-0.03em;transition:color 0.2s,transform 0.2s;display:block;padding:0.6rem 0;transform:translateY(20px);opacity:0;">Services</a>
+          <a href="#clients" class="mobile-nav-link" style="color:#737373;font-size:2rem;font-family:'Syne',sans-serif;font-weight:500;text-decoration:none;letter-spacing:-0.03em;transition:color 0.2s,transform 0.2s;display:block;padding:0.6rem 0;transform:translateY(20px);opacity:0;">Clients</a>
+          <a href="#team" class="mobile-nav-link" style="color:#737373;font-size:2rem;font-family:'Syne',sans-serif;font-weight:500;text-decoration:none;letter-spacing:-0.03em;transition:color 0.2s,transform 0.2s;display:block;padding:0.6rem 0;transform:translateY(20px);opacity:0;">Team</a>
+          <a href="#work" class="mobile-nav-link" style="color:#737373;font-size:2rem;font-family:'Syne',sans-serif;font-weight:500;text-decoration:none;letter-spacing:-0.03em;transition:color 0.2s,transform 0.2s;display:block;padding:0.6rem 0;transform:translateY(20px);opacity:0;">Work</a>
+          <a href="#voices-container" class="mobile-nav-link" style="color:#737373;font-size:2rem;font-family:'Syne',sans-serif;font-weight:500;text-decoration:none;letter-spacing:-0.03em;transition:color 0.2s,transform 0.2s;display:block;padding:0.6rem 0;transform:translateY(20px);opacity:0;">Testimonials</a>
+          <div style="margin-top:2.5rem;display:flex;gap:1rem;transform:translateY(20px);opacity:0;" class="mobile-nav-cta">
+            <a href="https://t.me/matija_sol" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:0.75rem 1.5rem;background:#b8301e;color:#fff;font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;border-radius:9999px;text-decoration:none;transition:background 0.2s;">Telegram</a>
+            <a href="mailto:matija@solbound.dev" style="display:inline-block;padding:0.75rem 1.5rem;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;border-radius:9999px;text-decoration:none;transition:border-color 0.2s;">Email</a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Hero Item 1 -->
+      <div
+        class="flex flex-col items-center md:items-start md:p-8 md:border-b-0 group border-white/10 border-b pt-6 pr-6 pb-6 pl-6 relative justify-between reveal-hidden"
+      >
+        <div
+          class="absolute right-0 top-0 h-full w-[1px] bg-white/10 hidden md:block overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-red-500 to-transparent animate-beam opacity-75"
+          ></div>
+        </div>
+        <div
+          class="absolute -right-[5px] -top-[5px] text-white/30 text-xs hidden md:block z-20"
+        >
+          +
+        </div>
+
+
+      <style>
+        @media (max-width: 768px) {
+          .hero-logo-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -180%);
+            z-index: 20;
+          }
+        }
+      </style>
+<div class="flex flex-col gap-1 hero-logo-wrap">
+          <span
+            class="text-sm tracking-wide text-neutral-400 font-medium max-w-[44px] md:max-w-[44px]"
+          >
+            <svg
+              id="Layer_2"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 17.33 20"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #fff;
+                  }
+                </style>
+              </defs>
+              <g id="Layer_1-2" data-name="Layer 1">
+                <g>
+                  <path
+                    class="cls-1"
+                    d="M8.66,0l2.46,4.27-2.46-1.42-2.46,1.42L8.66,0Z"
+                  />
+                  <path
+                    class="cls-1"
+                    d="M8.66,20l2.46-4.27-2.46,1.42-2.46-1.42,2.46,4.27Z"
+                  />
+                  <path
+                    class="cls-1"
+                    d="M17.33,5l-2.46,4.27v-2.84l-2.46-1.42h4.93Z"
+                  />
+                  <path class="cls-1" d="M0,15h4.93l-2.46-1.42v-2.84L0,15Z" />
+                  <path
+                    class="cls-1"
+                    d="M17.32,15h-4.93l2.46-1.42v-2.84l2.46,4.27Z"
+                  />
+                  <path
+                    class="cls-1"
+                    d="M.01,5l2.46,4.27v-2.84s2.46-1.42,2.46-1.42H.01Z"
+                  />
+                  <path
+                    class="cls-1"
+                    d="M8.66,5.33l4.13,2.38v4.77l-4.13,2.38-4.13-2.38v-4.77l4.13-2.38Z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Hero Item 2 -->
+      <div
+        class="hidden md:flex flex-col md:p-8 md:border-b-0 group border-white/10 border-b pt-6 pr-6 pb-6 pl-6 relative justify-between"
+      >
+        <div
+          class="absolute right-0 top-0 h-full w-[1px] bg-white/10 hidden md:block overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-red-500 to-transparent animate-beam opacity-75"
+            style="animation-delay: 1.5s"
+          ></div>
+        </div>
+        <div
+          class="absolute -right-[5px] -top-[5px] text-white/30 text-xs hidden md:block z-20"
+        >
+          +
+        </div>
+      </div>
+
+      <!-- Hero Item 3 -->
+      <div
+        class="hidden md:flex flex-col justify-between p-6 md:p-8 border-b md:border-b-0 border-white/10 relative group"
+      >
+        <div
+          class="absolute right-0 top-0 h-full w-[1px] bg-white/10 hidden md:block overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-red-500 to-transparent animate-beam opacity-75"
+            style="animation-delay: 3s"
+          ></div>
+        </div>
+        <div
+          class="absolute -right-[5px] -top-[5px] text-white/30 text-xs hidden md:block z-20"
+        >
+          +
+        </div>
+      </div>
+
+      <!-- Hero Item 4 -->
+      <div class="hidden md:flex flex-col justify-between p-6 md:p-8 relative">
+
+      </div>
+
+      <!-- Big Center Title -->
+      <div
+        id="hero-center-title"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-10 pointer-events-none flex flex-col items-center gap-3 md:gap-4"
+      >
+        <h1
+          class="text-huge leading-none text-white tracking-tighter mix-blend-overlay opacity-90 font-syne font-medium"
+        >
+          SOLBOUND.DEV<span class="sr-only"> - Solana-Native Development Studio | Rust Smart Contracts, dApps, DeFi</span>
+        </h1>
+
+      </div>
+
+      <!-- Bottom corners: Tagline & Est. -->
+      <div class="hero-bottom-tag-l" style="position:absolute;bottom:24px;left:32px;z-index:20;">
+        <span class="text-[11px] tracking-[0.25em] uppercase text-neutral-500 font-medium">Solana-native development studio</span>
+      </div>
+      <div class="hero-bottom-tag-r" style="position:absolute;bottom:24px;right:32px;z-index:20;">
+        <span class="text-[11px] tracking-[0.25em] uppercase text-neutral-400 font-medium">Est. 2022</span>
+      </div>
+      <div class="hero-bottom-tag-mobile" style="position:absolute;bottom:24px;left:0;right:0;z-index:20;text-align:center;">
+        <span class="text-[10px] tracking-[0.2em] uppercase text-neutral-400 font-medium">Solana-native development studio <span class="text-neutral-400">· Est. 2022</span></span>
+      </div>
+      <style>
+        @media (max-width:767px){.hero-bottom-tag-l,.hero-bottom-tag-r{display:none!important}}
+        @media (min-width:768px){.hero-bottom-tag-mobile{display:none!important}}
+      </style>
+    </div>
+
+    <!-- SERVICES DETAIL SECTION -->
+    <section
+      id="services" class="z-20 bg-neutral-950 w-full border-white/10 border-t relative"
+    >
+      <div class="section-inner">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 lg:divide-y-0 lg:divide-x divide-white/10"
+      >
+        <div
+          class="lg:col-span-1 flex flex-col min-h-0 lg:min-h-[400px] h-full p-8 justify-between"
+        >
+          <div class="">
+            <span class="font-mono text-neutral-500 text-xs block mb-4">
+              ///
+            </span>
+            <h2
+              class="text-3xl font-syne tracking-tight text-white mb-4 font-medium reveal-hidden"
+            >
+              Services
+            </h2>
+            <p
+              class="text-neutral-400 text-sm leading-relaxed mb-8 reveal-hidden"
+            >
+              The skills we use to help founders succeed, at your disposal.
+            </p>
+          </div>
+
+        </div>
+
+        <div
+          class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 divide-y divide-x divide-white/10 relative"
+        >
+          <div
+            class="group flex flex-col hover:bg-white/[0.02] transition-colors duration-500 pt-8 pr-8 pb-8 pl-8 relative reveal-hidden"
+          >
+            <!-- Editor Window Container -->
+            <div
+              class="relative w-[90%] md:w-[100%] h-auto bg-[#0A0A0B] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col font-mono text-xs sm:text-sm backdrop-blur-sm mb-[2rem] aspect-video"
+            >
+              <!-- Window Title Bar: Monochrome for Minimal Aesthetic -->
+              <div
+                class="h-10 border-b border-white/5 flex items-center px-4 gap-2 bg-white/[0.02]"
+              >
+                <div
+                  class="w-3 h-3 rounded-full bg-neutral-700 shadow-sm"
+                ></div>
+                <div
+                  class="w-3 h-3 rounded-full bg-neutral-800 shadow-sm"
+                ></div>
+                <div
+                  class="w-3 h-3 rounded-full bg-neutral-800 shadow-sm"
+                ></div>
+              </div>
+
+              <!-- Code Content Area -->
+              <div
+                class="flex-1 p-4 md:p-6 relative overflow-hidden bg-[#0A0A0B]"
+              >
+                <!-- Collaborative Cursor: Michael -->
+
+                <!-- Collaborative Cursor: Sofia -->
+
+                <div class="flex gap-4 md:gap-6 relative z-10">
+                  <div class="flex flex-col text-neutral-800 text-right select-none space-y-1.5 pt-0.5">
+                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+                    <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                    <div>11</div><div>12</div>
+                  </div>
+                  <div class="flex flex-col text-neutral-500 w-full space-y-1.5">
+                    <div><span class="text-red-500">#[</span><span class="text-neutral-300">account</span><span class="text-red-500">]</span></div>
+                    <div><span class="text-red-500">pub struct </span><span class="text-neutral-300">Vault</span> <span class="text-neutral-300">{</span></div>
+                    <div class="pl-4"><span class="text-red-500">pub </span><span class="text-neutral-300">authority</span><span class="text-red-500">: </span><span class="text-neutral-500">Pubkey</span><span class="text-neutral-300">,</span></div>
+                    <div class="pl-4"><span class="text-red-500">pub </span><span class="text-neutral-300">balance</span><span class="text-red-500">: </span><span class="text-neutral-500">u64</span><span class="text-neutral-300">,</span></div>
+                    <div class="pl-4"><span class="text-red-500">pub </span><span class="text-neutral-300">lock_until</span><span class="text-red-500">: </span><span class="text-neutral-500">i64</span><span class="text-neutral-300">,</span></div>
+                    <div class="pl-4"><span class="text-red-500">pub </span><span class="text-neutral-300">bump</span><span class="text-red-500">: </span><span class="text-neutral-500">u8</span><span class="text-neutral-300">,</span></div>
+                    <div><span class="text-neutral-300">}</span></div>
+                    <div>&nbsp;</div>
+                    <div><span class="text-red-500">#[</span><span class="text-neutral-300">event</span><span class="text-red-500">]</span></div>
+                    <div><span class="text-red-500">pub struct </span><span class="text-neutral-300">Deposit</span> <span class="text-neutral-300">{</span></div>
+                    <div class="pl-4"><span class="text-red-500">pub </span><span class="text-neutral-300">amount</span><span class="text-red-500">: </span><span class="text-neutral-500">u64</span><span class="text-neutral-300">,</span></div>
+                    <div><span class="text-neutral-300">}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col flex-grow">
+                            <span class="font-mono text-red-500 text-xs block mb-3">01</span>
+              <h3
+                class="text-xl text-white font-medium uppercase tracking-widest mb-3 reveal-hidden"
+              >
+                Rust programs
+              </h3>
+              <p
+                class="text-neutral-400 text-sm leading-relaxed mb-6 reveal-hidden"
+              >
+                Whether you need a standalone Anchor contract or an architected system implemented natively, we got you covered.
+              </p>
+            </div>
+
+          </div>
+
+          <div
+            class="group flex flex-col hover:bg-white/[0.02] transition-colors duration-500 p-8 relative reveal-hidden" style="border-right:none;"
+          >
+            <div
+              class="aspect-video overflow-hidden flex flex-col group select-none bg-neutral-950 w-full border-white/10 border rounded-xl mb-8 pt-6 pr-6 pb-6 pl-6 relative shadow-2xl"
+            >
+              <!-- Subtle Gradient Background -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none"
+              ></div>
+
+              <!-- Window Controls -->
+              <div class="flex items-center gap-2 mb-6 shrink-0 relative z-10">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F57] shadow-sm"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28C840] shadow-sm"></div>
+              </div>
+
+              <!-- Interface Layout -->
+              <div class="flex gap-5 w-full h-full min-h-0 relative z-10">
+                <!-- Left Sidebar Panel -->
+                <div
+                  class="w-[28%] h-full bg-white/[0.02] rounded-lg border border-white/[0.05] p-5 flex flex-col hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500"
+                >
+                  <div class="w-1/2 h-2 bg-white/10 rounded-full mb-3"></div>
+                  <div
+                    class="w-3/4 h-2 bg-white/10 rounded-full opacity-40 mb-8"
+                  ></div>
+
+                  <div
+                    class="w-1/3 h-1.5 bg-white/10 rounded-full mb-3 opacity-30"
+                  ></div>
+                  <div
+                    class="w-2/3 h-1.5 bg-white/10 rounded-full mb-3 opacity-30"
+                  ></div>
+
+                  <div
+                    class="mt-auto w-full aspect-square bg-white/[0.04] rounded-md border border-white/[0.02]"
+                  ></div>
+                </div>
+
+                <!-- Right Content Area -->
+                <div class="flex-1 h-full flex flex-col gap-5 min-h-0">
+                  <!-- Top Large Card -->
+                  <div
+                    class="flex-1 bg-white/[0.02] rounded-lg border border-white/[0.05] p-6 flex items-center gap-8 hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500"
+                  >
+                    <div
+                      class="w-24 h-24 rounded-full bg-white/[0.07] shrink-0"
+                    ></div>
+                    <div class="flex flex-col gap-3 w-full max-w-sm">
+                      <div class="w-2/5 h-2.5 bg-white/10 rounded-full"></div>
+                      <div
+                        class="w-full h-2.5 bg-white/10 rounded-full opacity-40"
+                      ></div>
+                      <div class="flex gap-2 mt-2">
+                        <div
+                          class="w-16 h-1.5 bg-white/10 rounded-full opacity-20"
+                        ></div>
+                        <div
+                          class="w-8 h-1.5 bg-white/10 rounded-full opacity-20"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Small Cards -->
+                  <div class="h-[42%] flex gap-5">
+                    <div
+                      class="flex-1 bg-white/[0.02] rounded-lg border border-white/[0.05] p-6 flex flex-col justify-end gap-3 hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500"
+                    >
+                      <div class="w-1/2 h-2 bg-white/10 rounded-full"></div>
+                      <div
+                        class="w-3/4 h-2 bg-white/10 rounded-full opacity-40"
+                      ></div>
+                    </div>
+                    <div
+                      class="flex-1 bg-white/[0.02] rounded-lg border border-white/[0.05] p-6 flex flex-col justify-end gap-3 hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500"
+                    >
+                      <div class="w-2/3 h-2 bg-white/10 rounded-full"></div>
+                      <div
+                        class="w-1/3 h-2 bg-white/10 rounded-full opacity-40"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow">
+                            <span class="font-mono text-red-500 text-xs block mb-3">02</span>
+              <h3
+                class="text-xl text-white font-medium uppercase tracking-widest mb-3 reveal-hidden"
+              >
+                Full-stack development
+              </h3>
+              <p
+                class="text-neutral-400 text-sm leading-relaxed mb-6 reveal-hidden"
+              >
+                The classic, enhanced with LLM magic. React, Next.js, Express, TypeScript - from dApp frontends to backend infra.
+              </p>
+            </div>
+
+          </div>
+
+          <div
+            class="group flex flex-col hover:bg-white/[0.02] transition-colors duration-500 pt-8 pr-8 pb-8 pl-8 relative"
+          >
+            <div
+              class="aspect-video overflow-hidden flex bg-neutral-900/50 w-full border-white/5 border rounded mb-8 relative select-none"
+            >
+              <!-- Subtle Background Glow -->
+              <div
+                class="absolute top-1/2 left-1/4 -translate-y-1/2 w-40 h-40 bg-red-500/5 blur-[50px] rounded-full pointer-events-none"
+              ></div>
+
+              <!-- Left Panel: Chart -->
+              <div
+                class="w-3/5 h-full flex flex-col p-5 border-r border-white/5 relative"
+              >
+                <!-- Legend -->
+                <div class="flex gap-4 mb-2 z-10">
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-[1px] bg-neutral-700"></div>
+                    <span class="text-[10px] font-medium text-neutral-500">
+                      Organic
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-[1px] bg-red-900/60"></div>
+                    <span class="text-[10px] font-medium text-neutral-500">
+                      Social
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-2 h-2 rounded-[1px] bg-red-500"></div>
+                    <span class="text-[10px] font-medium text-neutral-500">
+                      Direct
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Chart Area -->
+                <div
+                  class="flex-grow relative flex items-end justify-around pb-4 pt-4 px-2"
+                >
+                  <!-- Grid Lines -->
+                  <div
+                    class="absolute inset-x-0 top-4 bottom-4 flex flex-col justify-between pointer-events-none opacity-20"
+                  >
+                    <div
+                      class="border-t border-dashed border-white/10 w-full h-px"
+                    ></div>
+                    <div
+                      class="border-t border-dashed border-white/10 w-full h-px"
+                    ></div>
+                    <div
+                      class="border-t border-dashed border-white/10 w-full h-px"
+                    ></div>
+                    <div
+                      class="border-t border-dashed border-white/10 w-full h-px"
+                    ></div>
+                  </div>
+
+                  <!-- Group 1: Jan -->
+                  <div
+                    class="flex items-end gap-1 h-full w-[30%] relative group reveal-hidden"
+                  >
+                    <div
+                      class="w-1/3 bg-neutral-700 h-[30%] rounded-t-[2px] transition-all duration-500 group-hover:bg-neutral-600"
+                    ></div>
+                    <div
+                      class="w-1/3 bg-red-900/60 h-[65%] rounded-t-[2px] transition-all duration-500 group-hover:bg-red-900/80"
+                    ></div>
+                    <div
+                      class="w-1/3 bg-red-500 h-[45%] rounded-t-[2px] shadow-[0_0_10px_rgba(217,59,37,0.3)] transition-all duration-500 group-hover:h-[50%]"
+                    ></div>
+                    <span
+                      class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-neutral-500 font-medium"
+                    >
+                      Jan
+                    </span>
+                  </div>
+
+                  <!-- Group 2: Feb -->
+                  <div
+                    class="flex items-end gap-1 h-full w-[30%] relative group reveal-hidden"
+                  >
+                    <div
+                      class="w-1/3 bg-neutral-700 h-[85%] rounded-t-[2px] transition-all duration-500 group-hover:bg-neutral-600"
+                    ></div>
+                    <div
+                      class="w-1/3 bg-red-900/60 h-[55%] rounded-t-[2px] transition-all duration-500 group-hover:bg-red-900/80"
+                    ></div>
+                    <div
+                      class="w-1/3 bg-red-500 h-[25%] rounded-t-[2px] shadow-[0_0_10px_rgba(217,59,37,0.3)] transition-all duration-500 group-hover:h-[30%]"
+                    ></div>
+                    <span
+                      class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-neutral-500 font-medium"
+                    >
+                      Feb
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Panel: Settings -->
+              <div
+                class="w-2/5 h-full flex flex-col justify-center p-5 bg-neutral-950/30"
+              >
+                <div class="flex flex-col gap-3.5">
+                  <!-- Toggle Item -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer reveal-hidden"
+                  >
+                    <span
+                      class="text-[10px] font-medium text-neutral-400 group-hover:text-white transition-colors"
+                    >
+                      Compact
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-neutral-800 rounded-full relative transition-colors group-hover:bg-neutral-700"
+                    >
+                      <div
+                        class="absolute left-0.5 top-0.5 w-2.5 h-2.5 bg-neutral-500 rounded-full transition-all"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Item: Active -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer reveal-hidden"
+                  >
+                    <span class="text-[10px] font-medium text-white">
+                      Animated
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-red-500/20 rounded-full relative transition-colors border border-red-500/50"
+                    >
+                      <div
+                        class="absolute right-0.5 top-0.5 w-2.5 h-2.5 bg-red-500 rounded-full shadow-sm transition-all"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Item: Active -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer reveal-hidden"
+                  >
+                    <span class="text-[10px] font-medium text-white">
+                      Highlights
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-red-500/20 rounded-full relative transition-colors border border-red-500/50"
+                    >
+                      <div
+                        class="absolute right-0.5 top-0.5 w-2.5 h-2.5 bg-red-500 rounded-full shadow-sm transition-all"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Item: Active -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer reveal-hidden"
+                  >
+                    <span class="text-[10px] font-medium text-white">
+                      Trend Lines
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-red-500/20 rounded-full relative transition-colors border border-red-500/50"
+                    >
+                      <div
+                        class="absolute right-0.5 top-0.5 w-2.5 h-2.5 bg-red-500 rounded-full shadow-sm transition-all"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Item: Active -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer bg-white/5 -mx-2 px-2 py-1 rounded border border-white/5 reveal-hidden"
+                  >
+                    <span class="text-[10px] font-medium text-white">
+                      Rounding
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-red-500/20 rounded-full relative transition-colors border border-red-500/50"
+                    >
+                      <div
+                        class="absolute right-0.5 top-0.5 w-2.5 h-2.5 bg-red-500 rounded-full shadow-sm transition-all"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Toggle Item -->
+                  <div
+                    class="flex items-center justify-between group cursor-pointer reveal-hidden"
+                  >
+                    <span
+                      class="text-[10px] font-medium text-neutral-400 group-hover:text-white transition-colors"
+                    >
+                      Brand Clrs
+                    </span>
+                    <div
+                      class="w-7 h-3.5 bg-neutral-800 rounded-full relative transition-colors group-hover:bg-neutral-700"
+                    >
+                      <div
+                        class="absolute left-0.5 top-0.5 w-2.5 h-2.5 bg-neutral-500 rounded-full transition-all"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow">
+                            <span class="font-mono text-red-500 text-xs block mb-3">03</span>
+              <h3
+                class="text-xl text-white font-medium uppercase tracking-widest mb-3 reveal-hidden"
+              >
+                Advisory
+              </h3>
+              <p
+                class="text-neutral-400 text-sm leading-relaxed mb-6 reveal-hidden"
+              >
+                Ecosystem guidance, architecture reviews and go-to-market strategy from Solana natives.
+              </p>
+            </div>
+
+          </div>
+          <div
+            class="group flex flex-col hover:bg-white/[0.02] transition-colors duration-500 pt-8 pr-8 pb-8 pl-8 relative reveal-hidden"
+          >
+            <div
+              class="aspect-video overflow-hidden flex flex-col bg-neutral-900/50 w-full border-white/5 border rounded mb-8 relative items-center justify-center"
+            >
+              <!-- Ambient Glow Effects -->
+              <div
+                class="absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-red-600/20 blur-[90px] rounded-full pointer-events-none"
+              ></div>
+              <div
+                class="absolute top-0 left-1/3 w-1/2 h-1/3 bg-orange-600/10 blur-[60px] rounded-full pointer-events-none"
+              ></div>
+                <!-- Background Grid Effect -->
+                <div
+                  class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]"
+                ></div>
+
+                <!-- Isometric Illustration -->
+                <div
+                  class="z-10 flex w-full h-full relative items-center justify-center"
+                >
+                  <svg
+                    viewBox="0 0 200 160"
+                    class="w-64 h-auto drop-shadow-2xl transform transition-transform duration-700 ease-out group-hover:scale-110"
+                  >
+                    <defs>
+                      <!-- Gradients for the metallic look -->
+                      <linearGradient
+                        id="cube-light-top"
+                        x1="0%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          class="stop-color-white"
+                          stop-color="#ffffff"
+                        ></stop>
+                        <stop
+                          offset="100%"
+                          class="stop-color-neutral-300"
+                          stop-color="#d4d4d4"
+                        ></stop>
+                      </linearGradient>
+                      <linearGradient
+                        id="cube-light-left"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          class="stop-color-neutral-400"
+                          stop-color="#a3a3a3"
+                        ></stop>
+                        <stop
+                          offset="100%"
+                          class="stop-color-neutral-500"
+                          stop-color="#737373"
+                        ></stop>
+                      </linearGradient>
+                      <linearGradient
+                        id="cube-light-right"
+                        x1="100%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          class="stop-color-neutral-500"
+                          stop-color="#737373"
+                        ></stop>
+                        <stop
+                          offset="100%"
+                          class="stop-color-neutral-600"
+                          stop-color="#525252"
+                        ></stop>
+                      </linearGradient>
+                    </defs>
+
+                    <!-- Bottom Cube (Dark) -->
+                    <g
+
+                      transform="translate(100, 108)"
+                    >
+                      <path
+                        d="M0,-14 L24,0 L0,14 L-24,0 Z"
+                        class="fill-neutral-700/80"
+                      ></path>
+                      <path
+                        d="M-24,0 L0,14 V40 L-24,26 Z"
+                        class="fill-neutral-800"
+                      ></path>
+                      <path
+                        d="M0,14 L24,0 V26 L0,40 Z"
+                        class="fill-neutral-900"
+                      ></path>
+                    </g>
+
+                    <!-- Left Cube (Dark) -->
+                    <g
+
+                      transform="translate(56, 82)"
+                    >
+                      <path
+                        d="M0,-14 L24,0 L0,14 L-24,0 Z"
+                        class="fill-neutral-700/80"
+                      ></path>
+                      <path
+                        d="M-24,0 L0,14 V40 L-24,26 Z"
+                        class="fill-neutral-800"
+                      ></path>
+                      <path
+                        d="M0,14 L24,0 V26 L0,40 Z"
+                        class="fill-neutral-900"
+                      ></path>
+                    </g>
+
+                    <!-- Right Cube (Dark) -->
+                    <g
+
+                      transform="translate(144, 82)"
+                    >
+                      <path
+                        d="M0,-14 L24,0 L0,14 L-24,0 Z"
+                        class="fill-neutral-700/80"
+                      ></path>
+                      <path
+                        d="M-24,0 L0,14 V40 L-24,26 Z"
+                        class="fill-neutral-800"
+                      ></path>
+                      <path
+                        d="M0,14 L24,0 V26 L0,40 Z"
+                        class="fill-neutral-900"
+                      ></path>
+                    </g>
+
+                    <!-- Top Cube (Highlight/White) -->
+                    <g
+
+                      transform="translate(100, 56)"
+                    >
+                      <!-- Subtle Glow -->
+                      <circle
+                        cx="0"
+                        cy="10"
+                        r="30"
+                        class="fill-white/5 blur-xl"
+                      ></circle>
+
+                      <!-- Cube Faces -->
+                      <path
+                        d="M0,-14 L24,0 L0,14 L-24,0 Z"
+                        fill="url(#cube-light-top)"
+                      ></path>
+                      <path
+                        d="M-24,0 L0,14 V40 L-24,26 Z"
+                        fill="url(#cube-light-left)"
+                      ></path>
+                      <path
+                        d="M0,14 L24,0 V26 L0,40 Z"
+                        fill="url(#cube-light-right)"
+                      ></path>
+
+                      <!-- Highlight Edges -->
+                      <path
+                        d="M-24,0 L0,-14 L24,0"
+                        fill="none"
+                        class="stroke-white/40 stroke-[0.5]"
+                      ></path>
+                      <path
+                        d="M0,14 V40"
+                        fill="none"
+                        class="stroke-white/20 stroke-[0.5]"
+                      ></path>
+                    </g>
+              </svg>
+                </div>
+            </div>
+            <div class="flex flex-col flex-grow">
+                            <span class="font-mono text-red-500 text-xs block mb-3">04</span>
+              <h3
+                class="text-xl text-white font-medium uppercase tracking-widest mb-3 reveal-hidden"
+              >
+                Research
+              </h3>
+              <p
+                class="text-neutral-400 text-sm leading-relaxed mb-6 reveal-hidden"
+              >
+                Protocol analysis, feasibility studies, and technical deep-dives from people who live on-chain.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+    </section>
+
+    <!-- CLIENT ORBIT SECTION -->
+    <section id="clients" class="relative z-20 w-full border-t border-white/10 bg-neutral-950 overflow-hidden">
+      <style>
+        /* === CSS Orbit === */
+        .orbit-container {
+          position: relative;
+          width: 100%;
+          height: 600px;
+        }
+        @media (max-width: 768px) {
+          .orbit-container { height: 500px; margin-top: -1rem; }
+        }
+        @media (max-width: 390px) {
+          .orbit-container { height: 420px; }
+        }
+
+        /* Orbit center anchor (everything positions relative to this) */
+        .orbit-anchor {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+        }
+
+        /* Rings (visual only) */
+        .orbit-ring {
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.12);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .orbit-container { --orbit-r-outer: 240px; --orbit-r-middle: 170px; --orbit-r-inner: 100px; }
+        .orbit-ring--inner  { width: calc(var(--orbit-r-inner)  * 2); height: calc(var(--orbit-r-inner)  * 2); border-color: rgba(255,255,255,0.15); }
+        .orbit-ring--middle { width: calc(var(--orbit-r-middle) * 2); height: calc(var(--orbit-r-middle) * 2); border-color: rgba(255,255,255,0.12); }
+        .orbit-ring--outer  { width: calc(var(--orbit-r-outer)  * 2); height: calc(var(--orbit-r-outer)  * 2); border-color: rgba(255,255,255,0.10); }
+
+        /* Spinning wrapper - zero-size element at center, children offset by radius */
+        .orbit-spin {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          will-change: transform;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        /* Orbit movement is fully JS-driven - no CSS rotation */
+
+        /* Logo positioning wrapper - JS sets transform each frame to orbit */
+        .orbit-slot {
+          position: absolute;
+          width: 44px;
+          height: 44px;
+          margin-left: -22px;
+          margin-top: -22px;
+          will-change: transform;
+        }
+        @media (max-width: 768px) {
+          .orbit-slot { width: 36px; height: 36px; margin-left: -18px; margin-top: -18px; }
+        }
+        @media (max-width: 390px) {
+          .orbit-slot { width: 30px; height: 30px; margin-left: -15px; margin-top: -15px; }
+        }
+
+        /* Logos stay upright - JS repositions slots, nothing rotates */
+
+        /* The visible logo link */
+        .orbit-logo {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          overflow: visible;
+          border: 2px solid rgba(217, 59, 37, 0.3);
+          background: #111;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease;
+          cursor: pointer;
+          text-decoration: none;
+          position: relative;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .orbit-logo:hover {
+          border-color: rgba(217, 59, 37, 0.7);
+          box-shadow: 0 0 20px rgba(217, 59, 37, 0.3);
+          z-index: 50;
+        }
+        .orbit-logo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        /* Center Solana logo */
+        .orbit-center {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 64px;
+          height: 64px;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          pointer-events: none;
+        }
+        @media (max-width: 768px) {
+          .orbit-center { width: 52px; height: 52px; }
+        }
+        @media (max-width: 390px) {
+          .orbit-center { width: 44px; height: 44px; }
+        }
+
+        /* Tooltip */
+        .orbit-logo .orbit-tip {
+          position: absolute;
+          bottom: calc(100% + 8px);
+          left: 50%;
+          --tip-shift: 0px;
+          transform: translateX(-50%) translateX(var(--tip-shift));
+          max-width: 90vw;
+          background: rgba(15,15,17,0.92);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(217,59,37,0.15);
+          border-radius: 8px;
+          padding: 6px 12px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+          white-space: nowrap;
+          color: #fff;
+          font-family: Inter, sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.2s ease;
+        }
+        .orbit-logo:hover .orbit-tip,
+        .orbit-logo.active .orbit-tip {
+          opacity: 1;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+        .orbit-logo.active {
+          border-color: rgba(217, 59, 37, 0.7);
+          box-shadow: 0 0 20px rgba(217, 59, 37, 0.3);
+          z-index: 9999;
+        }
+        .orbit-logo.active .orbit-tip {
+          z-index: 10000;
+        }
+        /* Lift the entire spin container when it has an active logo */
+        .orbit-spin.has-active {
+          z-index: 9998;
+        }
+
+        /* Particles - spans full clients section */
+        .orbit-particles {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 1;
+        }
+        .orbit-particle {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(217, 59, 37, 0.6);
+          box-shadow: 0 0 6px rgba(217, 59, 37, 0.4), 0 0 12px rgba(217, 59, 37, 0.15);
+          animation: particle-float linear infinite;
+        }
+        @keyframes particle-float {
+          0% { opacity: 0; transform: translate(0, 0) scale(1); }
+          10% { opacity: 0.8; }
+          50% { opacity: 0.5; }
+          90% { opacity: 0.7; }
+          100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.3); }
+        }
+
+        /* Pause particles when off-screen */
+        .orbit-container.paused .orbit-particle {
+          animation-play-state: paused !important;
+        }
+      </style>
+
+      <div class="section-inner">
+      <div class="grid grid-cols-1 lg:grid-cols-4 lg:divide-y-0 lg:divide-x divide-white/10">
+        <div class="p-8 lg:col-span-1 flex flex-col justify-between h-full min-h-0 lg:min-h-[400px]">
+          <div>
+            <span class="font-mono text-neutral-500 text-xs block mb-4">///</span>
+            <h2 class="text-3xl font-syne tracking-tight text-white mb-4 font-medium">Our Clients</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-8">Satisfied former and current partners.</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 orbit-container">
+          <div id="orbit-particles" class="orbit-particles"></div>
+          <!-- Solana center -->
+          <img src="assets/logos/solana.webp" alt="Solana" class="orbit-center" loading="eager" decoding="async" />
+          <div class="orbit-anchor">
+
+            <!-- Rings -->
+            <div class="orbit-ring orbit-ring--inner"></div>
+            <div class="orbit-ring orbit-ring--middle"></div>
+            <div class="orbit-ring orbit-ring--outer"></div>
+
+            <!-- Orbit rings with logos -->
+            <div class="orbit-spin orbit-spin--inner" id="orbit-inner"></div>
+            <div class="orbit-spin orbit-spin--middle" id="orbit-middle"></div>
+            <div class="orbit-spin orbit-spin--outer" id="orbit-outer"></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+      (() => {
+        const clients = [
+          { name: "Chomp", logo: "assets/logos/chomp.webp", url: "https://x.com/chompdotfyi" },
+          { name: "Saturn BTC", logo: "assets/logos/saturn.webp", url: "https://www.saturnbtc.io" },
+          { name: "Avicenne Studio", logo: "assets/logos/avicenne.webp", url: "https://www.avicenne.studio/" },
+          { name: "Polify", logo: "assets/logos/polify.webp", url: "https://polify.xyz/" },
+          { name: "BonkZ", logo: "assets/logos/bonkz.webp", url: "https://bonkz.io/" },
+          { name: "The Fracture", logo: "assets/logos/fracture.webp", url: "https://thefracture.io/" },
+          { name: "Motion Corporation", logo: "assets/logos/motion-corporation.webp", url: "https://www.digitalmotioncorp.com/" },
+          { name: "RevTec", logo: "assets/logos/revtec.webp", url: "https://www.revtec.fi/" },
+          { name: "DiversiFi", logo: "assets/logos/diversifi.webp", url: "https://diversifi.trade/" },
+          { name: "dOrg", logo: "assets/logos/dorg.webp", url: "https://www.dorg.tech/" },
+          { name: "Superteam Balkan", logo: "assets/logos/superteam-balkan.webp", url: "https://x.com/SuperteamBLKN/" },
+          { name: "OMNI Studio", logo: "assets/logos/omni-studio.webp", url: "https://www.omnicreative.studio/" },
+          { name: "Lingo", logo: "assets/logos/lingo.webp", url: "https://mylingo.io/" },
+          { name: "Solana ID", logo: "assets/logos/solanaid.webp", url: "https://www.solana.id/" },
+          { name: "BOOGLE", logo: "assets/logos/boogle.webp", url: "https://x.com/solBOOGLE" },
+          { name: "Seedplex", logo: "assets/logos/seedplex.webp", url: "https://seedplex.io/" },
+          { name: "Fundl", logo: "assets/logos/fundl.webp", url: "https://www.fundl.fun/" },
+          { name: "GREED Academy", logo: "assets/logos/greed.webp", url: "https://greed.academy/" },
+          { name: "ZERG", logo: "assets/logos/zerg.webp", url: "https://welcome.zerg.app/" },
+          { name: "Longwood Labs", logo: "assets/logos/longwood-labs.webp", url: "https://x.com/longwoodlabs" },
+          { name: "BlastCtrl", logo: "assets/logos/blastctrl.webp", url: "https://tools.blastctrl.com/" }
+        ];
+
+        // Shuffle
+        for (let i = clients.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [clients[i], clients[j]] = [clients[j], clients[i]];
+        }
+
+        const orbitContainer = document.querySelector('.orbit-container');
+        function computeRadii() {
+          const cw = orbitContainer.clientWidth;
+          const ch = orbitContainer.clientHeight;
+          const slotHalf = cw <= 390 ? 15 : cw <= 768 ? 18 : 22;
+          const safety = cw <= 390 ? 28 : cw <= 768 ? 22 : 8;
+          const maxR = Math.min(cw, ch) / 2 - slotHalf - safety;
+          const outer = Math.min(240, Math.max(110, maxR));
+          const middle = outer * (170/240);
+          const inner = outer * (100/240);
+          orbitContainer.style.setProperty('--orbit-r-outer', outer + 'px');
+          orbitContainer.style.setProperty('--orbit-r-middle', middle + 'px');
+          orbitContainer.style.setProperty('--orbit-r-inner', inner + 'px');
+          return { outer, middle, inner };
+        }
+        const r0 = computeRadii();
+        const rings = [
+          { id: 'orbit-inner',  count: 3,  radius: r0.inner  },
+          { id: 'orbit-middle', count: 7,  radius: r0.middle },
+          { id: 'orbit-outer',  count: 11, radius: r0.outer  }
+        ];
+
+        let idx = 0;
+        rings.forEach(ring => {
+          const el = document.getElementById(ring.id);
+          for (let i = 0; i < ring.count; i++) {
+            const client = clients[idx++];
+            if (!client) break;
+            const angle = (i / ring.count) * 2 * Math.PI;
+            const x = Math.cos(angle) * ring.radius;
+            const y = Math.sin(angle) * ring.radius;
+
+            // Outer div = positioned slot (orbits with ring)
+            const slot = document.createElement('div');
+            slot.className = 'orbit-slot';
+            slot.dataset.angleIdx = i;
+            slot.dataset.ringCount = ring.count;
+            slot.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+
+            // Inner = visible logo (two-tap: first tap shows tooltip + pauses, second opens URL)
+            const logo = document.createElement('div');
+            logo.className = 'orbit-logo';
+            logo.dataset.url = client.url;
+            logo.dataset.name = client.name;
+            logo.innerHTML = '<img src="' + client.logo + '" alt="' + client.name + '" width="44" height="44" loading="lazy" decoding="async" /><span class="orbit-tip">' + client.name + '</span>';
+
+            slot.appendChild(logo);
+            el.appendChild(slot);
+          }
+        });
+
+        // Recompute radii and reposition slots on resize / orientation change
+        let _orbitResizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(_orbitResizeTimer);
+          _orbitResizeTimer = setTimeout(() => {
+            const r = computeRadii();
+            liveRadii.inner = r.inner;
+            liveRadii.middle = r.middle;
+            liveRadii.outer = r.outer;
+          }, 150);
+        });
+
+        // Generate particles - filling empty space around orbit
+        const pc = document.getElementById('orbit-particles');
+        for (let i = 0; i < 40; i++) {
+          const p = document.createElement('div');
+          p.className = 'orbit-particle';
+          // Vary sizes: mostly tiny with a few slightly larger
+          const size = Math.random() < 0.85 ? (1 + Math.random() * 2) : (2.5 + Math.random() * 2);
+          // Bias distribution toward edges and corners where empty space is
+          let left = Math.random() * 100;
+          let top = Math.random() * 100;
+          const distFromCenter = Math.sqrt(Math.pow(left - 50, 2) + Math.pow(top - 50, 2));
+          // Re-roll if too close to center (orbit lives there) - 40% chance to push outward
+          if (distFromCenter < 20 && Math.random() < 0.4) {
+            left = Math.random() < 0.5 ? Math.random() * 25 : 75 + Math.random() * 25;
+            top = Math.random() < 0.5 ? Math.random() * 25 : 75 + Math.random() * 25;
+          }
+          p.style.cssText =
+            'left:' + left + '%;' +
+            'top:' + top + '%;' +
+            'width:' + size + 'px;' +
+            'height:' + size + 'px;' +
+            '--dx:' + ((Math.random() - 0.5) * 160) + 'px;' +
+            '--dy:' + ((Math.random() - 0.5) * 160) + 'px;' +
+            'animation-duration:' + (8 + Math.random() * 14) + 's;' +
+            'animation-delay:' + (-Math.random() * 20) + 's;';
+          pc.appendChild(p);
+        }
+
+        // --- JS-driven orbit: reposition slots via transform, logos stay upright ---
+        const container = document.querySelector('.orbit-container');
+        const ringData = [
+          { el: document.querySelector('.orbit-spin--inner'),  period: 25, dir: 1,  radiusKey: 'inner' },
+          { el: document.querySelector('.orbit-spin--middle'), period: 45, dir: -1, radiusKey: 'middle' },
+          { el: document.querySelector('.orbit-spin--outer'),  period: 60, dir: 1,  radiusKey: 'outer' }
+        ];
+        let orbitPaused = false;
+        let activeLogo = null;
+        let frozenRing = null;
+        let lastTime = performance.now();
+        let elapsed = 0; // accumulated seconds - pauses stop accumulation, no jump on resume
+        // Live radii - updated on resize
+        const liveRadii = { inner: r0.inner, middle: r0.middle, outer: r0.outer };
+
+        // Pre-cache slot data so we don't read dataset every frame
+        ringData.forEach(r => {
+          r.slots = Array.from(r.el.querySelectorAll('.orbit-slot')).map(slot => ({
+            el: slot,
+            offset: (+slot.dataset.angleIdx / +slot.dataset.ringCount) * 2 * Math.PI
+          }));
+          r.logos = r.el.querySelectorAll('.orbit-logo');
+        });
+
+        // ~30fps is plenty for a slow orbit - skip every other frame
+        let frameParity = 0;
+        function orbitTick(now) {
+          requestAnimationFrame(orbitTick);
+          if (!orbitPaused) {
+            elapsed += (now - lastTime) / 1000;
+          }
+          lastTime = now;
+          if (++frameParity & 1) return; // skip odd frames → ~30fps
+          ringData.forEach(r => {
+            if (r.el === frozenRing) return;
+            const baseAngle = (elapsed / r.period) * 2 * Math.PI * r.dir;
+            const radius = liveRadii[r.radiusKey];
+            for (let s = 0; s < r.slots.length; s++) {
+              const angle = baseAngle + r.slots[s].offset;
+              r.slots[s].el.style.transform = 'translate(' + (Math.cos(angle) * radius) + 'px,' + (Math.sin(angle) * radius) + 'px)';
+            }
+          });
+        }
+        requestAnimationFrame(orbitTick);
+
+        // Pause orbit when section is offscreen (saves CPU)
+        if ('IntersectionObserver' in window && container) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { orbitPaused = !e.isIntersecting; });
+          }, { rootMargin: '100px' });
+          io.observe(container);
+        }
+
+        // --- Two-tap interaction ---
+        function clearActive() {
+          if (activeLogo) {
+            activeLogo.classList.remove('active');
+            activeLogo = null;
+          }
+          if (frozenRing) {
+            frozenRing.classList.remove('has-active');
+            frozenRing = null;
+          }
+        }
+
+        // Use touchstart/touchend for mobile, click for desktop
+        let pendingLogo = null;
+        let pendingTime = 0;
+
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        function activateLogo(logo) {
+          if (logo === activeLogo) return;
+          clearActive();
+          logo.classList.add('active');
+          logo.style.transform = 'scale(1.3)';
+          activeLogo = logo;
+          const spin = logo.closest('[class*="orbit-spin"]');
+          if (spin) { spin.classList.add('has-active'); frozenRing = spin; }
+          // Edge-clamp the tooltip so it never escapes the viewport
+          const tip = logo.querySelector('.orbit-tip');
+          if (tip) {
+            tip.style.setProperty('--tip-shift', '0px');
+            requestAnimationFrame(() => {
+              const rect = tip.getBoundingClientRect();
+              const margin = 8;
+              let shift = 0;
+              if (rect.left < margin) shift = margin - rect.left;
+              else if (rect.right > window.innerWidth - margin) shift = (window.innerWidth - margin) - rect.right;
+              tip.style.setProperty('--tip-shift', shift + 'px');
+            });
+          }
+        }
+
+        document.querySelectorAll('.orbit-logo').forEach(logo => {
+          if (!isTouch) {
+            // Desktop: hover = freeze/tooltip, click = navigate
+            logo.addEventListener('mouseenter', () => activateLogo(logo));
+            logo.addEventListener('click', (e) => {
+              e.preventDefault();
+              if (logo.dataset.url) window.open(logo.dataset.url, '_blank', 'noopener');
+            });
+          } else {
+            // Mobile: keep two-tap behavior
+            logo.addEventListener('touchstart', (e) => {
+              pendingLogo = logo;
+              pendingTime = Date.now();
+            }, { passive: true });
+          }
+        });
+
+        // Mobile two-tap handler
+        function handleTap(logo) {
+          if (logo === activeLogo) {
+            window.open(logo.dataset.url, '_blank', 'noopener');
+            clearActive();
+          } else {
+            activateLogo(logo);
+          }
+        }
+
+        document.addEventListener('touchend', (e) => {
+          if (!pendingLogo) return;
+          const logo = pendingLogo;
+          pendingLogo = null;
+          if (Date.now() - pendingTime > 400) return;
+          e.preventDefault();
+          handleTap(logo);
+        }, { passive: false });
+
+        // Desktop: clear on mouseleave from the orbit container
+        if (!isTouch) {
+          container.addEventListener('mouseleave', () => clearActive());
+        }
+
+        // Tap/click anywhere else = clear
+        document.addEventListener('touchstart', (e) => {
+          if (activeLogo && !e.target.closest('.orbit-logo')) clearActive();
+        }, { passive: true });
+        document.addEventListener('mousedown', (e) => {
+          if (activeLogo && !e.target.closest('.orbit-logo')) clearActive();
+        });
+
+        // Pause when off-screen
+        const obs = new IntersectionObserver(([e]) => {
+          orbitPaused = !e.isIntersecting;
+          container.classList.toggle('paused', orbitPaused);
+        }, { threshold: 0.05 });
+        obs.observe(container);
+      })();
+      </script>
+
+      </div> <!-- /section-inner -->
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team" class="relative z-20 w-full border-t border-white/10 bg-neutral-950" >
+      <div class="section-inner">
+      <div class="grid grid-cols-1 lg:grid-cols-4 lg:divide-y-0 lg:divide-x divide-white/10">
+        <div class="p-8 lg:col-span-1 flex flex-col justify-between h-full min-h-0 lg:min-h-[400px]">
+          <div>
+            <span class="font-mono text-neutral-500 text-xs block mb-4">
+              ///
+            </span>
+            <h2 class="text-3xl font-syne tracking-tight text-white mb-4 font-medium reveal-hidden">
+              The Crew
+            </h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-8 reveal-hidden">
+              Powered by Solana since 2022. Same crew, same mission, still shipping with the best.
+            </p>
+          </div>
+        </div>
+        <div id="team-container" class="lg:col-span-3 carousel-bleed-right relative overflow-x-auto overflow-y-hidden flex items-center bg-neutral-950 no-scrollbar" style="cursor:grab;-webkit-overflow-scrolling:touch;">
+          <div id="team-track" class="flex gap-6 py-12 pl-8 pr-8">
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/matija.webp" alt="Matija" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/matija-nft.webp" alt="Matija NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Matija</h3>
+              <p class="text-neutral-500 text-xs mb-3">CEO / Founder</p>
+              <div class="flex items-center gap-2">
+                <a href="https://t.me/matija_sol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a><a href="https://x.com/matija_sol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/matija-luketin-5b6768182/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/sergije.webp" alt="Sergije" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/sergije-nft.webp" alt="Sergije NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Sergije</h3>
+              <p class="text-neutral-500 text-xs mb-3">CTO</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/sol_serg" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/sergije-anti%C4%8Devi%C4%87-a0b25616a/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/nino.webp" alt="Nino" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/nino-nft.webp" alt="Nino NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Nino</h3>
+              <p class="text-neutral-500 text-xs mb-3">Senior Rust Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/ninoborovic" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/ninoborovic/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/bartol.webp" alt="Bartol" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/bartol-nft.webp" alt="Bartol NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Bartol</h3>
+              <p class="text-neutral-500 text-xs mb-3">DevOps Specialist</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/bd4245" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/bartol-deak/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/danijel.webp" alt="Danijel" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/danijel-nft.webp" alt="Danijel NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Danijel</h3>
+              <p class="text-neutral-500 text-xs mb-3">Frontend Specialist</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/daradom2000" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/danijel-radomiljac-84811a1ba/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/duje.webp" alt="Duje" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/duje-nft.webp" alt="Duje NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Duje</h3>
+              <p class="text-neutral-500 text-xs mb-3">Senior Full Stack Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/jude__sol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/duje-%C5%A1ari%C4%87-a21216155/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/vedran.webp" alt="Vedran" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/vedran-nft.webp" alt="Vedran NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Vedran</h3>
+              <p class="text-neutral-500 text-xs mb-3">Full Stack Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/Veki_sol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/vedran-la%C5%A1i%C4%87-310a20208/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/marin.webp" alt="Marin" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/marin-nft.webp" alt="Marin NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Marin</h3>
+              <p class="text-neutral-500 text-xs mb-3">Full Stack Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/mbarac24" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/marin-barac/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/roko.webp" alt="Roko" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/roko-nft.webp" alt="Roko NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Roko</h3>
+              <p class="text-neutral-500 text-xs mb-3">Rust Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/rok0_sol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/roko-peri%C5%A1i%C4%87-41a2082a0/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/toma.webp" alt="Toma" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/toma-nft.webp" alt="Toma NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Toma</h3>
+              <p class="text-neutral-500 text-xs mb-3">Rust Developer</p>
+              <div class="flex items-center gap-2">
+                <a href="https://x.com/tsiklic1" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-4 h-4"><path fill="currentColor" d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg></a><a href="https://www.linkedin.com/in/toma-%C5%A1ikli%C4%87-512887288/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/30 transition-colors" aria-label="Social link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" class="w-4 h-4"><rect width="3.333" height="9.333" x="1.333" y="5.667" fill="currentColor" rx="0.5"/><ellipse cx="2.987" cy="2.667" fill="currentColor" rx="1.653" ry="1.667"/><path fill="currentColor" d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg></a>
+              </div>
+            </div>
+
+            <div class="team-card w-[220px] md:w-[280px] shrink-0 select-none">
+              <div class="relative w-[220px] h-[300px] md:w-[280px] md:h-[370px] mb-4 rounded-lg overflow-hidden border border-white/5 group/card">
+                <img src="assets/team/azra.webp" alt="Azra" class="w-full h-full object-cover transition-opacity duration-300 group-hover/card:opacity-0" loading="lazy" decoding="async" width="280" height="370" />
+                <img src="assets/team/azra-nft.webp" alt="Azra NFT" width="280" height="370" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Azra</h3>
+              <p class="text-neutral-500 text-xs mb-3">Chief Woof Officer</p>
+              <div class="flex items-center gap-2">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="relative z-20 w-full border-t border-white/10 bg-neutral-950 overflow-hidden">
+      <style>
+        /* Multi-layered radial glow - stronger */
+        .cta-glow {
+          position:absolute; inset:0; pointer-events:none;
+          background:
+            radial-gradient(ellipse 50% 50% at 50% 50%, rgba(217,59,37,0.12) 0%, transparent 55%),
+            radial-gradient(ellipse 70% 40% at 50% 45%, rgba(217,59,37,0.07) 0%, transparent 65%),
+            radial-gradient(ellipse 30% 70% at 55% 60%, rgba(217,59,37,0.05) 0%, transparent 50%),
+            radial-gradient(ellipse 90% 50% at 50% 50%, rgba(255,255,255,0.015) 0%, transparent 50%);
+        }
+
+        /* Scroll-triggered text reveal */
+        .cta-reveal { opacity:0; transform:translateY(24px); filter:blur(6px); transition:all 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .cta-reveal.visible { opacity:1; transform:translateY(0); filter:blur(0); }
+        .cta-reveal-d1 { transition-delay:0.2s; }
+        .cta-reveal-d2 { transition-delay:0.4s; }
+
+        /* CTA Button - red fill with glow */
+        .cta-main-btn {
+          display:inline-block; padding:18px 40px;
+          background:linear-gradient(135deg, #b8301e, #d93b25);
+          color:#fff; font-weight:600; font-size:14px;
+          text-transform:uppercase; letter-spacing:0.12em;
+          border-radius:9999px; text-decoration:none;
+          transition:all 0.4s; position:relative;
+          box-shadow:0 0 30px rgba(217,59,37,0.25), 0 0 60px rgba(217,59,37,0.1);
+        }
+        .cta-main-btn:hover {
+          background:linear-gradient(135deg, #8a2518, #b8301e);
+          box-shadow:0 0 40px rgba(217,59,37,0.4), 0 0 80px rgba(217,59,37,0.15);
+          transform:translateY(-2px);
+        }
+        @media (max-width: 768px) {
+          .cta-main-btn {
+            box-shadow: 0 0 15px rgba(217,59,37,0.15), 0 0 30px rgba(217,59,37,0.05);
+          }
+          .cta-main-btn:hover {
+            box-shadow: 0 0 20px rgba(217,59,37,0.25), 0 0 40px rgba(217,59,37,0.1);
+          }
+        }
+
+        /* Decorative side lines */
+        .cta-line {
+          position:absolute; top:50%; height:1px; width:120px;
+          pointer-events:none; opacity:0;
+          transition:opacity 0.8s 0.5s, width 0.8s 0.5s;
+        }
+        .cta-line.visible { opacity:1; width:120px; }
+        .cta-line-l { left:0; transform:translateY(-50%); background:linear-gradient(to right, transparent, rgba(217,59,37,0.2)); }
+        .cta-line-r { right:0; transform:translateY(-50%); background:linear-gradient(to left, transparent, rgba(217,59,37,0.2)); }
+        @media (max-width:768px) { .cta-line { display:none; } }
+
+        /* Floating accent dots */
+        @keyframes cta-float-1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(8px,-12px)} }
+        @keyframes cta-float-2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-6px,10px)} }
+        @keyframes cta-float-3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(10px,6px)} }
+        .cta-dot {
+          position:absolute; border-radius:50%; pointer-events:none;
+        }
+      </style>
+
+      <div class="section-inner">
+      <div style="padding:100px 32px 100px" class="relative">
+        <!-- Layered warm glow -->
+        <div class="cta-glow"></div>
+
+        <!-- Floating accent dots -->
+        <div class="cta-dot" style="width:4px;height:4px;background:rgba(217,59,37,0.5);top:20%;left:15%;animation:cta-float-1 6s ease-in-out infinite"></div>
+        <div class="cta-dot" style="width:3px;height:3px;background:rgba(217,59,37,0.3);top:70%;left:10%;animation:cta-float-2 8s ease-in-out infinite"></div>
+        <div class="cta-dot" style="width:5px;height:5px;background:rgba(217,59,37,0.4);top:25%;right:12%;animation:cta-float-3 7s ease-in-out 1s infinite"></div>
+        <div class="cta-dot" style="width:3px;height:3px;background:rgba(255,255,255,0.15);top:65%;right:18%;animation:cta-float-1 9s ease-in-out 2s infinite"></div>
+        <div class="cta-dot" style="width:2px;height:2px;background:rgba(217,59,37,0.35);top:40%;left:8%;animation:cta-float-3 5s ease-in-out 0.5s infinite"></div>
+        <div class="cta-dot" style="width:4px;height:4px;background:rgba(217,59,37,0.25);top:50%;right:8%;animation:cta-float-2 7s ease-in-out 3s infinite"></div>
+
+        <!-- Decorative lines -->
+        <div class="cta-line cta-line-l cta-reveal"></div>
+        <div class="cta-line cta-line-r cta-reveal"></div>
+
+        <!-- CTA -->
+        <div class="text-center relative z-10">
+          <h2 class="font-syne tracking-tight font-medium mb-6 cta-reveal" style="font-size:clamp(2rem,4vw,3.25rem)">
+            <span class="text-white">No spec? </span><span style="background:linear-gradient(to right,#d93b25,#e5685a);-webkit-background-clip:text;-webkit-text-fill-color:transparent">No problem!</span>
+          </h2>
+          <p style="color:rgba(255,255,255,0.4);font-size:15px;margin-bottom:40px" class="cta-reveal cta-reveal-d1">Tell us what you're building. We'll tell you when it'll be in production.</p>
+          <div class="cta-reveal cta-reveal-d2">
+            <a href="https://t.me/matija_sol" target="_blank" rel="noopener noreferrer" class="cta-main-btn">
+              Start a Conversation
+            </a>
+          </div>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+
+      <script>
+        (function(){
+          const els = document.querySelectorAll('.cta-reveal');
+          if (!els.length) return;
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+          }, { threshold:0.15 });
+          els.forEach(el => obs.observe(el));
+        })();
+      </script>
+    </section>
+
+    <!-- ELEVATED FEATURES SECTION -->
+    <section
+      class="relative z-20 w-full border-t border-white/10 bg-neutral-950"
+    >
+      <div class="section-inner">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 lg:divide-x divide-white/10"
+      >
+        <div
+          class="p-8 lg:col-span-1 flex flex-col justify-between h-full min-h-0 lg:min-h-[400px]"
+        >
+          <div class="">
+            <span class="font-mono text-neutral-500 text-xs block mb-4">
+              ///
+            </span>
+            <h2
+              class="text-3xl font-syne tracking-tight text-white mb-4 font-medium reveal-hidden"
+            >
+              Engagement Models
+            </h2>
+            <p
+              class="text-neutral-400 text-sm leading-relaxed mb-8 reveal-hidden"
+            >
+              Flexible models for companies of any size.
+              Scale up or down as your project evolves.
+            </p>
+          </div>
+        </div>
+        <div
+          id="engagement-grid" class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 divide-y divide-white/10 md:divide-y-0 mt-4 lg:mt-0"
+        >
+          <div
+            class="group pt-8 pr-8 pb-8 pl-8 flex flex-col justify-between reveal-hidden"
+          >
+            <div class="">
+              <div
+                class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-4 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon
+                    points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  ></polygon></svg>
+              </div>
+              <h3 class="text-white font-medium mb-2 reveal-hidden">
+                On-Demand
+              </h3>
+              <p class="text-neutral-500 text-sm reveal-hidden">
+                Hire by the hour. Ideal for audits, quick fixes, or specialist work without long-term commitment.
+              </p>
+            </div>
+
+            <!-- Adapted Visual -->
+            <div class="relative h-32 w-full flex items-end gap-1.5 mt-8">
+              <!-- Floating Label -->
+              <div
+                class="absolute -top-2 left-0 bg-neutral-900 border border-white/10 rounded px-2.5 py-1.5 flex items-center gap-1.5 shadow-xl transition-transform duration-300 group-hover:-translate-y-1 z-10 ring-1 ring-white/5"
+              >
+                <span class="text-white text-xs font-medium font-syne">
+                  87%
+                </span>
+                <span class="text-red-500 text-[10px] font-bold">+</span>
+              </div>
+
+              <!-- Bars Visual -->
+              <div
+                class="w-full bg-gradient-to-t from-red-500/10 to-red-500 rounded-t-[2px] h-[60%] opacity-80 group-hover:opacity-100 group-hover:h-[65%] transition-all duration-500 ease-out"
+              ></div>
+              <div
+                class="w-full bg-white/5 rounded-t-[2px] h-[15%] group-hover:bg-white/10 transition-colors duration-500"
+              ></div>
+
+              <div
+                class="w-full bg-gradient-to-t from-red-500/10 to-red-500 rounded-t-[2px] h-[80%] opacity-80 group-hover:opacity-100 group-hover:h-[85%] transition-all duration-500 ease-out delay-75"
+              ></div>
+              <div
+                class="w-full bg-white/5 rounded-t-[2px] h-[25%] group-hover:bg-white/10 transition-colors duration-500"
+              ></div>
+
+              <div
+                class="w-full bg-gradient-to-t from-red-500/10 to-red-500 rounded-t-[2px] h-[100%] opacity-80 group-hover:opacity-100 group-hover:h-[95%] transition-all duration-500 ease-out delay-100 shadow-[0_0_20px_rgba(217,59,37,0.3)]"
+              ></div>
+              <div
+                class="w-full bg-white/5 rounded-t-[2px] h-[20%] group-hover:bg-white/10 transition-colors duration-500"
+              ></div>
+
+              <div
+                class="w-full bg-gradient-to-t from-red-500/10 to-red-500 rounded-t-[2px] h-[70%] opacity-80 group-hover:opacity-100 group-hover:h-[75%] transition-all duration-500 ease-out delay-150"
+              ></div>
+              <div
+                class="w-full bg-white/5 rounded-t-[2px] h-[10%] group-hover:bg-white/10 transition-colors duration-500"
+              ></div>
+
+              <div
+                class="w-full bg-gradient-to-t from-red-500/10 to-red-500 rounded-t-[2px] h-[45%] opacity-80 group-hover:opacity-100 group-hover:h-[50%] transition-all duration-500 ease-out delay-200"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="group pt-8 pr-8 pb-8 pl-8 flex flex-col justify-between h-full reveal-hidden"
+          >
+            <div class="relative z-10">
+              <div
+                class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-4 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  ></path></svg>
+              </div>
+              <h3 class="text-white font-medium mb-2 reveal-hidden">
+                Fixed Scope
+              </h3>
+              <p class="text-neutral-500 text-sm reveal-hidden">
+                You define the goals, we handle the rest. Defined scope, fixed timeline, fixed cost, shipped.
+              </p>
+            </div>
+
+            <!-- Scalable Dashboard Visual -->
+            <div
+              class="relative w-full h-32 mt-8 select-none pointer-events-none overflow-hidden"
+            >
+              <!-- Background Layer (Simulating Depth) -->
+              <div
+                class="absolute top-0 right-0 w-[90%] h-[90%] bg-neutral-900/40 border border-white/5 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform  ease-out"
+              ></div>
+
+              <!-- Main Dashboard Card -->
+              <div
+                class="absolute bottom-0 left-0 w-full h-[95%] bg-[#0A0A0B] border border-white/10 rounded-tl-xl rounded-tr-md flex flex-col overflow-hidden shadow-2xl group-hover:border-red-500/20 transition-all duration-500"
+              >
+                <!-- Header Bar -->
+                <div
+                  class="h-8 border-b border-white/5 bg-white/[0.01] flex items-center px-3 justify-between shrink-0"
+                >
+                  <div class="flex items-center gap-2">
+                    <!-- Abstract Logo -->
+                    <div
+                      class="w-2.5 h-2.5 bg-gradient-to-br from-white to-neutral-500 rounded-[2px] opacity-80"
+                    ></div>
+                    <!-- Abstract Title -->
+                    <div class="h-1.5 w-10 bg-white/10 rounded-full"></div>
+                  </div>
+                  <!-- Abstract Controls -->
+                  <div class="flex gap-1.5 items-center">
+                    <div
+                      class="w-8 h-3.5 bg-white/5 rounded-[3px] border border-white/5 flex items-center px-1"
+                    >
+                      <div class="w-full h-0.5 bg-white/10 rounded-full"></div>
+                    </div>
+                    <div
+                      class="w-3.5 h-3.5 bg-white/5 rounded-[3px] border border-white/5 flex items-center justify-center"
+                    >
+                      <svg
+                        class="w-2 h-2 text-neutral-500"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+
+              </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Body Content -->
+                <div class="flex-1 relative p-3 flex flex-col justify-end">
+                  <!-- Stats Abstract -->
+                  <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                    <div class="h-1 w-6 bg-white/10 rounded-full"></div>
+                    <div class="h-2 w-12 bg-white/5 rounded-full"></div>
+                  </div>
+
+                  <!-- Chart Visualization -->
+                  <div class="relative w-full h-[60%]">
+                    <!-- Grid Lines -->
+                    <div
+                      class="absolute inset-0 flex flex-col justify-between opacity-10"
+                    >
+                      <div
+                        class="border-t border-dashed border-white w-full h-px"
+                      ></div>
+                      <div
+                        class="border-t border-dashed border-white w-full h-px"
+                      ></div>
+                      <div
+                        class="border-t border-dashed border-white w-full h-px"
+                      ></div>
+                    </div>
+
+                    <!-- Line Chart -->
+                    <svg
+                      class="absolute inset-0 w-full h-full overflow-visible"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 50"
+                    >
+                      <defs>
+                        <linearGradient
+                          id="chartFill"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="0%"
+                            stop-color="#d93b25"
+                            stop-opacity="0.2"
+                          ></stop>
+                          <stop
+                            offset="100%"
+                            stop-color="#d93b25"
+                            stop-opacity="0"
+                          ></stop>
+                        </linearGradient>
+                      </defs>
+                      <!-- Filled Area -->
+                      <path
+                        d="M0,40 Q15,45 30,25 T60,20 T85,10 L100,5 L100,50 L0,50 Z"
+                        fill="url(#chartFill)"
+                        class="text-red-500 transition-opacity duration-500 opacity-60 group-hover:opacity-80"
+                      ></path>
+                      <!-- Stroke Line -->
+                      <path
+                        d="M0,40 Q15,45 30,25 T60,20 T85,10 L100,5"
+                        fill="none"
+                        stroke="#d93b25"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="drop-shadow-[0_0_6px_rgba(217,59,37,0.6)]"
+                        vector-effect="non-scaling-stroke"
+                      ></path>
+
+
+              </svg>
+                    <!-- Hover tooltip (HTML, not SVG) -->
+                    <div class="absolute bottom-[63%] right-[12%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 flex flex-col items-center">
+                      <div class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">+40%</div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1 shadow-[0_0_6px_rgba(217,59,37,0.6)]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group pt-8 pr-8 pb-8 pl-8 flex flex-col justify-between h-full reveal-hidden"
+          >
+            <div class="relative z-10">
+              <div
+                class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-4 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 17.33 20"
+                  fill="currentColor"
+                >
+                  <path d="M8.66,0l2.46,4.27-2.46-1.42-2.46,1.42L8.66,0Z"/>
+                  <path d="M8.66,20l2.46-4.27-2.46,1.42-2.46-1.42,2.46,4.27Z"/>
+                  <path d="M17.33,5l-2.46,4.27v-2.84l-2.46-1.42h4.93Z"/>
+                  <path d="M0,15h4.93l-2.46-1.42v-2.84L0,15Z"/>
+                  <path d="M17.32,15h-4.93l2.46-1.42v-2.84l2.46,4.27Z"/>
+                  <path d="M0,5l2.46,4.27v-2.84l2.46-1.42H0Z"/>
+                  <path d="M8.66,5.33l4.13,2.38v4.77l-4.13,2.38-4.13-2.38v-4.77l4.13-2.38Z"/></svg>
+              </div>
+              <h3 class="text-white font-medium mb-2 reveal-hidden">
+                Full Service
+              </h3>
+              <p class="text-neutral-500 text-sm reveal-hidden">
+                Branded, designed, developed and audited, from 0 to 1, alongside our vetted partners.
+              </p>
+            </div>
+
+            <!-- Full Service Visual - Mini Dashboard -->
+            <div
+              class="relative w-full h-32 mt-8 rounded bg-neutral-900/50 border border-white/5 overflow-hidden group-hover:border-red-500/20 transition-colors duration-500"
+            >
+              <!-- Faint Grid -->
+              <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]"></div>
+
+              <style>
+                .fd-window { position:absolute; inset:8px; background:#0A0A0B; border-radius:8px; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; overflow:hidden; transition:all 0.5s; }
+                .group:hover .fd-window { border-color:rgba(217,59,37,0.2); box-shadow:0 0 20px rgba(217,59,37,0.05); }
+                .fd-titlebar { height:24px; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; padding:0 10px; flex-shrink:0; }
+                .fd-body { flex:1; display:flex; padding:0; }
+                .fd-col { flex:1; padding:8px; display:flex; flex-direction:column; gap:6px; }
+                .fd-col + .fd-col { border-left:1px solid rgba(255,255,255,0.05); }
+                .fd-col-label { display:flex; align-items:center; gap:4px; }
+                .fd-col-dot { width:4px; height:4px; border-radius:50%; transition:background 0.5s; box-shadow:0 0 4px rgba(217,59,37,0.3); }
+                .fd-col-name { font-size:5.5px; color:rgba(255,255,255,0.2); font-weight:500; letter-spacing:0.5px; text-transform:uppercase; transition:color 0.5s; }
+                .group:hover .fd-col-name { color:rgba(255,255,255,0.5); }
+                .fd-task { height:14px; width:100%; border-radius:2px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; padding:0 4px; gap:2px; transition:border-color 0.5s; }
+                .group:hover .fd-task { border-color:rgba(217,59,37,0.1); }
+                .fd-task-bar { height:2px; border-radius:9999px; background:rgba(255,255,255,0.08); }
+                .fd-check { width:8px; height:8px; opacity:0; transition:opacity 0.5s; }
+                .group:hover .fd-check { opacity:1; }
+                .fd-progress { height:16px; border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; padding:0 10px; gap:8px; flex-shrink:0; }
+                .fd-progress-track { flex:1; height:4px; background:rgba(255,255,255,0.04); border-radius:9999px; overflow:hidden; }
+                .fd-progress-fill { height:100%; width:35%; background:rgba(217,59,37,0.5); border-radius:9999px; transition:all 0.7s 0.2s; box-shadow:0 0 8px rgba(217,59,37,0.3); }
+                .group:hover .fd-progress-fill { width:85%; background:rgba(217,59,37,0.7); box-shadow:0 0 12px rgba(217,59,37,0.5); }
+                .fd-progress-text { font-size:6px; color:rgba(255,255,255,0.15); font-weight:500; transition:color 0.5s; }
+                .group:hover .fd-progress-text { color:rgba(217,59,37,0.6); }
+              </style>
+
+              <!-- Dashboard Window -->
+              <div class="fd-window">
+                <!-- Title bar -->
+                <div class="fd-titlebar">
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+                    <div style="height:4px;width:48px;background:rgba(255,255,255,0.1);border-radius:9999px"></div>
+                  </div>
+                  <div style="margin-left:auto;display:flex;gap:4px">
+                    <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+                    <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+                  </div>
+                </div>
+
+                <!-- 4-column body -->
+                <div class="fd-body">
+                  <!-- Col 1: Brand -->
+                  <div class="fd-col">
+                    <div class="fd-col-label">
+                      <div class="fd-col-dot" style="background:rgba(217,59,37,0.7)"></div>
+                      <span class="fd-col-name">Brand</span>
+                    </div>
+                    <div class="fd-task">
+                      <svg class="fd-check" viewBox="0 0 16 16" fill="none" stroke="#d93b25" stroke-width="2" style="transition-delay:0.3s"><path d="M3 8l3.5 3.5L13 5"/></svg>
+                      <div class="fd-task-bar" style="width:24px"></div>
+                    </div>
+                    <div class="fd-task">
+                      <svg class="fd-check" viewBox="0 0 16 16" fill="none" stroke="#d93b25" stroke-width="2" style="transition-delay:0.5s"><path d="M3 8l3.5 3.5L13 5"/></svg>
+                      <div class="fd-task-bar" style="width:16px"></div>
+                    </div>
+                    <div class="fd-task">
+                      <div class="fd-task-bar" style="width:20px"></div>
+                    </div>
+                  </div>
+
+                  <!-- Col 2: Design -->
+                  <div class="fd-col">
+                    <div class="fd-col-label">
+                      <div class="fd-col-dot" style="background:rgba(217,59,37,0.55)"></div>
+                      <span class="fd-col-name">Design</span>
+                    </div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:20px"></div></div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:28px"></div></div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:16px"></div></div>
+                  </div>
+
+                  <!-- Col 3: Dev -->
+                  <div class="fd-col">
+                    <div class="fd-col-label">
+                      <div class="fd-col-dot" style="background:rgba(217,59,37,0.4)"></div>
+                      <span class="fd-col-name">Dev</span>
+                    </div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:24px"></div></div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:12px"></div></div>
+                  </div>
+
+                  <!-- Col 4: Audit -->
+                  <div class="fd-col">
+                    <div class="fd-col-label">
+                      <div class="fd-col-dot" style="background:rgba(217,59,37,0.25)"></div>
+                      <span class="fd-col-name">Audit</span>
+                    </div>
+                    <div class="fd-task"><div class="fd-task-bar" style="width:20px"></div></div>
+                  </div>
+                </div>
+
+                <!-- Bottom progress bar -->
+                <div class="fd-progress">
+                  <div class="fd-progress-track">
+                    <div class="fd-progress-fill"></div>
+                  </div>
+                  <span class="fd-progress-text">35%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group pt-8 pr-8 pb-8 pl-8 flex flex-col justify-between h-full reveal-hidden"
+          >
+            <div class="relative z-10">
+              <div
+                class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-4 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z"></path></svg>
+              </div>
+              <h3 class="text-white font-medium mb-2 reveal-hidden">
+                Embedded
+              </h3>
+              <p class="text-neutral-500 text-sm reveal-hidden">
+                A dedicated engineer embedded in your team. Full-time, fully integrated, shipping alongside you.
+              </p>
+            </div>
+
+            <!-- Security Visual Adapted to Brand -->
+            <div
+              class="relative w-full h-32 mt-8 rounded bg-neutral-900/50 border border-white/5 overflow-hidden flex items-center justify-center group-hover:border-red-500/20 transition-colors duration-500"
+            >
+              <!-- Faint Grid Background -->
+              <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)]"
+              ></div>
+
+              <!-- Center Element -->
+              <div
+                class="relative flex items-center justify-center w-full h-full"
+              >
+                <!-- Rotating Dashed Ring -->
+                <svg
+                  class="absolute w-24 h-24 animate-[spin_10s_linear_infinite] opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-neutral-600 group-hover:text-red-500"
+                  viewBox="0 0 100 100"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                    stroke-dasharray="2 8"
+                    stroke-linecap="round"
+                  ></circle></svg>
+                <!-- Inner Ring (Counter-rotating) -->
+                <svg
+                  class="absolute w-16 h-16 animate-[spin_15s_linear_infinite_reverse] opacity-20 group-hover:opacity-60 transition-opacity duration-500 text-neutral-500 group-hover:text-red-400"
+                  viewBox="0 0 100 100"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-dasharray="1 6"
+                    stroke-linecap="round"
+                  ></circle></svg>
+
+                <!-- Lock Icon Container -->
+                <div
+                  class="relative z-10 w-12 h-12 bg-neutral-950 rounded-xl border border-white/10 flex items-center justify-center shadow-2xl group-hover:border-red-500/50 group-hover:shadow-[0_0_25px_rgba(217,59,37,0.25)] transition-all duration-300 transform group-hover:scale-110"
+                >
+                  <div
+                    class="absolute inset-0 bg-red-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
+                  ></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="text-neutral-500 group-hover:text-white transition-colors duration-300 relative z-10"
+                  >
+                    <path
+                      d="M12 2a4 4 0 0 1 4 4v4h1.5a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19.5v-8A1.5 1.5 0 0 1 6.5 10H8V6a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v4h4V6a2 2 0 0 0-2-2zm0 10a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"
+                    ></path>
+
+              </svg>
+                </div>
+
+                <!-- Scanning glow effect moving across -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-tr from-transparent via-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+    </section>
+
+    <!-- PROJECT SHOWCASES SECTION -->
+    <section id="work" class="relative z-20 w-full border-t border-white/10 bg-neutral-950">
+      <div class="section-inner">
+      <div class="grid grid-cols-1 lg:grid-cols-4 lg:divide-y-0 lg:divide-x divide-white/10">
+        <div class="p-8 lg:col-span-1 flex flex-col justify-between h-full min-h-0 lg:min-h-[400px]">
+          <div class="">
+            <span class="font-mono text-neutral-500 text-xs block mb-4">///</span>
+            <h2 class="text-3xl font-syne tracking-tight text-white mb-4 font-medium reveal-hidden">
+              Our Work
+            </h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-8 reveal-hidden">
+              A selection of projects we've shipped. From DeFi protocols to gaming platforms to blockchain tooling.
+            </p>
+          </div>
+        </div>
+        <div class="lg:col-span-3 p-8">
+          <div id="projects-accordion" class="accordion"></div>
+          <button id="projects-toggle" onclick="toggleProjects()" class="mt-6 text-xs text-neutral-500 uppercase tracking-widest hover:text-red-500 transition-colors cursor-pointer">
+            Show all projects ↓
+          </button>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+    </section>
+
+    <div style="width:100%;height:1px;background-color:#1f1f1f;position:relative;z-index:20;"></div>
+    <!-- CLIENTS SECTION -->
+    <section id="voices-container" class="relative z-20 w-full bg-neutral-950 pb-8 overflow-hidden" style="padding-top:clamp(2.5rem, 4vw, 4rem);">
+      <div class="section-inner px-8" style="margin-bottom:5rem;">
+        <span class="font-mono text-neutral-500 text-xs block mb-4">///</span>
+        <h2 class="text-3xl font-syne tracking-tight text-white mb-4 font-medium reveal-hidden">Client Voices</h2>
+        <p class="text-neutral-400 text-sm leading-relaxed reveal-hidden">Testimonials from founders we helped win.</p>
+      </div>
+
+      <!-- Row 1: scrolls left -->
+      <div class="relative mb-6 overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-32 z-20 pointer-events-none" style="background:linear-gradient(to right,#0a0a0a,transparent);"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 z-20 pointer-events-none" style="background:linear-gradient(to left,#0a0a0a,transparent);"></div>
+        <div id="voices-track-1" class="flex gap-6 w-max" style="will-change:transform;">
+        </div>
+      </div>
+
+      <!-- Row 2: scrolls right -->
+      <div class="relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-32 z-20 pointer-events-none" style="background:linear-gradient(to right,#0a0a0a,transparent);"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 z-20 pointer-events-none" style="background:linear-gradient(to left,#0a0a0a,transparent);"></div>
+        <div id="voices-track-2" class="flex gap-6 w-max" style="will-change:transform;">
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <footer class="relative z-20 w-full border-t border-white/10 bg-neutral-950" style="isolation:isolate;background-color:#0a0a0a;">
+      <div class="section-inner">
+      <div class="grid grid-cols-2 lg:grid-cols-4 md:divide-y-0 md:divide-x divide-white/10">
+        <div class="p-8 col-span-2 lg:col-span-2 flex flex-col justify-center min-h-[250px] border-b md:border-b-0 md:border-r border-white/10">
+          <h2 class="text-2xl md:text-3xl font-syne tracking-tight text-white font-medium mb-4 reveal-hidden">
+            Still scrolling?
+          </h2>
+          <p class="text-neutral-400 text-sm leading-relaxed mb-6 reveal-hidden">
+            You've seen the work, met the team, read the testimonials. At this point you should probably just message us.
+          </p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <a href="https://t.me/matija_sol" target="_blank" rel="noopener noreferrer"
+              style="display:inline-block;padding:0.75rem 1.5rem;background:#b8301e;color:#fff;font-size:0.75rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;border-radius:9999px;text-decoration:none;transition:all 0.3s"
+              onmouseenter="this.style.background='#8a2518'"
+              onmouseleave="this.style.background='#b8301e'"
+            >
+              Telegram
+            </a>
+<a href="mailto:matija@solbound.dev"
+              class="inline-block px-6 py-3 border border-white/10 text-white font-medium text-xs uppercase tracking-widest rounded-full hover:border-red-500/30 hover:text-red-500 transition-all duration-300 "
+            >
+              Email
+            </a>
+          </div>
+        </div>
+        <div class="p-8 md:col-span-1 col-span-1">
+          <h3 class="text-white text-sm font-medium uppercase tracking-widest mb-6">Sitemap</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-sm hover:text-white transition-colors group inline-flex items-center gap-1" style="color:rgba(163,163,163,1)"><span>Home</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+            <li><a href="#services" class="text-sm hover:text-white transition-colors group inline-flex items-center gap-1" style="color:rgba(163,163,163,1)"><span>Services</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+            <li><a href="#clients" class="text-sm hover:text-white transition-colors group inline-flex items-center gap-1" style="color:rgba(163,163,163,1)"><span>Clients</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+            <li><a href="#team" class="text-sm hover:text-white transition-colors group inline-flex items-center gap-1" style="color:rgba(163,163,163,1)"><span>Team</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+          </ul>
+        </div>
+        <div class="p-8 md:col-span-1 col-span-1">
+          <h3 class="text-white text-sm font-medium uppercase tracking-widest mb-6">Socials</h3>
+          <ul class="space-y-4">
+            <li><a href="https://github.com/solbound-dev" target="_blank" rel="noopener noreferrer" class="text-neutral-500 text-sm hover:text-white transition-colors group inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GitHub</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+            <li><a href="https://t.me/matija_sol" target="_blank" rel="noopener noreferrer" class="text-neutral-500 text-sm hover:text-white transition-colors group inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span>Telegram</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+            <li><a href="https://www.linkedin.com/company/solbound-dev/" target="_blank" rel="noopener noreferrer" class="text-neutral-500 text-sm hover:text-white transition-colors group inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><rect width="3.333" height="9.333" x="1.333" y="5.667" rx="0.5"/><ellipse cx="2.987" cy="2.667" rx="1.653" ry="1.667"/><path d="M12.333 15h2c.184 0 .334-.15.334-.333v-5.6c0-2.514-1.42-3.734-3.407-3.734a2.8 2.8 0 0 0-2.113.847.273.273 0 0 1-.48-.18.333.333 0 0 0-.334-.333h-2A.333.333 0 0 0 6 6v8.667c0 .184.15.333.333.333h2c.184 0 .334-.15.334-.333v-5a1.667 1.667 0 1 1 3.333 0v5c0 .184.15.333.333.333"/></svg><span>LinkedIn</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+<li><a href="https://x.com/solbound_dev" target="_blank" rel="noopener noreferrer" class="text-neutral-500 text-sm hover:text-white transition-colors group inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" viewBox="0 0 50 50" fill="currentColor"><path d="m6.92 6 14.217 20.727L6.229 44h3.177l13.139-15.223L32.986 44H43L28.123 22.313 42.203 6h-3.176l-12.31 14.262L16.934 6z"/></svg><span>Twitter</span><span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span></a></li>
+          </ul>
+        </div>
+      </div>
+      </div> <!-- /section-inner -->
+      <div class="border-t border-white/10">
+        <div class="section-inner px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <span class="text-neutral-400 text-xs flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.33 20" class="w-4 h-5 inline-block" fill="currentColor"><path d="M8.66,0l2.46,4.27-2.46-1.42-2.46,1.42L8.66,0Z"/><path d="M8.66,20l2.46-4.27-2.46,1.42-2.46-1.42,2.46,4.27Z"/><path d="M17.33,5l-2.46,4.27v-2.84l-2.46-1.42h4.93Z"/><path d="M0,15h4.93l-2.46-1.42v-2.84L0,15Z"/><path d="M17.32,15h-4.93l2.46-1.42v-2.84l2.46,4.27Z"/><path d="M0,5l2.46,4.27v-2.84l2.46-1.42H0Z"/><path d="M8.66,5.33l4.13,2.38v4.77l-4.13,2.38-4.13-2.38v-4.77l4.13-2.38Z"/></svg> © 2026 solbound.dev | All rights reserved.</span>
+          <span class="text-neutral-400 text-xs">Designed and developed with AI.</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      /* Throttle utility – global, used by drag handlers */
+      function _throttle(fn, ms) {
+        let last = 0;
+        return function(...args) {
+          const now = Date.now();
+          if (now - last >= ms) { last = now; fn.apply(this, args); }
+        };
+      }
+    </script>
+    <script>
+      // Mobile nav toggle with staggered animation
+      (() => {
+        const toggle = document.getElementById('mobile-nav-toggle');
+        const overlay = document.getElementById('mobile-nav-overlay');
+        const hamburger = document.getElementById('nav-hamburger');
+        const close = document.getElementById('nav-close');
+        if (!toggle || !overlay) return;
+
+        const links = overlay.querySelectorAll('.mobile-nav-link');
+        const cta = overlay.querySelector('.mobile-nav-cta');
+        let isOpen = false;
+
+        function setNav(open) {
+          isOpen = open;
+          document.getElementById('mobile-nav-toggle').setAttribute('aria-expanded', isOpen);
+          hamburger.style.display = open ? 'none' : 'flex';
+          close.style.display = open ? 'block' : 'none';
+          document.body.style.overflow = open ? 'hidden' : '';
+
+          if (open) {
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            // Stagger link animations
+            links.forEach((link, i) => {
+              setTimeout(() => {
+                link.style.transform = 'translateY(0)';
+                link.style.opacity = '1';
+              }, 80 + i * 50);
+            });
+            if (cta) setTimeout(() => { cta.style.transform = 'translateY(0)'; cta.style.opacity = '1'; }, 80 + links.length * 50);
+          } else {
+            overlay.style.opacity = '0';
+            setTimeout(() => { overlay.style.visibility = 'hidden'; }, 350);
+            // Reset link positions
+            links.forEach(link => { link.style.transform = 'translateY(20px)'; link.style.opacity = '0'; });
+            if (cta) { cta.style.transform = 'translateY(20px)'; cta.style.opacity = '0'; }
+          }
+        }
+
+        toggle.addEventListener('click', () => setNav(!isOpen));
+
+        links.forEach(link => {
+          link.addEventListener('touchstart', () => link.style.color = '#fff', { passive: true });
+          link.addEventListener('touchend', () => setTimeout(() => link.style.color = '#737373', 200), { passive: true });
+          link.addEventListener('mouseenter', () => link.style.color = '#fff');
+          link.addEventListener('mouseleave', () => link.style.color = '#737373');
+          link.addEventListener('click', () => setNav(false));
+        });
+      })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const marqueePartners = [
+          { name: "Longwood Labs", src: "assets/logos/longwood-labs.webp" },
+          { name: "The Fracture", src: "assets/logos/fracture.webp" },
+          { name: "Chomp", src: "assets/logos/chomp.webp" },
+          { name: "Solana ID", src: "assets/logos/solanaid.webp" },
+          { name: "Greed Academy", src: "assets/logos/greed.webp" },
+          { name: "Saturn BTC", src: "assets/logos/saturn.webp" },
+          { name: "BlastCtrl", src: "assets/logos/blastctrl.webp" },
+          { name: "BonkZ", src: "assets/logos/bonkz.webp" },
+          { name: "Seedplex", src: "assets/logos/seedplex.webp" },
+          { name: "DiversiFi", src: "assets/logos/diversifi.webp" },
+          { name: "ZERG", src: "assets/logos/zerg.webp" },
+          { name: "BOOGLE", src: "assets/logos/boogle.webp" },
+          { name: "OMNI Studio", src: "assets/logos/omni-studio.webp" },
+          { name: "Lingo", src: "assets/logos/lingo.webp" },
+          { name: "RevTec", src: "assets/logos/revtec.webp" },
+          { name: "Avicenne Studio", src: "assets/logos/avicenne.webp" },
+        ];
+
+        const logoCardClass =
+          "flex items-center gap-3 border border-white/10 bg-white/[0.02] rounded-full px-4 py-2.5 text-neutral-300 transition-all duration-300 hover:border-red-500/40 hover:bg-white/[0.04] hover:text-white";
+        const logoImageClass =
+          "w-10 h-10 rounded-full object-contain bg-neutral-900/80 border border-white/10 p-1";
+        const logoTextClass =
+          "text-xs md:text-sm tracking-wide whitespace-nowrap";
+
+        const logoItemTemplate = (partner) =>
+          `<span class="${logoCardClass}"><img src="${partner.src}" alt="${partner.name}" class="${logoImageClass}" loading="lazy" decoding="async" /><span class="${logoTextClass}">${partner.name}</span></span>`;
+
+        const renderMarqueeTrack = (selector, partners) => {
+          const track = document.querySelector(selector);
+          if (!track) return;
+          const duplicatedPartners = partners.concat(partners);
+          track.innerHTML = duplicatedPartners.map(logoItemTemplate).join("");
+        };
+
+        renderMarqueeTrack(".marquee-single", marqueePartners);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries.filter(e => e.isIntersecting);
+            visible.forEach((entry, index) => {
+              const maxDelay = 500;
+              const delay = Math.min(index * 80, maxDelay);
+              setTimeout(() => {
+                entry.target.classList.remove("reveal-hidden");
+                entry.target.classList.add("animate-in");
+              }, delay);
+              observer.unobserve(entry.target);
+            });
+          },
+          // Fire reveal 800px before the element enters the viewport so the next section
+          // is already animated in by the time the user scrolls to it
+          { rootMargin: "0px 0px 800px 0px", threshold: 0 }
+        );
+
+        const targets = document.querySelectorAll(
+          "h1, h2, h3, p, button, .group, blockquote"
+        );
+        targets.forEach((el) => {
+          if (!el.closest(".animate-marquee-infinite") && !el.closest(".animate-marquee-infinite-reverse") && !el.closest("#team-track") && !el.closest("#voices-track-1") && !el.closest("#voices-track-2")) {
+            el.classList.add("reveal-hidden");
+            observer.observe(el);
+          }
+        });
+      });
+    </script>
+
+    <!-- Easter Egg -->
+    <script>
+    (function() {
+      const code = ['k','r','k','a','n'];
+      let idx = 0;
+      let audio = null;
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === code[idx]) {
+          idx++;
+          if (idx === code.length) {
+            idx = 0;
+            if (audio) {
+              audio.pause();
+              audio.currentTime = 10;
+              audio.play();
+            } else {
+              // Create a hidden iframe to play from YouTube at 10s
+              const iframe = document.createElement('iframe');
+              iframe.style.cssText = 'position:fixed;bottom:20px;right:20px;width:320px;height:180px;z-index:9999;border-radius:12px;border:1px solid rgba(217,59,37,0.3);box-shadow:0 10px 40px rgba(0,0,0,0.5);';
+              iframe.src = 'https://www.youtube.com/embed/lLV4jNo4SOg?autoplay=1&start=10';
+              iframe.allow = 'autoplay';
+              iframe.id = 'krkan-player';
+
+              // Remove on click outside or pressing Escape
+              const close = () => {
+                const el = document.getElementById('krkan-player');
+                if (el) el.remove();
+              };
+              document.addEventListener('keydown', function handler(ev) {
+                if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', handler); }
+              });
+
+              document.body.appendChild(iframe);
+            }
+          }
+        } else {
+          idx = e.key.toLowerCase() === code[0] ? 1 : 0;
+        }
+      });
+    })();
+    </script>
+
+
+
+    <script>
+    // Drag-to-scroll for team carousel
+    (() => {
+      const container = document.getElementById('team-container');
+      const track = document.getElementById('team-track');
+      if (!container || !track) return;
+
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      // On desktop use transform drag, on mobile use native scroll
+      const isMobile = 'ontouchstart' in window;
+      if (!isMobile) container.style.overflowX = 'hidden';
+
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = track.scrollLeft || 0;
+        container.style.cursor = 'grabbing';
+        // Get current transform
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        scrollLeft = matrix.m41 || 0;
+        e.preventDefault();
+      });
+
+      container.addEventListener('mouseleave', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mouseup', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+      });
+
+      container.addEventListener('mousemove', _throttle((e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = x - startX;
+        let newX = scrollLeft + walk;
+
+        // Clamp
+        const maxScroll = -(track.scrollWidth - container.clientWidth);
+        newX = Math.min(0, Math.max(maxScroll, newX));
+
+        track.style.transform = `translateX(${newX}px)`;
+        track.style.transition = 'none';
+      }, 16));
+
+      // Touch support - use native scrolling
+      container.addEventListener('touchstart', (e) => {
+        container.style.scrollBehavior = 'auto';
+      }, { passive: true });
+
+      // Mobile: bring the left fade back in once the carousel has been scrolled right
+      if (isMobile) {
+        const updateLeftFade = () => {
+          const sl = container.scrollLeft;
+          const fade = Math.min(80, sl); // grows 1:1 with scroll, capped at 80px
+          container.style.setProperty('--carousel-left-fade', fade + 'px');
+        };
+        container.addEventListener('scroll', updateLeftFade, { passive: true });
+        updateLeftFade();
+      }
+
+      // Horizontal-only wheel: trackpad horizontal gestures or shift+wheel
+      container.addEventListener('wheel', (e) => {
+        const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey;
+        if (!isHorizontal) return; // let vertical scroll pass through to the page
+        const dx = e.shiftKey && Math.abs(e.deltaX) < 1 ? e.deltaY : e.deltaX;
+        if (Math.abs(dx) < 1) return;
+        e.preventDefault();
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        const currentX = matrix.m41 || 0;
+        const maxScroll = -(track.scrollWidth - container.clientWidth);
+        const newX = Math.min(0, Math.max(maxScroll, currentX - dx));
+        track.style.transform = `translateX(${newX}px)`;
+        track.style.transition = 'none';
+      }, { passive: false });
+    })();
+    </script>
+
+    <script>
+    // Project showcases - randomized, show 4 initially
+    (() => {
+      const allProjects = [{"name": "Longwood Labs", "logo": "assets/logos/longwood-labs.webp", "tags": ["Web3 Gaming", "Smart Contracts", "Full-Stack", "DevOps"], "desc": "A 3-year partnership with one of Solana's most prolific web3 gaming studios. We built The Heist, a high-stakes idle crime game that became the #1 NFT collection in the world by volume with over 4,000 active players. We then shipped Defi Dungeons, which raised $133M on launch day through a Meteora Alpha Vault. From smart contracts to full-stack game infrastructure, Longwood has been one of our longest and deepest collaborations.", "url": "https://x.com/longwoodlabs"}, {"name": "Solana ID", "logo": "assets/logos/solanaid.webp", "tags": ["Full-Stack", "Indexing", "Dashboards"], "desc": "Solana ID lets users link their wallets and earn personalized rewards based on on-chain activity. Think of it as a credit score, but for crypto. We built the perk matching algorithms that connect users with relevant offers, the indexing infrastructure to process wallet data at scale, the campaign delivery pipelines that power their B2B side, the SOLID score dashboard where users track their on-chain reputation, and the landing pages that bring it all together.", "url": "https://solana.id"}, {"name": "Chomp", "logo": "assets/logos/chomp.webp", "tags": ["PWA", "Full-Stack", "Team Building"], "desc": "Chomp is a gamified knowledge platform by Gator Labs. Users answer questions, predict how others will respond, and earn rewards through a 'surprisingly popular' consensus algorithm. We built the entire PWA from scratch, then worked alongside the founding team to onboard and ramp up their in-house developers as the product grew. A classic build-then-handoff engagement where we stayed involved through the transition.", "url": "https://x.com/chompdotfyi"}, {"name": "The Fracture", "logo": "assets/logos/fracture.webp", "tags": ["Smart Contracts", "Full-Stack", "Consulting"], "desc": "One of the original multimedia NFT franchises on Solana. Part art collection, part storyline, part community. We've been their dedicated development team for over 3 years, building everything from trait swap mechanics and unboxing experiences on the Ixarus platform, to The Hub, their community dashboard where holders manage their NFTs and engage with the project. A long-running relationship with steady feature work and maintenance.", "url": "https://x.com/TheFracture_"}, {"name": "dReader", "logo": "assets/logos/dreader.webp", "tags": ["Frontend", "Publishing Flow"], "desc": "dReader was a platform for discovering, reading, and collecting digital comics on-chain. A home for indie comic creators in web3. We built their entire dPublisher flow: the self-service pipeline that let authors upload, format, and mint their comics as NFTs, handling everything from the publishing interface to the on-chain minting logic. The team later pivoted the product into Fundl, but the publishing infrastructure we built was the backbone of their original product.", "url": "https://www.fundl.fun/"}, {"name": "GREED Academy", "logo": "assets/logos/greed.webp", "tags": ["Full-Stack", "Smart Contracts", "Token Rewards"], "desc": "What started as a satirical take on crypto FOMO evolved into a real learn-to-earn education platform on Solana. GREED runs a validator whose block rewards fund educational initiatives. Users stake SOL, complete courses and quizzes, and earn token rewards for learning. We built the smart contracts and the full stack: admin dashboards for managing content, the quiz engine, the reward distribution system, and the stake management interface. Over $120K in rewards distributed to learners through the platform.", "url": "https://greed.academy/"}, {"name": "Saturn BTC", "logo": "assets/logos/saturn.webp", "tags": ["SVM Contracts", "In-House"], "desc": "Saturn is building a decentralized exchange directly on Bitcoin's base layer. No bridges, no wrapped assets, no L2 compromises. They use the Arch Network's virtual machine to enable smart contract functionality natively on Bitcoin. We embedded with their team as in-house engineers, writing the SVM contracts that power the exchange. One of the more technically ambitious projects we've worked on, pushing the boundaries of what's possible on Bitcoin without leaving the base layer.", "url": "https://www.saturnbtc.io"}, {"name": "BlastCtrl", "logo": "assets/logos/blastctrl.webp", "tags": ["Blockchain Tooling", "Full-Stack"], "desc": "BlastCtrl is a Solana-native marketing and tooling company. We built and maintained their BlastTools platform, a suite of on-chain utilities for Solana projects, working closely alongside their in-house developer. A collaborative, hands-on engagement where we augmented their existing team rather than replacing it.", "url": "https://blastctrl.com"}, {"name": "BonkZ", "logo": "assets/logos/bonkz.webp", "tags": ["Landing Pages", "Gaming"], "desc": "BonkZ is a community-driven NFT collection on Solana with a retro arcade-style game where holders compete for $BONK token prizes on weekly leaderboards. We built their landing pages and handle the ongoing development, upgrades, and maintenance of the game itself. A fun, lighthearted project with a dedicated community.", "url": "https://x.com/BonkzNFT_"}, {"name": "Seedplex", "logo": "assets/logos/seedplex.webp", "tags": ["Smart Contracts", "Frontend", "UI Design"], "desc": "Seedplex is pioneering Venture Tokens, a new fundraising primitive that gives founders growth-oriented equity mechanics while giving investors DeFi liquidity. Think SAFE agreements, but tradable on-chain through a DAO-governed treasury. We built the smart contracts, frontend, and designed the UI from scratch. An ambitious attempt to fix what's broken about both traditional VC fundraising and the typical token launch playbook.", "url": "https://seedplex.io"}, {"name": "DiversiFi", "logo": "assets/logos/diversifi.webp", "tags": ["Frontend", "Infrastructure"], "desc": "DiversiFi's pitch is simple: pick narratives, not individual tokens. They offer one-click on-chain index portfolios built around themes and ecosystems. Non-custodial, with rules-based automatic rebalancing. No manual portfolio management, no constant monitoring. We built the frontend and the underlying infrastructure that powers both their retail-facing product and the B2B engine that lets other protocols plug in index issuance and structured allocations.", "url": "https://diversifi.trade/"}, {"name": "ZERG", "logo": "assets/logos/zerg.webp", "tags": ["Smart Contracts"], "desc": "ZERG is a fair token launch platform on Solana, built to give new projects a level playing field at launch. No insider advantages, no sniping, no pre-allocations. The goal is transparent, community-first token distribution where everyone starts equal. We built the smart contracts powering the core launch mechanics, including the bonding curve and distribution logic.", "url": "https://welcome.zerg.app"}, {"name": "RevTec", "logo": "assets/logos/revtec.webp", "tags": ["Smart Contracts"], "desc": "RevTec tackles a real problem in Solana staking: users can't efficiently separate the different sources of yield. Their solution creates two liquid staking tokens. revSOL captures the 'real' economic value (priority fees and Jito MEV tips from actual network usage), while issSOL captures inflationary issuance. We built the smart contracts that power this yield separation, letting stakers choose their exposure and use both LSTs across DeFi. A technically elegant approach to a $1B+/year revenue stream.", "url": "https://www.revtec.fi/"}, {"name": "Lingo", "logo": "assets/logos/lingo.webp", "tags": ["Bridge", "EVM/SVM"], "desc": "Lingo is an RWA-backed reward token ecosystem. They acquire yield-generating real estate, and the profits fund monthly buybacks of $LINGO from the open market, which get distributed to stakers. The token lives across multiple chains, so they needed a cross-chain bridge. We built the two-sided EVM/SVM bridge that lets $LINGO move between Ethereum-based chains and Solana.", "url": "https://x.com/LingoCoins"}, {"name": "OMNI Studio", "logo": "assets/logos/omni-studio.webp", "tags": ["Telegram Bot", "Full-Stack", "Consulting"], "desc": "OMNI Creative Studio is a web3 growth agency with 20+ years of combined crypto experience and over $20M in funding secured for their clients. They handle marketing strategy, KOL campaigns, branding, and social media management. We built MegaBOT for them, a Telegram bot for trading NFTs, tracking floor prices, and monitoring collection activity in real time. Beyond MegaBOT, we collaborate with OMNI regularly on full-stack development and Solana-related projects as needs come up.", "url": "https://www.omnicreative.studio/"}, {"name": "BOOGLE", "logo": "assets/logos/boogle.webp", "tags": ["Telegram Bot", "Bridge"], "desc": "BOOGLE is one of Solana's most exclusive NFT communities. A boutique collection of just 100 pieces (gen1), with floor prices starting around 2,500 SOL. The community brings together well-connected leaders, investors, and builders in the web3 space. We built their Telegram/Discord communication bridge and a custom Telegram bot to help manage and connect the community across platforms.", "url": "https://x.com/solBOOGLE"}, {"name": "Avicenne Studio", "logo": "assets/logos/avicenne.webp", "tags": ["Smart Contracts"], "desc": "Avicenne is a Paris and Dubai-based web3 product studio with a strong track record. 25+ blockchain products delivered, trusted by ConsenSys and USUAL, and most recently won the competitive RFP for building the Qubic-Solana bridge. We collaborated with their team on a Cubik/Solana bridge side-program, a peer-to-peer engagement between two dev studios.", "url": "https://www.avicenne.studio/"}, {"name": "Polify", "logo": "assets/logos/polify.webp", "tags": ["3D Landing Pages", "Frontend"], "desc": "Polify is a web3 design agency known for high-end creative work across UI/UX, branding, 3D animation, and social media. Their client list includes names like Altura, WallStreetBets, BAYC, and Helium. We collaborate with Polify on complex 3D landing pages with heavy visual effects and animations, bringing the technical execution to match their creative vision.", "url": "https://polify.xyz"}, {"name": "Motion Corporation", "logo": "assets/logos/motion-corporation.webp", "tags": ["Smart Contracts", "Financial Infrastructure"], "desc": "Digital Motion is a next-generation financial infrastructure company building across three of web3's fastest-growing sectors: capital formation, credit infrastructure, and real-world assets. Their ecosystem includes Mayflower (institutional yield products), Petra (tokenized private equity and RWAs), and Starbase (web3 capital formation infrastructure). We're building their smart contracts, helping bring these financial primitives on-chain.", "url": "https://www.digitalmotioncorp.com/"}, {"name": "dOrg", "logo": "assets/logos/dorg.webp", "tags": ["Smart Contracts", "NFT Mechanics"], "desc": "dOrg is a full-stack web3 development collective, one of the longest-running DAOs in the space. We partnered with their team to help one of their clients build a blind box collectible card opening and sale system. The project involved smart contract work for the randomized unboxing mechanics and the card sale infrastructure.", "url": "https://www.dorg.tech/"}, {"name": "Superteam Balkan", "logo": "assets/logos/superteam-balkan.webp", "tags": ["Community", "Ecosystem Growth"], "desc": "Since the start of Superteam in our region, our organizations have been extremely closely tied together - our CEO is also the co-founder and lead of Superteam Balkan, and we're all proud contributors and members. We've been enjoying the journey of providing tech support, tooling, consulting, education, and connections for the next generation of Balkan founders. Cheatcode™", "url": "https://x.com/SuperteamBLKN/"}];
+
+      // Fixed ordering
+      const order = ["GREED Academy", "DiversiFi", "Solana ID", "Seedplex", "Superteam Balkan", "Saturn BTC", "Chomp", "Longwood Labs", "The Fracture", "RevTec", "dReader", "BlastCtrl", "OMNI Studio", "BonkZ", "ZERG", "BOOGLE", "Polify", "Motion Corporation", "dOrg", "Lingo", "Avicenne Studio", "Fundl"];
+      const ordered = [];
+      const remaining = [];
+      for (const name of order) {
+        const found = allProjects.find(p => p.name === name);
+        if (found) ordered.push(found);
+      }
+      for (const p of allProjects) {
+        if (!order.includes(p.name)) remaining.push(p);
+      }
+      allProjects.length = 0;
+      allProjects.push(...ordered, ...remaining);
+
+      const container = document.getElementById('projects-accordion');
+      const INITIAL_COUNT = 5;
+      let showingAll = false;
+
+      function renderProject(p, i) {
+        return `
+          <div class="accordion-item border-b border-white/5 project-item" data-index="${i}" ${i >= INITIAL_COUNT ? 'style="display:none;"' : ''}>
+            <button class="accordion-trigger w-full flex items-center justify-between py-5 px-2 group/acc text-left" onclick="this.parentElement.classList.toggle('accordion-open')">
+              <div class="flex items-center gap-4">
+                <a href="${p.url || '#'}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="shrink-0"><img src="${p.logo}" alt="${p.name}" class="w-8 h-8 rounded-full object-cover border border-white/10 hover:border-red-500/50 transition-colors" loading="lazy" decoding="async" /></a>
+                <span class="text-white font-medium text-sm group-hover/acc:text-red-500 transition-colors">${p.name}</span>
+              </div>
+              <svg class="w-4 h-4 text-neutral-500 transition-transform duration-300 accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="accordion-content overflow-hidden transition-all duration-300 ease-in-out">
+              <div class="pb-5 px-2 pl-14">
+                <p class="text-neutral-400 text-sm leading-relaxed">${p.desc}</p>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      container.innerHTML = allProjects.map((p, i) => renderProject(p, i)).join('');
+
+      window.toggleProjects = function() {
+        showingAll = !showingAll;
+        const items = document.querySelectorAll('.project-item');
+        const btn = document.getElementById('projects-toggle');
+        items.forEach((item, i) => {
+          if (i >= INITIAL_COUNT) {
+            item.style.display = showingAll ? '' : 'none';
+          }
+        });
+        btn.textContent = showingAll ? 'Show less ↑' : 'Show all projects ↓';
+      };
+    })();
+    </script>
+
+    <script>
+    // Two-row testimonial marquee with shuffle
+    (() => {
+      const allCards = [
+        {name:"Pileks", role:"Founding Engineer @ MetaDAO/dOrg", img:"assets/team/pileks.webp", url:"https://x.com/pileks", quote:"After working alongside the team on various client projects, I have nothing but praise and confidence in their skills. They are always my #1 choice when I need a product done right."},
+        {name:"Antonio Perić-Mažar", role:"Founder/CEO @ Locastic", img:"assets/team/antonio.webp", url:"https://x.com/antonioperic", quote:"Matija and his team are the only ones we turn to for Solana development. After working together on several projects, it really feels like they're an extension of our own team. They're direct, true experts, and they always deliver on time."},
+        {name:"Josip Volarević", role:"Founder/CEO @ Fundl.fun", img:"assets/team/josip.webp", url:"https://x.com/josipvolarevic", quote:"I've used Solbound to quickly develop and iterate on the MVP. We then generated traction, raised funding, and found a founding engineer that took over the code base with no migration issues."},
+        {name:"Bulldog", role:"Chief Growth Officer @ Omni Studio", img:"assets/team/bulldog.webp", url:"https://x.com/BulldogXBT", quote:"I've had the pleasure of working with Solbound across several major projects over a four-year period. They are by far the most efficient, capable, and easy-to-work-with development team I've encountered in my Web3 career. I couldn't recommend them strongly enough."},
+        {name:"Simon Molitor", role:"Founder/CEO @ Solana ID", img:"assets/team/simon.webp", url:"https://x.com/simonmolitor", quote:"Solbound single-handedly built our full technical setup. The team consists of highly-talented, outstanding technical talent and was able to realize every crazy idea we as founders put on their table. In true Balkan spirit, Solbound will welcome clients with warm hospitality and treat you as family, which makes work extremely enjoyable."},
+        {name:"Voshy", role:"Founder/CEO @ BlastCtrl, GREED Academy", img:"assets/team/voshy.webp", url:"https://x.com/voshy", quote:"You should really avoid engaging Solbound for any work so they can stay cheap and fully available whenever I need anything and I never have to even consider using anyone else. You go ahead and compromise, not me. Ty."},
+        {name:"KZ", role:"Founder/CEO @ Chomp", img:"assets/team/kz.webp", url:"https://x.com/KayZizzle", quote:"Matija and his team came highly recommended, and did not disappoint. They very quickly understood the product, and worked hard on making sure we meet our launch targets like it is their own project. If you are looking for great developers that understand Solana and ship fast, talk to Solbound!"},
+        {name:"Marko Borovina", role:"COO & Partner @ 4ptOLabs", img:"assets/team/4pto.webp", url:"https://x.com/bcryptofun", quote:"If you are not interested in collaborating with 4pto, then Solbound is ideal for you. I don't know if there is a better recommendation than when a competitor recommends you."},
+        {name:"Max Sherwood", role:"Founder/CEO @ RevTec, H2O Nodes", img:"assets/team/maxsherwood.webp", url:"https://x.com/maxh2onodes", quote:"The gentlemen at Solbound helped design and build the core protocol for RevTec. They are smart, professional, and experienced. If what you're building matters, use Solbound."},
+        {name:"H", role:"Founder/CEO @ BonkZ NFT", img:"assets/testimonials/h.webp", url:"https://x.com/H__OMNI", quote:"I've had the pleasure of working alongside Solbound for a number of years now. It's rare to find a dev team that combines this level of technical capability with excellent communication and professionalism. They constantly deliver and I wouldn't hesitate to recommend them to anyone. There's no other team I'd rather build with."},
+              {name:"Venom", role:"Founder/CEO @ Polify", img:"assets/testimonials/venom.webp", url:"https://x.com/AdamPolify", quote:"We've worked with a lot of development agencies, but most struggled to turn our designs into a true 1:1 front-end. Solbound was different. They made it feel easy. The team is responsive, experienced, and great to work with. They'll definitely be our go to agency moving forward."},
+              {name:"Treggs", role:"Founder/CEO @ Seedplex", img:"assets/testimonials/treggs.webp", url:"https://x.com/Treggs6", quote:"Solbound was a pleasure to work with and we appreciated the combination of flexibility with high competency in the work they do. The developers were diligent and understanding of timelines including urgent ones when needed. If you want to work with true professionals, look no further."},
+              {name:"LHexe", role:"Founder @ SaturnBTC", img:"assets/testimonials/lhexe.webp", url:"https://x.com/hexbtc", quote:"Solbound are hands down the best team I have worked with in crypto, and I don't say that lightly. They are profoundly competent, adaptive, understanding, and caring. Beyond that, they are a joy to interact with, any chance I have to work with this team I take it."},
+              {name:"Marcos Collado", role:"CTO @ SaturnBTC", img:"assets/testimonials/marcos.webp", url:"https://x.com/macols77", quote:"Solbound is easily one of the best dev shops out there. I've worked with them for years, and even as someone who's always been skeptical about external dev teams, they've exceeded expectations every time. Fast to ramp, reliable on deadlines, and consistently high-quality code. I can't recommend them enough, they're always my first call when I need a product done right."},
+              {name:"KidPaddle", role:"Founder/CEO @ DiversiFi", img:"assets/testimonials/paddle.webp", url:"https://x.com/KidPaddle591", quote:"There aren't many teams I'd trust as an extension of our own. Solbound is definitely one of them. They deeply understand Solana, ship fast under pressure, and push back when it makes the product better. They don't just ship, they genuinely care about what they're building. High-standards company."},
+        {name:"SolanaMarko", role:"CEO/Co-Founder @ ST Balkan", img:"assets/testimonials/solanamarko.webp", url:"https://x.com/SolanaMarko", quote:"Building Superteam Balkan alongside Matija gave me a lot of insights on how he operates and it's the same energy he brings to Solbound. He and his crew genuinely understand the Solana ecosystem at a deep level, he moves fast without cutting corners, and cares about the people he works with. If you're building something serious on Solana, there's no one I'd trust more."},
+      ];
+
+      // Shuffle
+      for (let i = allCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allCards[i], allCards[j]] = [allCards[j], allCards[i]];
+      }
+
+      const mid = Math.ceil(allCards.length / 2);
+      const row1 = allCards.slice(0, mid);
+      const row2 = allCards.slice(mid);
+
+      function makeCard(c) {
+        // Calculate width for ~4 lines: font 1.25rem (~20px), ~10px per char avg at this size
+        // Card padding = 2rem each side = 64px. Target 4 lines.
+        const charsPerLine = Math.ceil(c.quote.length / 4);
+        const contentWidth = Math.round(charsPerLine * 10);
+        const cardWidth = Math.min(600, Math.max(300, contentWidth + 64));
+        return `<div class="voice-card" style="width:${cardWidth}px;padding:2rem;border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);border-radius:1rem;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;cursor:default;transition:all 0.3s;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.05)';this.style.background='rgba(255,255,255,0.02)'">
+          <svg style="width:1.75rem;height:1.75rem;color:#404040;margin-bottom:1.5rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"></path></svg>
+          <blockquote style="font-size:1.25rem;color:#e5e5e5;font-weight:300;line-height:1.4;margin-bottom:1.5rem;font-family:'Syne',sans-serif;letter-spacing:-0.025em;">"${c.quote}"</blockquote>
+          <a href="${c.url}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:1rem;text-decoration:none;">
+            <img src="${c.img}" alt="${c.name}" style="width:2.75rem;height:2.75rem;border-radius:9999px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy" decoding="async" />
+            <div>
+              <div style="color:#fff;font-size:0.875rem;font-weight:500;">${c.name}</div>
+              <div style="color:#737373;font-size:0.75rem;">${c.role}</div>
+            </div>
+          </a>
+        </div>`;
+      }
+
+      function fillTrack(trackId, cards) {
+        const track = document.getElementById(trackId);
+        if (!track) return;
+        const html = cards.map(makeCard).join('');
+        // Triple-clone so track always covers any viewport width
+        track.innerHTML = html + html + html;
+      }
+
+      fillTrack('voices-track-1', row1);
+      fillTrack('voices-track-2', row2);
+    })();
+    // JS-driven marquee + drag for testimonial carousels
+    (() => {
+      const tracks = [
+        { id: 'voices-track-1', speed: window.innerWidth >= 1024 ? -0.8 : -0.5, dir: -1 },  // scrolls left
+        { id: 'voices-track-2', speed: window.innerWidth >= 1024 ? 0.65 : 0.4, dir: 1 }   // scrolls right
+      ];
+
+      tracks.forEach(cfg => {
+        const track = document.getElementById(cfg.id);
+        if (!track) return;
+        const container = track.parentElement;
+
+        let pos = cfg.dir === 1 ? -(track.scrollWidth / 3) : 0;
+        let isDragging = false;
+        let isHovered = false;
+        let startX = 0;
+        let dragStartPos = 0;
+
+        // The track has 3x cloned cards. One "set" = scrollWidth / 3.
+        function getSetWidth() { return track.scrollWidth / 3; }
+
+        function wrapPos() {
+          const sw = getSetWidth();
+          if (pos <= -sw) pos += sw;
+          if (pos >= 0 && cfg.dir === -1) pos -= sw;
+          if (pos >= 0 && cfg.dir === 1) pos -= sw;
+          if (pos <= -sw * 2) pos += sw;
+        }
+
+        let marqueeVisible = true;
+        const marqueeObs = new IntersectionObserver(([e]) => {
+          marqueeVisible = e.isIntersecting;
+        }, { threshold: 0.01 });
+        marqueeObs.observe(container);
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (!marqueeVisible) return; // skip when off-screen
+          if (!isDragging && !isHovered) {
+            pos += cfg.speed;
+            wrapPos();
+          }
+          track.style.transform = `translateX(${pos}px)`;
+        }
+
+        // Hover pause
+        container.addEventListener('mouseenter', () => { if (!isDragging) isHovered = true; });
+        container.addEventListener('mouseleave', () => { isHovered = false; });
+
+        // Drag
+        function startDrag(x) {
+          isDragging = true;
+          startX = x;
+          dragStartPos = pos;
+          container.style.cursor = 'grabbing';
+        }
+        function onDrag(x) {
+          if (!isDragging) return;
+          pos = dragStartPos + (x - startX);
+          wrapPos();
+        }
+        function endDrag() {
+          if (!isDragging) return;
+          isDragging = false;
+          container.style.cursor = 'grab';
+        }
+
+        container.style.cursor = 'grab';
+        container.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX); });
+        window.addEventListener('mousemove', _throttle(e => onDrag(e.clientX), 16));
+        window.addEventListener('mouseup', endDrag);
+        // Track both axes so we can lock to horizontal and block vertical page scroll
+        let touchStartX = 0, touchStartY = 0, touchLocked = null;
+        container.addEventListener('touchstart', e => {
+          const t = e.touches[0];
+          touchStartX = t.clientX;
+          touchStartY = t.clientY;
+          touchLocked = null;
+          startDrag(t.clientX);
+        }, { passive: true });
+        container.addEventListener('touchmove', e => {
+          const t = e.touches[0];
+          if (touchLocked === null) {
+            const dx = Math.abs(t.clientX - touchStartX);
+            const dy = Math.abs(t.clientY - touchStartY);
+            if (dx + dy > 6) touchLocked = dx > dy ? 'h' : 'v';
+          }
+          if (touchLocked === 'h') {
+            e.preventDefault(); // block vertical page scroll while dragging horizontally
+            onDrag(t.clientX);
+          }
+        }, { passive: false });
+        container.addEventListener('touchend', endDrag);
+
+        // Horizontal-only wheel: trackpad horizontal gestures or shift+wheel
+        let wheelTimer = null;
+        container.addEventListener('wheel', (e) => {
+          const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey;
+          if (!isHorizontal) return; // let vertical scroll pass through
+          const dx = e.shiftKey && Math.abs(e.deltaX) < 1 ? e.deltaY : e.deltaX;
+          if (Math.abs(dx) < 1) return;
+          e.preventDefault();
+          isHovered = true; // pause auto-scroll while wheeling
+          pos -= dx;
+          wrapPos();
+          clearTimeout(wheelTimer);
+          wheelTimer = setTimeout(() => { isHovered = false; }, 600);
+        }, { passive: false });
+
+        requestAnimationFrame(animate);
+      });
+    })();
+    </script>
+
+</body>
+</html>

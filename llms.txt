@@ -1,0 +1,41 @@
+# Solbound
+
+> Solana-native development studio. Rust programs, full-stack dApps, advisory, and research. 10 engineers, 20+ clients, shipping since 2022.
+
+## What We Do
+
+Solbound is a development studio focused exclusively on the Solana blockchain. We design, build, audit, and ship production-grade Solana programs (smart contracts) written in Rust. Our team works across the full stack — from on-chain program architecture to front-end dApp interfaces.
+
+## Services
+
+- **Rust Smart Contract Development** — Custom Solana programs using Anchor and native Solana SDK.
+- **Full-Stack dApp Engineering** — End-to-end decentralized applications with React/Next.js front-ends and Solana wallet integration.
+- **DeFi Protocol Design & Implementation** — AMMs, lending protocols, yield aggregators, and custom DeFi primitives on Solana.
+- **NFT Platform Development** — Minting, marketplace, and collection management using Metaplex and custom programs.
+- **Security Auditing** — Comprehensive review of Solana programs for vulnerabilities, logic errors, and economic exploits.
+- **Web3 Advisory & Research** — Architecture consulting, protocol design, tokenomics review, and ecosystem strategy.
+- **Solana Program Migration** — Porting protocols from Ethereum and other chains to Solana's account model.
+
+## Notable Clients & Projects
+
+Solbound has delivered for 20+ clients including early-stage startups and established DeFi protocols in the Solana ecosystem. Projects span DEXs, lending platforms, NFT infrastructure, on-chain gaming, and governance tooling.
+
+## Tech Stack
+
+- **On-chain:** Rust, Anchor Framework, Solana SDK, Metaplex, Switchboard, Pyth
+- **Off-chain / Front-end:** TypeScript, React, Next.js, Solana Wallet Adapter
+- **Tooling:** Solana CLI, Bankrun, Trident, Amman, Git, CI/CD
+- **Infrastructure:** RPC providers (Helius, Triton), indexing, monitoring
+
+## Team
+
+10 engineers dedicated to Solana and Rust development. Founded in 2022.
+
+## Contact
+
+- Website: https://solbound.dev
+- Email: gm@solbound.dev
+- Twitter/X: https://x.com/solbound_dev
+- LinkedIn: https://linkedin.com/company/solbound-dev/
+- GitHub: https://github.com/solbound-dev
+- Telegram: https://t.me/matija_sol

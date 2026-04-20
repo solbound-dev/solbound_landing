@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Solbound — Landing
 
-## Getting Started
+Static landing page for [solbound.dev](https://solbound.dev). Single-page HTML + Tailwind.
 
-First, run the development server:
+## Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+├── index.html            # the landing
+├── output.css            # Tailwind build (generated)
+├── input.css             # Tailwind source (@tailwind directives)
+├── tailwind.config.js    # Tailwind config
+├── assets/               # images, logos, fonts
+├── llms.txt              # LLM-directive metadata
+├── robots.txt
+├── sitemap.xml
+└── ORBIT-SPEC.md         # internal spec for the 3D client orbit component
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# install Tailwind CLI + test tooling
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# rebuild output.css on change (recommended)
+npx tailwindcss -i ./input.css -o ./output.css --watch
 
-## Learn More
+# serve locally (any static server works)
+python3 -m http.server 8765
+# open http://localhost:8765
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pushed to GitHub. CI/CD auto-deploys on merge to `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- All styling via Tailwind utility classes in `index.html`. No separate component files.
+- 3D client-orbit component implementation is documented in `ORBIT-SPEC.md` for rollback/replication reference.
+- Tailwind, Google Fonts (Inter, Syne), and Iconify are loaded via CDN — no build step required to run the page.
